@@ -1,0 +1,53 @@
+(() => {
+  'use strict';
+  let current,view='globe',revision=0,globePromise,catalogue=[],mapFiles;
+  const readJSON=url=>fetch(url).then(r=>{if(!r.ok)throw Error(url);return r.json();});
+  function globe(){return globePromise ||= import('./globo.js').then(async m=>{const g=await m.createLocator(document.getElementById('globo-local'),id=>Shiny.setInputValue('globo_selecao',id,{priority:'event'}));g.catalogue(catalogue);return g;});}
+  async function draw(){
+    const version=++revision,el=document.getElementById('localizador');if(!current||!el)return;
+    const pilot=['GN-3445133','GN-3455671','GN-3470127'].includes(current.id);
+    document.querySelector('[data-map-view="region"]').hidden=!pilot;
+    if(view==='region'&&!pilot)view='globe';
+    document.documentElement.style.setProperty('--metric',current.metrica==='temperatura_c'?'#bd4936':'#207b94');
+    try{
+      if(view==='globe'){
+        try{const g=await globe();if(version!==revision)return;el.hidden=true;g.show(current);}
+        catch(e){if(version!==revision)return;view='fallback';el.hidden=false;document.getElementById('globo-local').hidden=true;}
+      }else{el.hidden=false;if(globePromise)globePromise.then(g=>g.hide()).catch(()=>{});}
+      if(view!=='globe'){
+        // Cartographic fallback and regional geometry are requested only when used.
+        const [world,region]=await(mapFiles ||= Promise.all([readJSON('mapa.json'),readJSON('aprovado/regiao.json')]));
+        if(version!==revision)return;
+        const id=pilot?current.id.replace('GN-',''):current.id;
+        const regions=pilot?region:{regioes:{[id]:{pontos:[{id,nome:current.nome}]}}};
+        el.innerHTML=EnsoAtlas.render(world,regions,id,current.metrica,view==='region'?'region':'world');
+        el.querySelector('svg').setAttribute('aria-label',`${current.nome}. Geographic location.`);
+      }
+      document.querySelectorAll('[data-map-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mapView===view)));
+      document.querySelector('.mapa-nota').textContent=view==='globe'
+        ?'Drag the globe and select a point to explore another city. Estimates describe grid cells, not individual neighbourhoods.'
+        :'Location map. Sources estimate climate for a grid cell, not individual neighbourhoods.';
+    }catch(e){el.hidden=false;el.textContent='Map unavailable. The city and coordinates remain available below.';}
+  }
+  document.addEventListener('DOMContentLoaded',()=>{
+    for(const id of ['pais','cidade']){
+      const select=document.getElementById(id),label=document.createElement('span');label.className='nome-completo';label.id=id+'-completo';select.after(label);select.setAttribute('aria-describedby',label.id);
+      const measure=document.createElement('canvas').getContext('2d');
+      const update=()=>{const text=select.selectedOptions[0]?.textContent||'';measure.font=getComputedStyle(select).font;label.textContent=measure.measureText(text).width>select.clientWidth-36?text:'';label.hidden=!label.textContent;select.title=text;};
+      select.addEventListener('change',update);new MutationObserver(update).observe(select,{childList:true,subtree:true});new ResizeObserver(update).observe(select);document.fonts.ready.then(update);update();
+    }
+    Shiny.addCustomMessageHandler('mundial',p=>{current=p;draw();});
+    Shiny.addCustomMessageHandler('catalogo',points=>{catalogue=points;if(globePromise)globePromise.then(g=>g.catalogue(points)).catch(()=>{});});
+    document.getElementById('globo-local').addEventListener('locatorfailed',()=>{view='fallback';draw();});
+    document.querySelectorAll('[data-map-view]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.mapView;draw();}));
+    const frame=document.querySelector('.pacifico-frame');
+    const observer=new IntersectionObserver(entries=>{
+      if(!entries[0].isIntersecting||frame.hasAttribute('srcdoc'))return;
+      observer.disconnect();
+      fetch(new URL(frame.dataset.src,document.baseURI),{credentials:'same-origin'})
+        .then(response=>{if(!response.ok)throw new Error('ENSO payload: '+response.status);return response.json();})
+        .then(payload=>{frame.srcdoc=payload.html.replace('__ENSO_ASSET_BASE__',new URL('aprovado/',document.baseURI).href);})
+        .catch(error=>{console.error(error);const note=document.createElement('p');note.className='nota';note.setAttribute('role','alert');note.textContent=document.documentElement.lang.startsWith('pt')?'A explicação ENSO não carregou. Recarregue a página.':'The ENSO explanation could not load. Reload the page.';frame.before(note);});
+    },{rootMargin:'50px'});observer.observe(frame);
+  });
+})();

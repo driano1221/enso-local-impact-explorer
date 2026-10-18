@@ -1,0 +1,9 @@
+.Rhistory
+.RData
+.Renviron
+.r-library/
+.venv*/
+rsconnect/
+__pycache__/
+dados/originais/
+renv/library/

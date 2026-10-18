@@ -1,0 +1,8 @@
+{
+  "source": "dados\\cartografia\\terra_110m.geojson",
+  "source_sha256": "edf70a0fc6bb6af61e4a92ac42fc55f40c71189a252e10d6d07a7659871cf1f3",
+  "source_url": "https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/",
+  "method": "Union of land polygons, preserve holes, round coordinates to 4 decimal places.",
+  "polygons": 127,
+  "sha256": "b562c7559d26bbd80b574b6b69b4b5d7b1e6e437e57c5ffe4af18ebb815e2355"
+}

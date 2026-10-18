@@ -1,0 +1,19 @@
+{
+  "schema": "enso-public-bundle-v1",
+  "project": "ENSO Local Impact Explorer",
+  "scope": "Two frozen public dashboard exports; not the full global dataset or final release",
+  "created_at_utc": "2026-10-17T03:35:58.354004+00:00",
+  "scientific_status": "Descriptive historical evidence; not causal evidence, a forecast or validation of climate estimates",
+  "files": [
+    {
+      "path": "vicosa_son_chart_en.csv",
+      "bytes": 58333,
+      "sha256": "a4fc49fd28e8350ad736ac1e8f82c98c3c25c4ebf606904d642992908696d5c3"
+    },
+    {
+      "path": "encamp_djf_factsheet_en.txt",
+      "bytes": 1151,
+      "sha256": "6fb0a6202fae993380714a0ddd2d1d6721b09899403b42c52c3d0db7fa76d150"
+    }
+  ]
+}

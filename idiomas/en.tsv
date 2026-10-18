@@ -1,0 +1,120 @@
+Setembro a novembro	September to November
+Dezembro a fevereiro	December to February
+Março a maio	March to May
+Junho a agosto	June to August
+ENSO Local · Mundo	ENSO Local · World
+pt-BR	en
+Ir à exploração	Skip to exploration
+Observatório do clima local	Local climate observatory
+Histórico · 1981–2025	Historical records · 1981–2025
+Seções do atlas	Dashboard sections
+Entenda os dados ↘	Understand the data ↘
+Sobre o projeto	About the project
+País / território	Country / territory
+Localidade	Location
+Medida	Measure
+Temperatura	Temperature
+Chuva	Rainfall
+Época do ano	Time of year
+Set–nov	Sep–Nov
+Dez–fev	Dec–Feb
+Mar–mai	Mar–May
+Jun–ago	Jun–Aug
+Baixar dados ↓	Download data ↓
+Série do gráfico · CSV	Chart data · CSV
+Dados mensais · CSV	Monthly data · CSV
+Ficha da consulta · TXT	Query factsheet · TXT
+Localização	Location
+Globo	Globe
+Região	Region
+Arraste o globo e toque em um ponto para consultar outra cidade. Estimativas de grade, não de cada bairro.	Drag the globe and select a point to explore another city. Estimates describe grid cells, not individual neighbourhoods.
+Ao longo dos anos	Through the years
+Escala do gráfico	Chart scale
+Valor em °C ou mm	Value in °C or mm
+Diferença da média	Difference from average
+Entender a diferença da média	Understanding the difference from average
+Valor do trimestre menos a média dos mesmos meses em 1991–2020, calculada separadamente para cada fonte. Diferença zero significa um valor igual à referência, não temperatura de 0 °C.	The seasonal value minus the average for the same months in 1991–2020, calculated separately for each source. A zero difference means the value equals the reference, not a temperature of 0 °C.
+Resumo da consulta	Local summary
+O que o histórico permite dizer	What the historical record can tell us
+Entender o ENSO	Understanding ENSO
+Como o Pacífico muda	How the Pacific changes
+Como ler esta consulta	Reading this query
+Do ponto no mapa ao histórico	From a point on the map to its history
+Como fazemos as contas	How we calculate the values
+Temperatura: média das três médias mensais, com pesos iguais. Chuva: soma dos três meses. Cada fonte tem sua própria referência de 1991–2020.	Temperature: the equally weighted average of three monthly means. Rainfall: the sum of three monthly totals. Each source has its own 1991–2020 reference.
+A comparação entre fontes usa os mesmos anos e a média das diferenças absolutas: valores positivos e negativos não se cancelam. Concordância não comprova precisão; uma estação local é outra evidência.	We compare the same years using the mean absolute difference: positive and negative differences do not cancel out. Agreement does not establish accuracy; a local station provides additional evidence.
+Limites desta leitura	Limits of this interpretation
+As associações mundiais com ENSO aguardam validação estatística. Este histórico não prevê o próximo trimestre, nem prova que o Pacífico causou uma mudança local. ONI e RONI são índices centrados de três meses e incluem o mês seguinte ao mês central.	Global ENSO associations await statistical validation. These records do not predict the next season or prove that the Pacific caused a local change. ONI and RONI are centred three-month indices and include the month after the central month.
+Fontes e cobertura	Sources and coverage
+De onde vêm os dados	Where the data come from
+O catálogo mundial ainda tem	The global catalogue still has
+pendências territoriais ou populacionais. As localidades exibidas já foram aprovadas para aquisição; isso não implica que o top 3 de todos os países esteja concluído.	unresolved geographic or population-ranking cases. Displayed locations were approved for data acquisition; this does not mean every country's top three cities have been confirmed.
+O clima de cada lugar.	Every place has a climate.
+ A conexão com o Pacífico.	 A connection to the Pacific.
+ENSO Local · Adriano Pires Cunha · Pesquisa exploratória	ENSO Local · Adriano Pires Cunha · Exploratory research
+pontos · POWER em todos · ERA5 em	locations · POWER at all · ERA5 at
+Créditos visuais	Visual credits
+Cartografia: Natural Earth · IBGE no piloto. Globo ilustrativo, sem nuvens ou clima atual: 	Cartography: Natural Earth · IBGE in the pilot. Illustrative globe, without live clouds or weather: 
+ / CC BY 4.0, textura via Three.js r180. Bandeiras: flag-icons / MIT. Source Sans 3: Adobe / SIL OFL. Gráficos: Plotly / MIT.	 / CC BY 4.0, texture via Three.js r180. Flags: flag-icons / MIT. Source Sans 3: Adobe / SIL OFL. Charts: Plotly / MIT.
+Temperatura (°C)	Temperature (°C)
+Chuva (mm)	Rainfall (mm)
+POWER disponível	POWER available
+ERA5 disponível · duas fontes	ERA5 available · two sources
+ERA5 ainda não adquirido	ERA5 not yet acquired
+Histórico, não previsão	Historical records, not a forecast
+Temperatura média	Mean air temperature
+Chuva acumulada	Total rainfall
+Último ano da base, não é o tempo agora	Latest year in the dataset, not today's weather
+acima da média	above average
+abaixo da média	below average
+Acima ou abaixo da média dos mesmos meses em 1991–2020, em cada fonte.	Above or below the average for the same months in 1991–2020, for each source.
+Histórico de	Historical records for
+. Fontes:	. Sources:
+Média das três médias mensais, em °C.	Average of the three monthly means, in °C.
+Chuva somada nos três meses, em mm (1 mm = 1 litro/m²).	Rainfall summed over three months, in mm (1 mm = 1 litre/m²).
+ Toque nas linhas para consultar os valores de cada ano.	 Select a line to inspect the values for each year.
+ Dezembro pertence ao ano seguinte; somente trimestres completos.	 December belongs to the following year; only complete seasons are included.
+° O	° W
+° L	° E
+O histórico	The historical record
+Cada ano mostra	Each year shows
+a temperatura média	the mean air temperature
+a chuva acumulada	the total rainfall
+de	for
+em	in
+. Assim, comparamos sempre a mesma época do ano.	. This keeps the time of year consistent across the comparison.
+A comparação	The comparison
+de diferença média entre POWER e ERA5, em	mean absolute difference between POWER and ERA5 across
+temporadas. A distância entre as linhas não diz qual fonte é mais precisa.	seasons. The gap between the lines does not tell us which source is more accurate.
+Uma fonte disponível	One source available
+POWER já está aqui. ERA5 aguarda aquisição; sua ausência não significa zero.	POWER is available. ERA5 has not yet been acquired; its absence does not mean zero.
+E o El Niño?	What about El Niño?
+Ainda não calculada a associação nesta consulta mundial. O histórico sozinho não explica a causa das mudanças nem prevê o próximo ano.	An association has not yet been calculated for this global query. Historical records alone do not explain what caused the changes or predict next year.
+: há localidades aprovadas, mas a seleção das três maiores ainda exige confirmação. Isso não invalida automaticamente o ponto exibido.	: some locations are approved, but the three largest still require confirmation. This does not automatically invalidate the displayed point.
+: a decisão de ranking ou aplicabilidade está registrada no catálogo. Aprovação geográfica não equivale à validação observacional do clima.	: the ranking or applicability decision is recorded in the catalogue. Geographic approval is not observational validation of the climate estimates.
+Calendários desta base mundial: POWER em hora solar local (LST); ERA5 em UTC. A comparação pode ser sensível ao fechamento dos meses. A verificação por estações do piloto não foi estendida a todos estes pontos.	Calendars in this global dataset: POWER uses local solar time (LST); ERA5 uses UTC. Comparisons may be sensitive to month boundaries. The pilot's station checks have not been extended to all these locations.
+Calendário:	Calendar:
+meses	months
+Consulta original	Original request
+SHA-256 mensal:	Monthly SHA-256:
+Historico descritivo; nao previsao nem efeito ENSO	Descriptive historical records; not a forecast or an ENSO effect
+Historico descritivo; indices centrados retrospectivos; nao previsao	Descriptive historical records; retrospective centred indices; not a forecast
+mm/mês	mm/month
+ENSO Local — ficha histórica mundial	ENSO Local — global historical factsheet
+Ponto:	Point:
+Medida:	Measure:
+temperatura do ar	air temperature
+chuva acumulada	total rainfall
+a	to
+Temperatura: média com pesos iguais das três médias mensais (°C).	Temperature: equally weighted average of three monthly means (°C).
+Chuva: soma dos três totais mensais (mm/trimestre). 1 mm = 1 litro/m².	Rainfall: sum of three monthly totals (mm/season). 1 mm = 1 litre/m².
+Referência: 1991–2020 por fonte e mês. Diferença = valor menos referência; não é efeito atribuído ao ENSO.	Reference: 1991–2020 for each source and month. Difference = value minus reference; not an effect attributed to ENSO.
+DJF: dezembro pertence ao ano seguinte; apenas temporadas completas.	DJF: December belongs to the following year; complete seasons only.
+Somente POWER disponível; ERA5 não adquirido. Ausência não é zero.	Only POWER is available; ERA5 has not been acquired. Missing does not mean zero.
+Distância absoluta média entre fontes:	Mean absolute difference between sources:
+temporadas pareadas. Não identifica a fonte mais precisa.	matched seasons. This does not identify the more accurate source.
+Estimativas de grade em um ponto de referência, não medição de todo o município. POWER LST; ERA5 UTC.	Gridded estimates at a reference point, not measurements of the entire municipality. POWER LST; ERA5 UTC.
+Inferência mundial não liberada: não há conclusão sobre associação, causa ou previsão. Último ano disponível não é condição atual.	Global inference has not been released: no conclusion about association, causation or prediction. The latest available year is not current weather.
+A validação por estações do piloto não se estende automaticamente a este ponto. Catálogo mundial ainda tem lacunas de ranking/delimitação.	Pilot station checks do not automatically apply to this point. The global catalogue still has ranking and boundary gaps.
+Fonte:	Source:
+<b>%s · %s</b><br>Valor: %s %s<br>Média 1991–2020: %s %s<br>Diferença: %s %s	<b>%s · %s</b><br>Value: %s %s<br>1991–2020 average: %s %s<br>Difference: %s %s

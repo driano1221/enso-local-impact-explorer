@@ -1,0 +1,14 @@
+ENSO Local — global historical factsheet
+Encamp · Andorra
+Point: 42.53474 1.58014
+Measure: total rainfall · December to February · 1982 to 2025
+Rainfall: sum of three monthly totals (mm/season). 1 mm = 1 litre/m².
+Reference: 1991–2020 for each source and month. Difference = value minus reference; not an effect attributed to ENSO.
+DJF: December belongs to the following year; complete seasons only.
+Only POWER is available; ERA5 has not been acquired. Missing does not mean zero.
+Gridded estimates at a reference point, not measurements of the entire municipality. POWER LST; ERA5 UTC.
+Global inference has not been released: no conclusion about association, causation or prediction. The latest available year is not current weather.
+Pilot station checks do not automatically apply to this point. The global catalogue still has ranking and boundary gaps.
+Source: POWER Calendar: LST
+https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M,PRECTOTCORR&community=AG&latitude=42.53474&longitude=1.58014&start=1981&end=2025&format=JSON
+Monthly SHA-256: 14fa28e2963ab62fa146374e03a8e8308aed6bead3d0f2dcc8d79e88b898cc36

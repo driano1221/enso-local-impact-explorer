@@ -1,0 +1,35 @@
+/* A imagem R não pode impor sua largura anterior à coluna após redimensionamento. */
+.evidencia > *, .incerteza-conteudo > * { min-width: 0; }
+.incerteza img { max-width: 100%; height: auto; }
+.pipeline { grid-template-columns: minmax(0,1fr) 54px minmax(0,1fr) 54px minmax(0,1fr); }
+.conector small { overflow-wrap: anywhere; }
+.pacifico-frame { display: block; }
+@media (max-width:800px) {
+  .evidencia, .incerteza-conteudo, .pipeline { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width:480px) {
+  .cabecalho-consulta { flex-wrap: wrap; }
+  .exportacoes { margin: 0; text-align: left; }
+  .equacao { grid-template-columns: minmax(0,1fr); gap: 8px; }
+  .equacao > div { flex-direction: row; align-items: baseline; gap: 12px; }
+  .equacao strong { min-width: 95px; }
+  .equacao .operador { line-height: 1; }
+}
+
+/* Duas fontes, com cor e traço distintos; cartografia e globo preservados. */
+.recorte-comparacao {font-size:12px;color:#66767d;margin:4px 0 12px}
+.valores-fontes {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.valor-fonte {min-width:0;border-left:3px solid currentColor;padding-left:12px}
+.valor-fonte.power {color:#bd4936}.valor-fonte.era5 {color:#207b94;border-left-style:dashed}
+.nome-fonte {font-size:11px;letter-spacing:.08em;font-weight:700}
+.valor-fonte strong {font-size:clamp(24px,3vw,36px);font-weight:600;letter-spacing:-.04em}
+.valor-fonte small {display:block;font-size:11px;color:#53616a}
+.legenda-dupla {display:flex;gap:24px;font-size:12px;margin:2px 0 10px}
+.chave {display:inline-flex;align-items:center;gap:8px}
+.chave:before {content:'';width:24px;border-top:2px solid #bd4936}
+.chave.era5:before {border-color:#207b94;border-top-style:dashed}
+.respostas-locais {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 28px}
+.respostas-locais h3 {font-size:15px;font-weight:650;margin:0 0 8px}
+.respostas-locais p {font-size:13px;line-height:1.65;margin:0}
+.conclusao-local {grid-column:1/-1;border-left:3px solid #207b94;padding:6px 0 6px 14px;max-width:760px}
+@media(max-width:800px){.respostas-locais{grid-template-columns:minmax(0,1fr);gap:18px}.valores-fontes{gap:10px}}

@@ -1,0 +1,251 @@
+pais_iso2,pais,capital_declarada,centros_wup,top3_wup,capitais_catalogo,pontos_catalogo,pendencia_ranking,top3_nacional,justificativa_ranking,fonte_aplicabilidade,pendencia_capital
+AD,Andorra,Andorra la Vella,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+AE,United Arab Emirates,Abu Dhabi,15,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AF,Afghanistan,Kabul,85,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AG,Antigua and Barbuda,St. John's,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+AI,Anguilla,The Valley,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+AL,Albania,Tirana,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AM,Armenia,Yerevan,3,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AO,Angola,Luanda,57,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AQ,Antarctica,NA,0,0,0,0,top3_nao_aplicavel,0,"A presenca descrita pelo Australian Antarctic Program e de expedicionarios e estacoes, com forte sazonalidade; bases cientificas ficam fora do top 3 de cidades do projeto. Decisao de escopo, nao afirmacao de territorio vazio ou soberania.",https://www.antarctica.gov.au/about-antarctica/people-in-antarctica/how-many/,ver_auditoria_capitais
+AR,Argentina,Buenos Aires,77,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AS,American Samoa,Pago Pago,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+AT,Austria,Vienna,8,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AU,Australia,Canberra,29,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+AW,Aruba,Oranjestad,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+AX,Aland Islands,Mariehamn,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+AZ,Azerbaijan,Baku,22,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BA,Bosnia and Herzegovina,Sarajevo,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BB,Barbados,Bridgetown,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+BD,Bangladesh,Dhaka,233,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BE,Belgium,Brussels,16,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BF,Burkina Faso,Ouagadougou,28,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BG,Bulgaria,Sofia,9,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BH,Bahrain,Manama,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+BI,Burundi,Gitega,12,3,2,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BJ,Benin,Porto-Novo,29,3,2,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BL,Saint Barthelemy,Gustavia,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+BM,Bermuda,Hamilton,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+BN,Brunei,Bandar Seri Begawan,2,2,1,2,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+BO,Bolivia,Sucre,12,3,2,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BQ,"Bonaire, Saint Eustatius and Saba",NA,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+BR,Brazil,Brasilia,356,3,1,6,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BS,Bahamas,Nassau,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+BT,Bhutan,Thimphu,2,2,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+BV,Bouvet Island,NA,0,0,0,0,top3_nao_aplicavel,0,Reserva sem infraestrutura alem da estacao de campo. Nao ha tres centros urbanos permanentes elegiveis; inferencia explicita a partir da descricao oficial.,https://npolar.no/en/regulations-bouvetoya-nature-reserve/,ver_auditoria_capitais
+BW,Botswana,Gaborone,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BY,Belarus,Minsk,15,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+BZ,Belize,Belmopan,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+CA,Canada,Ottawa,56,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CC,Cocos Islands,West Island,0,0,1,2,universo_nacional_menor_3_completo,2,,,ver_auditoria_capitais
+CD,Democratic Republic of the Congo,Kinshasa,223,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CF,Central African Republic,Bangui,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CG,Republic of the Congo,Brazzaville,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CH,Switzerland,Bern,17,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CI,Ivory Coast,Yamoussoukro,47,3,2,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CK,Cook Islands,Avarua,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+CL,Chile,Santiago,36,3,2,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CM,Cameroon,Yaounde,44,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CN,China,Beijing,2082,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CO,Colombia,Bogota,81,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CR,Costa Rica,San Jose,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CU,Cuba,Havana,28,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CV,Cabo Verde,Praia,2,2,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+CW,Curacao,Willemstad,1,1,1,2,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+CX,Christmas Island,Flying Fish Cove,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+CY,Cyprus,Nicosia,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+CZ,Czechia,Prague,12,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+DE,Germany,Berlin,100,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+DJ,Djibouti,Djibouti,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+DK,Denmark,Copenhagen,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+DM,Dominica,Roseau,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+DO,Dominican Republic,Santo Domingo,17,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+DZ,Algeria,Algiers,109,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+EC,Ecuador,Quito,32,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+EE,Estonia,Tallinn,2,2,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+EG,Egypt,Cairo,219,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+EH,Western Sahara,El-Aaiun,4,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ER,Eritrea,Asmara,10,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ES,Spain,Madrid,84,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ET,Ethiopia,Addis Ababa,259,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+FI,Finland,Helsinki,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+FJ,Fiji,Suva,2,2,1,2,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+FK,Falkland Islands,Stanley,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+FM,Micronesia,Palikir,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+FO,Faroe Islands,Torshavn,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+FR,France,Paris,71,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GA,Gabon,Libreville,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GB,United Kingdom,London,150,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GD,Grenada,St. George's,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+GE,Georgia,Tbilisi,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GF,French Guiana,Cayenne,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+GG,Guernsey,St Peter Port,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+GH,Ghana,Accra,58,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GI,Gibraltar,Gibraltar,1,1,1,1,top3_nao_aplicavel,0,"Gibraltar e tratado como uma cidade pelo Cabinet Office; areas residenciais do censo sao partes dessa cidade, nao outras cidades independentes. Conservar ponto existente, sem promover bairros ao top 3.",https://www.gov.uk/government/news/government-re-affirms-city-status-of-gibraltar,ver_auditoria_capitais
+GL,Greenland,Nuuk,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+GM,Gambia,Banjul,4,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GN,Guinea,Conakry,24,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GP,Guadeloupe,Basse-Terre,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+GQ,Equatorial Guinea,Ciudad de la Paz,2,2,1,3,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+GR,Greece,Athens,8,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GS,South Georgia and the South Sandwich Islands,Grytviken,0,0,1,1,top3_nao_aplicavel,0,Governo informa ausencia de populacao permanente e presenca de agentes e pesquisadores em estacoes; top 3 de cidades permanentes nao aplicavel. Ponto administrativo existente e caches preservados; nao acrescentar estacoes como cidades.,https://gov.gs/frequently-asked-questions/,ver_auditoria_capitais
+GT,Guatemala,Guatemala City,31,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GU,Guam,Hagatna,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+GW,Guinea-Bissau,Bissau,3,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+GY,Guyana,Georgetown,2,2,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+HK,Hong Kong,Hong Kong,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+HM,Heard Island and McDonald Islands,NA,0,0,0,0,top3_nao_aplicavel,0,Ilhas desabitadas; visitas e expedicoes nao constituem cidades permanentes.,https://www.antarctica.gov.au/news/2003/climate-change-answers-from-living-laboratory-in-southern-ocean/,ver_auditoria_capitais
+HN,Honduras,Tegucigalpa,16,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+HR,Croatia,Zagreb,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+HT,Haiti,Port-au-Prince,21,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+HU,Hungary,Budapest,13,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ID,Indonesia,Jakarta,389,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+IE,Ireland,Dublin,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+IL,Israel,Jerusalem,25,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+IM,Isle of Man,Douglas,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+IN,India,New Delhi,2054,3,3,5,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+IO,British Indian Ocean Territory,Diego Garcia,0,0,0,0,top3_nao_aplicavel,0,Fonte oficial declara ausência de população permanente e administração em Londres. Inferência de aplicabilidade: não exigir três cidades civis permanentes; não afirma ausência de pessoal temporário e não decide soberania territorial.,https://www.gov.uk/world/british-indian-ocean-territory/news,revisao_capital_necessaria
+IQ,Iraq,Baghdad,88,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+IR,Iran,Tehran,210,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+IS,Iceland,Reykjavik,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+IT,Italy,Rome,95,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+JE,Jersey,Saint Helier,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+JM,Jamaica,Kingston,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+JO,Jordan,Amman,15,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+JP,Japan,Tokyo,137,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+KE,Kenya,Nairobi,50,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+KG,Kyrgyzstan,Bishkek,12,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+KH,Cambodia,Phnom Penh,10,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+KI,Kiribati,Tarawa,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+KM,Comoros,Moroni,2,2,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+KN,Saint Kitts and Nevis,Basseterre,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+KP,North Korea,Pyongyang,104,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+KR,South Korea,Seoul,49,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+XK,Kosovo,Pristina,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+KW,Kuwait,Kuwait City,2,2,1,5,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+KY,Cayman Islands,George Town,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+KZ,Kazakhstan,Nur-Sultan,34,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+LA,Laos,Vientiane,3,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+LB,Lebanon,Beirut,9,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+LC,Saint Lucia,Castries,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+LI,Liechtenstein,Vaduz,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+LK,Sri Lanka,Colombo,24,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+LR,Liberia,Monrovia,9,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+LS,Lesotho,Maseru,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+LT,Lithuania,Vilnius,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+LU,Luxembourg,Luxembourg,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+LV,Latvia,Riga,3,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+LY,Libya,Tripoli,14,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MA,Morocco,Rabat,73,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MC,Monaco,Monaco,1,1,1,1,top3_nao_aplicavel,0,Territorio constitui uma unica comuna. Sob o criterio municipal nacional nao existem tres municipios; bairros nao serao promovidos a outras cidades. Ponto Monaco preservado.,https://www.wipo.int/wipolex/en/legislation/details/7659,ver_auditoria_capitais
+MD,Moldova,Chisinau,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ME,Montenegro,Podgorica,2,2,1,2,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+MF,Saint Martin,Marigot,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+MG,Madagascar,Antananarivo,24,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MH,Marshall Islands,Majuro,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+MK,North Macedonia,Skopje,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ML,Mali,Bamako,20,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MM,Myanmar,Nay Pyi Taw,125,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MN,Mongolia,Ulaanbaatar,2,2,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+MO,Macao,Macao,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+MP,Northern Mariana Islands,Saipan,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+MQ,Martinique,Fort-de-France,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+MR,Mauritania,Nouakchott,6,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MS,Montserrat,Plymouth,0,0,1,2,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+MT,Malta,Valletta,1,1,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+MU,Mauritius,Port Louis,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+MV,Maldives,Male,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+MW,Malawi,Lilongwe,8,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MX,Mexico,Mexico City,186,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MY,Malaysia,Kuala Lumpur,42,3,2,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+MZ,Mozambique,Maputo,48,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NA,Namibia,Windhoek,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NC,New Caledonia,Noumea,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+NE,Niger,Niamey,35,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NF,Norfolk Island,Kingston,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+NG,Nigeria,Abuja,457,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NI,Nicaragua,Managua,12,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NL,The Netherlands,Amsterdam,44,3,2,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NO,Norway,Oslo,9,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NP,Nepal,Kathmandu,19,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+NR,Nauru,Yaren,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+NU,Niue,Alofi,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+NZ,New Zealand,Wellington,10,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+OM,Oman,Muscat,12,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PA,Panama,Panama City,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PE,Peru,Lima,43,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PF,French Polynesia,Papeete,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+PG,Papua New Guinea,Port Moresby,11,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PH,Philippines,Manila,114,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PK,Pakistan,Islamabad,323,3,3,6,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PL,Poland,Warsaw,60,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PM,Saint Pierre and Miquelon,Saint-Pierre,0,0,1,2,universo_nacional_menor_3_completo,2,,,ver_auditoria_capitais
+PN,Pitcairn,Adamstown,0,0,1,1,top3_nao_aplicavel,0,"Relatório econômico hospedado pelo governo confirma Pitcairn como única ilha habitada e Adamstown como único assentamento. Manter o ponto existente; não inventar segunda/terceira cidade. Fonte histórica usada para definição territorial, sem adotar sua população como atual.",https://www.government.pn/s/Pitcairn-Islands-Economic-Report-Final-Report.pdf,ver_auditoria_capitais
+PR,Puerto Rico,San Juan,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PS,Palestinian Territory,East Jerusalem,13,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PT,Portugal,Lisbon,9,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+PW,Palau,Melekeok,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+PY,Paraguay,Asuncion,9,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+QA,Qatar,Doha,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+RE,Reunion,Saint-Denis,4,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+RO,Romania,Bucharest,29,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+RS,Serbia,Belgrade,13,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+RU,Russia,Moscow,254,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+RW,Rwanda,Kigali,5,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SA,Saudi Arabia,Riyadh,44,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SB,Solomon Islands,Honiara,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+SC,Seychelles,Victoria,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+SD,Sudan,Khartoum,105,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SS,South Sudan,Juba,25,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SE,Sweden,Stockholm,17,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SG,Singapore,Singapore,2,2,1,2,top3_nao_aplicavel,0,"SingStat/URA caracteriza Singapore como cidade-estado; manter o ponto existente, sem promover bairros ou planning areas a cidades distintas.",https://www.singstat.gov.sg/find-data/sustainable-development-goals/goal-11/indicator-11-3-1,ver_auditoria_capitais
+SH,Saint Helena,Jamestown,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+SI,Slovenia,Ljubljana,2,2,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+SJ,Svalbard and Jan Mayen,Longyearbyen,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+SK,Slovakia,Bratislava,7,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SL,Sierra Leone,Freetown,11,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SM,San Marino,San Marino,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+SN,Senegal,Dakar,26,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SO,Somalia,Mogadishu,53,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SR,Suriname,Paramaribo,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+ST,Sao Tome and Principe,Sao Tome,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+SV,El Salvador,San Salvador,12,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SX,Sint Maarten,Philipsburg,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+SY,Syria,Damascus,37,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+SZ,Eswatini,Mbabane,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+TC,Turks and Caicos Islands,Cockburn Town,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+TD,Chad,N'Djamena,37,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TF,French Southern Territories,Port-aux-Francais,0,0,0,1,top3_nao_aplicavel,0,"Administracao oficial informa ausencia de populacao permanente; bases recebem equipes temporarias. Port-aux-Francais e base cientifica, e a sede administrativa fica em Saint-Pierre de La Reunion.",https://taaf.fr/collectivites/presentation/,revisao_capital_necessaria
+TG,Togo,Lome,17,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TH,Thailand,Bangkok,56,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TJ,Tajikistan,Dushanbe,25,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TK,Tokelau,NA,0,0,0,0,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+TL,Timor Leste,Dili,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+TM,Turkmenistan,Ashgabat,11,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TN,Tunisia,Tunis,24,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TO,Tonga,Nuku'alofa,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+TR,Turkey,Ankara,177,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TT,Trinidad and Tobago,Port of Spain,3,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TV,Tuvalu,Funafuti,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+TW,Taiwan,Taipei,21,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+TZ,Tanzania,Dodoma,45,3,2,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+UA,Ukraine,Kyiv,79,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+UG,Uganda,Kampala,27,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+UM,United States Minor Outlying Islands,NA,0,0,0,0,top3_nao_aplicavel,0,Documento oficial identifica as nove ilhas/atóis UM e informa que geralmente não incluem população o ano inteiro. Inferência para o escopo urbano: top3 de cidades permanentes não aplicável; equipes temporárias não são três cidades. Não atribuir população zero nem confundir com Guam/Samoa/Marianas/Virgin Islands.,https://www2.census.gov/programs-surveys/decennial/2020/technical-documentation/island-areas-tech-docs/dhc/2020-iac-dhc-technical-documentation.pdf,ver_auditoria_capitais
+US,United States,Washington,348,3,1,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+UY,Uruguay,Montevideo,7,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+UZ,Uzbekistan,Tashkent,76,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+VA,Vatican,Vatican City,0,0,1,1,top3_nao_aplicavel,0,Estado da Cidade do Vaticano constitui uma cidade-estado; manter o ponto existente. Cidadaos que residem fora do territorio nao sao populacao de outras cidades do Estado.,https://vaticanstate.va/en/state-and-government/general-informations.html,ver_auditoria_capitais
+VC,Saint Vincent and the Grenadines,Kingstown,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+VE,Venezuela,Caracas,69,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+VG,British Virgin Islands,Road Town,0,0,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+VI,U.S. Virgin Islands,Charlotte Amalie,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+VN,Vietnam,Hanoi,137,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+VU,Vanuatu,Port Vila,1,1,1,1,complementacao_nacional_necessaria,0,,,ver_auditoria_capitais
+WF,Wallis and Futuna,Mata Utu,0,0,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+WS,Samoa,Apia,0,0,1,4,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+YE,Yemen,Sanaa,111,3,2,4,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+YT,Mayotte,Mamoudzou,1,1,1,3,top3_nacional_disponivel_definicao_distinta_WUP,3,,,ver_auditoria_capitais
+ZA,South Africa,Pretoria,95,3,3,5,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ZM,Zambia,Lusaka,33,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais
+ZW,Zimbabwe,Harare,15,3,1,3,top3_WUP_2025_disponivel,0,,,ver_auditoria_capitais

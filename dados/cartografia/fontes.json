@@ -1,0 +1,15 @@
+{
+  "consulta": "2026-10-13",
+  "fontes": [
+    {
+      "arquivo": "mg_municipios.geojson",
+      "url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/31?formato=application%2Fvnd.geo%2Bjson&qualidade=minima&intrarregiao=municipio",
+      "sha256": "b7befa63a1dfac3386535468c6213ea69e05cdd858a805babcc632d59c121b79"
+    },
+    {
+      "arquivo": "estados.geojson",
+      "url": "https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?formato=application%2Fvnd.geo%2Bjson&qualidade=minima&intrarregiao=UF",
+      "sha256": "6d0125fce119ea0c78bf2a4a02aa18e4dd2a61a0b648fa555bc82a9aa7b6dcea"
+    }
+  ]
+}

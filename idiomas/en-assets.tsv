@@ -1,0 +1,94 @@
+A cidade define o ponto; POWER e ERA5 fornecem séries; os mesmos meses são agrupados; o gráfico compara os anos.	The city defines the point; POWER and ERA5 provide time series; the same months are grouped; the chart compares years.
+Uma cidade	One city
+Um ponto de referência situa a consulta no mapa.	A reference point locates the query on the map.
+Duas fontes possíveis	Two possible sources
+ estimam o clima em grades.	 estimate climate on grids.
+ e 	 and 
+A mesma época	The same time of year
+Três meses por ano: média da temperatura ou soma da chuva.	Three months each year: mean temperature or total rainfall.
+Uma história local	A local history
+As linhas mostram como os valores variaram entre os anos.	The lines show how values changed across years.
+Esquemas ilustrativos; as linhas acima não representam os dados da cidade.	Illustrative diagrams; the lines above are not this city's data.
+Temperatura em °C	Temperature in °C
+Exemplo de uma média trimestral. É a escala que abre no gráfico.	An example seasonal mean. This is the chart's default scale.
+Diferença da média	Difference from average
+>valor<	>value<
+>referência<	>reference<
+acima da média	above average
+Exemplo didático. Zero nessa escala significa “igual à referência”.	A teaching example. Zero on this scale means “equal to the reference”.
+Histórico não é previsão.	Historical records are not a forecast.
+A diferença da média também não é um efeito atribuído ao El Niño.	The difference from average is not an effect attributed to El Niño either.
+pt-BR	en
+Um oceano, um planeta	One ocean, one planet
+O OCEANO E A ATMOSFERA, JUNTOS	THE OCEAN AND ATMOSPHERE, TOGETHER
+O ENSO começa no Pacífico. Sua influência pode ir além.	ENSO begins in the Pacific. Its influence can reach further.
+Fase do ENSO	ENSO phase
+Neutro	Neutral
+Vista da explicação	Explanation view
+Planeta Terra	Planet Earth
+Abaixo da superfície	Below the surface
+PACÍFICO EQUATORIAL	EQUATORIAL PACIFIC
+Alísios de leste para oeste	East-to-west trade winds
+Preparando a Terra…	Preparing the Earth…
+Arraste para girar	Drag to rotate
+Orientação da Terra	Earth orientation
+>Pacífico<	>Pacific<
+>Américas<	>Americas<
+OESTE	WEST
+LESTE	EAST
+Indonésia	Indonesia
+UM CORTE DO OCEANO	AN OCEAN CROSS-SECTION
+América do Sul	South America
+Preparando o corte…	Preparing the cross-section…
+O globo 3D não está disponível neste navegador. Você pode explorar o corte do oceano.	The 3D globe is unavailable in this browser. You can explore the ocean cross-section.
+Água mais quente	Warmer water
+Água mais fria	Colder water
+Representação didática. As cores do Pacífico ilustram o contraste térmico; não são medições.	A teaching illustration. Pacific colours show a temperature contrast; they are not measurements.
+CONDIÇÕES NEUTRAS	NEUTRAL CONDITIONS
+Condições neutras	Neutral conditions
+O vento concentra a água quente a oeste.	Winds concentrate warm water in the west.
+Os alísios sopram da América do Sul em direção à Indonésia.	Trade winds blow from South America towards Indonesia.
+Uma camada quente mais espessa se acumula no oeste.	A thicker layer of warm water builds up in the west.
+No leste, água mais fria das profundezas chega à superfície.	In the east, colder water rises from below to the surface.
+>Vento<	>Wind<
+>Água quente<	>Warm water<
+>Água fria<	>Cold water<
+E o clima da cidade?	What about the city's climate?
+As mudanças no oceano reorganizam a circulação atmosférica. Aqui investigamos como isso se associa ao clima de cada lugar, usando registros históricos.	Ocean changes reorganise atmospheric circulation. Here we investigate how this relates to local climate using historical records.
+Não é uma previsão. Cada evento pode ser diferente.	This is not a forecast. Each event can be different.
+Com menos vento, a água quente avança para leste.	With weaker winds, warm water spreads east.
+Os alísios enfraquecem. As setas ficam menores.	Trade winds weaken. The arrows become shorter.
+O aquecimento se estende pelo centro e pelo leste do Pacífico.	Warming extends across the central and eastern Pacific.
+A subida de água fria fica reduzida no leste.	Less cold water rises in the east.
+O vento forte acentua o contraste entre os lados.	Stronger winds increase the contrast between east and west.
+Os alísios se intensificam. As setas ficam maiores.	Trade winds strengthen. The arrows become longer.
+A água quente fica ainda mais concentrada no oeste.	Warm water becomes more concentrated in the west.
+A subida de água fria se intensifica no leste.	More cold water rises in the east.
+Corte didático do Pacífico: ventos para oeste, água quente acima e água fria abaixo.	Illustrative Pacific cross-section: westward winds, warmer water above and colder water below.
+Globo terrestre.	Earth globe.
+ As cores são ilustrativas. Arraste na horizontal ou use as setas esquerda e direita para girar; Home volta ao Pacífico.	 Colours are illustrative. Drag horizontally or use left and right arrows to rotate; Home returns to the Pacific.
+Alísios mais fracos	Weaker trade winds
+Alísios mais fortes	Stronger trade winds
+AS AMÉRICAS E O PACÍFICO	THE AMERICAS AND THE PACIFIC
+EXPLORE O PLANETA	EXPLORE THE PLANET
+Globo indisponível:	Globe unavailable:
+Não foi possível carregar os contornos da Terra.	Unable to load the Earth's outlines.
+Globo terrestre. Pacífico em destaque. Arraste na horizontal ou use as setas esquerda e direita para girar. Home volta ao Pacífico.	Earth globe. Pacific highlighted. Drag horizontally or use left and right arrows to rotate. Home returns to the Pacific.
+O C E A N O	P A C I F I C
+P A C Í F I C O	O C E A N
+Globo interativo. Arraste ou use as setas para girar, mais e menos para ampliar. Os seletores acima também escolhem a localidade.	Interactive globe. Drag or use arrow keys to rotate, plus and minus to zoom. The selectors above also choose the location.
+Pontos do catálogo	Catalogue locations
+Localidades próximas	Nearby locations
+Ampliar o globo	Zoom in
+Reduzir o globo	Zoom out
+Local atual	Current location
+Centrar na localidade atual	Focus on the current location
+ próxima(s) · clique para escolher	 nearby · click to choose
+. Localização geográfica.	. Geographic location.
+Arraste o globo e toque em um ponto para consultar outra cidade. Estimativas de grade, não de cada bairro.	Drag the globe and select a point to explore another city. Estimates describe grid cells, not individual neighbourhoods.
+Mapa de localização. As fontes estimam o clima em uma área de grade, não em cada bairro.	Location map. Sources estimate climate for a grid cell, not individual neighbourhoods.
+Mapa indisponível. A cidade e as coordenadas continuam disponíveis abaixo.	Map unavailable. The city and coordinates remain available below.
+PACÍFICO · CORTE EQUATORIAL	PACIFIC · EQUATORIAL SECTION
+Localização no mundo	World location
+Mapa regional com as três cidades do piloto	Regional map of the three pilot cities
+Minas Gerais, Brasil	Minas Gerais, Brazil

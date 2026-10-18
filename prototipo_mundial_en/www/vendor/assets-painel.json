@@ -1,0 +1,22 @@
+{
+  "source-sans/SourceSans3.woff2": {
+    "url": "https://raw.githubusercontent.com/adobe-fonts/source-sans/release/WOFF2/VF/SourceSans3VF-Upright.ttf.woff2",
+    "bytes": 170188,
+    "sha256": "5f16566f7a40d39b339ad26be151fa5a1ab1f0c2574c7a2e619765584a1acbd8"
+  },
+  "source-sans/OFL.txt": {
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/OFL.txt",
+    "bytes": 4579,
+    "sha256": "09746787287a289323b0ec3cff4d1a4a801331b82b7207c1e186f5d26619a392"
+  },
+  "plotly/plotly-basic-2.11.1.min.js": {
+    "url": "https://cdn.plot.ly/plotly-basic-2.11.1.min.js",
+    "bytes": 1001415,
+    "sha256": "f3bd5f472f7fb3a06f8a1c12462348f93b1413c8dd6a45b3eea41391ca952ec4"
+  },
+  "plotly/LICENSE": {
+    "url": "https://raw.githubusercontent.com/plotly/plotly.js/v2.11.1/LICENSE",
+    "bytes": 1078,
+    "sha256": "67a26cf80f03ff388f26945dfc1f6caed1a0746ff43871190339b3aee49b94bb"
+  }
+}

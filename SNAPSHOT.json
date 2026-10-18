@@ -1,0 +1,15 @@
+{
+  "status": "publication candidate; not publicly deployed or submitted",
+  "created_at_utc": "2026-10-18T17:55:19.437340+00:00",
+  "points": 684,
+  "source_point_pairs": 810,
+  "monthly_rows": 437400,
+  "power_points": 684,
+  "era5_points": 126,
+  "period": "1981-2025",
+  "reference": "1991-2020 per source and month",
+  "catalogue_ranking_boundary_gaps": 39,
+  "global_inference_released": false,
+  "blockchain_scope": "two-export Testnet demo only; this full manifest is not anchored",
+  "integration_manifest_sha256": "833eecdc60fd67ae11f4dfad49b4047e1ca557b20dd938a54dde44b769209d4c"
+}

@@ -1,0 +1,18 @@
+{
+  "valid": true,
+  "sha256": "0a430dcc5cc67b22586be945ad08993329bf3a6a2aeb46d2304b87e4556e864e",
+  "transaction": "b8c1c116925fa4e2f6affcbe544d91d0f408275ca022a26f848b875098102a26",
+  "account": "GCVEOSSRF2CMDYBANGWIY5NMPU6NUR2M6WAJ5NTCKGEUNI7RWAJIJIZE",
+  "ledger": 5236935,
+  "closed_at": "2026-10-17T03:37:42Z",
+  "network": "Stellar Testnet",
+  "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+  "transaction_url": "https://horizon-testnet.stellar.org/transactions/b8c1c116925fa4e2f6affcbe544d91d0f408275ca022a26f848b875098102a26",
+  "checked_at_utc": "2026-10-17T03:38:16.272557+00:00",
+  "ledger_hash": "64e446a22f2ab26eab2c88d0ba58cb7baaeaf2c11040fb8dd861e715fb150485",
+  "original": "PASS",
+  "one_byte_change_rejected": "File changed: vicosa_son_chart_en.csv",
+  "rewritten_manifest_rejected": "Digest differs",
+  "missing_transaction": "HTTP 404",
+  "manage_data_independently_checked": true
+}
