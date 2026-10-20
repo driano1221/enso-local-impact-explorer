@@ -15,7 +15,9 @@ def cooldown_seconds(item, now):
         except (ValueError,TypeError,OverflowError):pass
     error=str(item.get('erro','')).lower()
     if 'month' in error:return 31*86400
-    if 'day' in error or 'daily' in error:return 86400
+    # Open-Meteo clears the daily counter at 00:00 UTC in its minutely callback.
+    # Wait until 00:01 UTC, rather than adding 24 hours to the rejected request.
+    if 'day' in error or 'daily' in error:return (math.floor(now/86400)+1)*86400+60-now
     if 'hour' in error:return 3600
     return 3600 # unknown scope: do not hammer the same quota
 def parse(j,source):

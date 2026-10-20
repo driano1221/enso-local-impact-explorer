@@ -20,9 +20,13 @@ for(id in ids) for(season in c("SON","DJF","MAM","JJA")) for(variable in c("temp
   stopifnot(any(grepl("Global inference has not been released",sheet)),!any(grepl("Temperatura:|Chuva:|Referência:",sheet)))
 }
 stopifnot(en$num(23.5)=="23.5",pt$num(23.5)=="23,5")
+source(file.path(root,"R/fixture_fonte_unica.R"))
+fixture <- fixture_fonte_unica(en$indice,en$ler_ponto_mundial)
+en$indice <- fixture$indice
+en$ler_ponto_mundial <- fixture$leitor
 shiny::testServer(en$server, {
   session$setInputs(pais="BR",cidade="GN-3445133",estacao="SON",variavel="temperatura_c",escala="valor")
-  stopifnot(grepl("Mean air temperature",output$resumo_valor$html),grepl("Historical records, not a forecast",output$disponibilidade$html))
+  stopifnot(grepl("Mean air temperature",output$resumo_valor$html),grepl("About POWER",output$disponibilidade$html),!grepl("status-historico",output$disponibilidade$html))
   chart <- jsonlite::fromJSON(output$historico,simplifyVector=FALSE)
   stopifnot(length(chart$x$data)==2,all(grepl("Value:",unlist(lapply(chart$x$data,`[[`,"text")))))
   session$setInputs(pais="AD",cidade="GN-3040686",estacao="DJF",variavel="precipitacao_mm_mes",escala="diferenca")

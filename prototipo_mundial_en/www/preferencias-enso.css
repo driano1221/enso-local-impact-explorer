@@ -1,0 +1,9 @@
+[data-theme=dark]{color-scheme:dark}
+[data-theme=dark] body{background:#142e40;color:#e3eef4}
+[data-theme=dark] :is(h1,h2,aside h2,aside dt){color:#e3eef4}
+[data-theme=dark] :is(.eyebrow,.introducao,.enso-contexto,.atlas-titulo,.atlas-legenda,.atlas-escala,aside dd,.section-heading,.physical figcaption,footer){color:#b4c9d5}
+[data-theme=dark] :is(header>div:first-child,.atlas-oceano,.atlas-vistas,footer){border-color:#365266}
+[data-theme=dark] .atlas-vistas button{background:#142e40;color:#c2dbe7}[data-theme=dark] .atlas-vistas button[aria-pressed=true]{background:#1c3c50;border-color:#77beda}
+[data-theme=dark] :is(.phase-controls,.saiba-mais){background:#1c3c50;border-color:#52778c;color:#d8edf7}
+[data-theme=dark] .phase-controls button{color:#d8edf7}[data-theme=dark] .physical{background:linear-gradient(135deg,#203e50,#193547)}
+[data-theme=dark] .physical :is(.geography span,.geography strong){color:#c2dbe7}[data-theme=dark] a{color:#8bc9e1}

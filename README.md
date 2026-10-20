@@ -1,10 +1,12 @@
 # ENSO Local Impact Explorer
 
-Historical climate evidence for local questions. Select a place, season and measure; compare NASA POWER and ERA5 when available; download chart data, monthly records and a factsheet. This package contains both the approved Portuguese dashboard and its English version, using the same calculations.
+Historical climate evidence for local questions. Select a place, season and measure; compare NASA POWER and ERA5 when available; download chart data, monthly records and a factsheet. This package contains both the Portuguese dashboard and its English version, using the same calculations.
 
-**[Live English preview](https://kl5ug0-adriano-pires.shinyapps.io/enso-local-preview/)** · **[Source code](https://github.com/driano1221/enso-local-impact-explorer)**
+**[Live dashboard — English](https://kl5ug0-adriano-pires.shinyapps.io/enso-local-preview/?lang=en)** · **[Português (Brasil)](https://kl5ug0-adriano-pires.shinyapps.io/enso-local-preview/?lang=pt)** · **[Source code](https://github.com/driano1221/enso-local-impact-explorer)**
 
-This repository contains a versioned public preview, including the data it uses. The current snapshot has **684 reference points with POWER and 126 with ERA5**, covering 1981–2025. Read `SNAPSHOT.json` for the exact frozen coverage and its 39 unresolved catalogue cases. Later acquisitions do not change this snapshot automatically. This is not the final competition submission.
+The header switches between English and Brazilian Portuguese while retaining the query. The moon/sun button switches light/dark appearance; the preference is stored locally in the browser. Information buttons explain POWER, ERA5 and the four three-month periods, and work with pointer, touch or keyboard (Esc closes). The opening explains the dashboard and introduces El Niño and La Niña as phases of ENSO. Language and appearance do not change climate calculations or source coverage.
+
+This package contains a versioned preview, including the data it uses. Read `SNAPSHOT.json` for this package's exact frozen POWER/ERA5 coverage, record counts and unresolved catalogue cases. A live preview or a newer local dataset may have a different snapshot. Later acquisitions do not change this package automatically. A published preview is not a final competition submission.
 
 ## Start the dashboard
 
@@ -45,6 +47,12 @@ To deploy to your own configured shinyapps.io account, install `rsconnect` as an
 - Global ENSO inference has not been released. This package contains the descriptive world dashboard; it does not offer the separate pilot's exploratory regressions as global conclusions. ONI/RONI are centred historical indices and include future information relative to the central month.
 - The goal remains all capitals and the three most populous cities per country, plus Viçosa, Ouro Preto and Belo Horizonte. Unresolved catalogue ranking/boundary cases are counted in `SNAPSHOT.json` and listed in `dados/mundial/pendencias_catalogo_20261016.csv`. Missing ERA5 means not yet acquired, never zero rainfall or no uncertainty.
 
+### Terrain and local representativeness
+
+The terrain and elevation represented by a grid can differ from the city or station. In a documented 2019–2021 comparison, selected ERA5 cells in Bishkek and Almaty averaged 6.61 °C and 5.53 °C below station observations across the same 35 complete months in each city. A fixed 3×3 neighbourhood showed smaller differences in lower-elevation cells directly to the north, but those cells are different locations about 20–30 km from the stations. This is evidence of spatial sensitivity, not proof that elevation explains the entire difference or a reason to replace the selected cell with the best-matching neighbour.
+
+The original source values and cell selections are retained. Station relocation/instrument histories remain incomplete; recent rainfall lacked complete primary-station months under the study's coverage rule. A temperature check does not validate rainfall or all locations worldwide. Source agreement, successful cache checks and reproducible aggregation do not by themselves establish local accuracy. The station investigation is documented research; these notes do not imply a new automatic warning or correction in the dashboard.
+
 ## Reproduce and verify
 
 Every included file is listed with size and SHA-256 in `manifest.json`. Verify the entire extracted package using Python's standard library:
@@ -64,6 +72,7 @@ python R/testar_integracao_mundial.py
 Rscript R/testar_leitor_mundial.R
 Rscript R/testar_interface_mundial.R
 Rscript R/testar_ingles.R
+Rscript R/testar_bilingue.R
 ```
 
 Rebuilding changes the package manifest's recorded bytes if any output differs. Work on a copy when experimenting. The monthly inputs, integration source, catalogue and source hashes are included; raw HTTP responses, station investigations, heavy synthetic experiments and private project correspondence are excluded. `proveniencia_publica.json` retains source URLs, retrieval times, requested coordinates, calendars, original response hashes and POWER API versions. Re-downloading a live source can yield a revised response; it cannot be assumed to recreate an earlier raw snapshot.
@@ -78,4 +87,4 @@ Original project code: Adriano Pires Cunha, MIT, see `LICENSE`. Data, fonts, fla
 
 ## Português
 
-Esta prévia reúne o painel mundial aprovado e a versão inglesa: POWER em 684 pontos e ERA5 em 126. A cobertura exata está em `SNAPSHOT.json`; novas aquisições não alteram silenciosamente o pacote. Execute `Rscript run.R pt 8081` na raiz, com as dependências instaladas. O histórico é descritivo, tem lacunas explícitas e não prevê impactos locais. `python verificar_pacote.py` confere os arquivos; a demonstração blockchain protege apenas os dois exports indicados em `integridade/README.md`. Vídeo e submissão final ainda pertencem às etapas de entrega.
+Esta prévia reúne o painel mundial e a versão inglesa. A cobertura exata pertence a `SNAPSHOT.json`; novas aquisições não alteram silenciosamente o pacote. Execute `Rscript run.R pt 8081` na raiz, com as dependências instaladas. O histórico é descritivo, tem lacunas explícitas e não prevê impactos locais. A altitude e o terreno da grade podem diferir dos da cidade ou estação; a investigação de Bishkek/Almaty mostrou sensibilidade espacial, sem correção dos valores ou troca das células. O histórico completo de estações permanece aberto, e a comparação de temperatura não valida chuva. `python verificar_pacote.py` confere os arquivos; a demonstração blockchain protege apenas os dois exports indicados em `integridade/README.md`. Vídeo e submissão final ainda pertencem às etapas de entrega.

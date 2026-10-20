@@ -12,6 +12,30 @@ OUT = WORLD / 'integracao'
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def original_metadata(row, point_id, monthly_sha, inputs):
+    kind = getattr(row, 'original_type', '')
+    kind = kind if isinstance(kind, str) and kind else 'json_api'
+    assert kind in {'json_api', 'aws_hourly_manifest'}, kind
+    original = getattr(row, 'original_file', '')
+    original = original if isinstance(original, str) and original else f'dados/originais/mundial_20261015/{row.fonte.lower()}_{point_id}.json'
+    if kind == 'aws_hourly_manifest':
+        path = (ROOT / original).resolve()
+        assert row.fonte == 'ERA5' and path.is_relative_to((WORLD / 'origens_aws').resolve())
+        assert sha(path) == row.sha256, 'AWS lineage manifest hash differs'
+        meta = json.loads(path.read_text(encoding='utf8'))
+        assert meta['id'] == point_id and meta['monthly_sha256'] == monthly_sha
+        assert meta['model'] == 'copernicus_era5' and meta['calendar'] == 'UTC'
+        # Empty API-ledger cells make pandas preserve this mixed column as text.
+        assert (meta['grid_lat'], meta['grid_lon']) == (float(row.latitude_retornada), float(row.longitude_retornada))
+        bundle = (ROOT / meta['source_manifest']).resolve()
+        assert bundle.is_relative_to((WORLD / 'origens_aws').resolve())
+        if meta['source_manifest'] not in inputs:
+            assert sha(bundle) == meta['source_manifest_sha256'], 'AWS source bundle hash differs'
+            inputs[meta['source_manifest']] = meta['source_manifest_sha256']
+        assert inputs[meta['source_manifest']] == meta['source_manifest_sha256']
+        inputs[original] = row.sha256
+    return dict(original_type=kind, original_file=original)
+
 def enrich(d, enso):
     d = d.copy()
     d['data'] = pd.to_datetime(d['data'])
@@ -55,10 +79,11 @@ def main():
             assert np.isfinite(data[['temperatura_c','precipitacao_mm_mes']]).all().all()
             inputs[path.relative_to(ROOT).as_posix()] = sha(path)
             frames.append(data)
+            origin = original_metadata(row, city.id, inputs[path.relative_to(ROOT).as_posix()], inputs)
             provenance.append(dict(id=city.id,fonte=row.fonte,url=row.url,sha256_original=row.sha256,
                                    sha256_mensal=inputs[path.relative_to(ROOT).as_posix()],
                                    calendario='LST' if row.fonte=='POWER' else 'UTC',
-                                   status='exploratorio; sem validacao observacional mundial'))
+                                   status='exploratorio; sem validacao observacional mundial', **origin))
         result = enrich(pd.concat(frames,ignore_index=True), indices)
         path = OUT/'pontos'/f'{city.id}.csv'
         temp = path.with_suffix('.tmp')

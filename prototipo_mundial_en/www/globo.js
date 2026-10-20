@@ -4,17 +4,29 @@ import {globeAngles} from './globo-orientacao.js';
 import {visiblePoint,nearbyPoints,zoomDistance} from './globo-interacao.js';
 
 export async function createLocator(host,onSelect){
-  const texture=await new T.TextureLoader().loadAsync('vendor/earth/earth-day.jpg');
+  const texture=await new T.TextureLoader().loadAsync(new URL('vendor/earth/earth-day.jpg',import.meta.url).href);
   texture.colorSpace=T.SRGBColorSpace;
   const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
   const pixelRatio=Math.min(devicePixelRatio,1.5);
   renderer.setPixelRatio(pixelRatio);renderer.outputColorSpace=T.SRGBColorSpace;
   const scene=new T.Scene(),camera=new T.PerspectiveCamera(35,1,.1,20),world=new T.Group();
-  scene.add(world);camera.position.z=3.65;
+  scene.add(world);camera.position.z=3.4;
   texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());
   scene.add(new T.HemisphereLight(0xe4f5ff,0x233a48,2));
   const key=new T.DirectionalLight(0xfff8e8,2.6);key.position.set(-3,4,5);scene.add(key);
   world.add(new T.Mesh(new T.SphereGeometry(1,80,56),new T.MeshPhongMaterial({map:texture,shininess:7,specular:0x152a39})));
+  // Natural Earth geographic outlines, independent of the climate grids.
+  const boundaries=await fetch(new URL('vendor/earth/countries.json',import.meta.url)).then(r=>{if(!r.ok)throw new Error('Country geometry unavailable');return r.json();});
+  const segments=[];
+  for(const f of boundaries.features){const polygons=f.geometry.type==='Polygon'?[f.geometry.coordinates]:f.geometry.coordinates;
+    for(const polygon of polygons)for(const ring of polygon)for(let i=1;i<ring.length;i++){
+      const a=ring[i-1],b=ring[i];if(Math.abs(a[0]-b[0])>180)continue;
+      segments.push(...globePoint(a[0],a[1],1.003),...globePoint(b[0],b[1],1.003));
+    }
+  }
+  const outlineGeometry=new T.BufferGeometry();outlineGeometry.setAttribute('position',new T.Float32BufferAttribute(segments,3));
+  world.add(new T.LineSegments(outlineGeometry,new T.LineBasicMaterial({color:0xf0f5dc,transparent:true,opacity:.42,depthWrite:false})));
+  world.add(new T.Mesh(new T.SphereGeometry(1.009,64,48),new T.MeshBasicMaterial({color:0x91c7de,side:T.BackSide,transparent:true,opacity:.36,depthWrite:false})));
   const canvas=renderer.domElement;canvas.className='globo-canvas';canvas.tabIndex=0;
   canvas.setAttribute('role','group');canvas.setAttribute('aria-label','Interactive globe. Drag or use arrow keys to rotate, plus and minus to zoom. The selectors above also choose the location.');host.append(canvas);
   const overlay=document.createElement('canvas');overlay.className='globo-pontos';overlay.setAttribute('aria-hidden','true');host.append(overlay);
@@ -37,10 +49,17 @@ export async function createLocator(host,onSelect){
       if(x<0||x>width||y<0||y>height-38)continue;
       projected.push({id:p.id,nome:p.nome,iso2:p.iso2,x,y});
       if(p.id===selected?.id)continue;
-      ctx.beginPath();ctx.arc(x,y,3.1,0,Math.PI*2);ctx.fillStyle='#ecf6f8';ctx.fill();ctx.strokeStyle='#264e61';ctx.lineWidth=1.1;ctx.stroke();
+      ctx.beginPath();ctx.arc(x,y,2.15,0,Math.PI*2);ctx.fillStyle='#ecf6f8';ctx.fill();ctx.strokeStyle='#264e61';ctx.lineWidth=.7;ctx.stroke();
     }
     const active=projected.find(p=>p.id===selected?.id);
-    if(active){ctx.beginPath();ctx.arc(active.x,active.y,8,0,Math.PI*2);ctx.fillStyle=selected.metrica==='temperatura_c'?'#bd4936':'#207b94';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(active.x,active.y,12,0,Math.PI*2);ctx.strokeStyle='#ffffffaa';ctx.lineWidth=1;ctx.stroke();}
+    if(active){ctx.beginPath();ctx.arc(active.x,active.y,8,0,Math.PI*2);ctx.fillStyle=selected.metrica==='temperatura_c'?'#e44e36':'#207b94';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(active.x,active.y,12,0,Math.PI*2);ctx.strokeStyle='#ffffffaa';ctx.lineWidth=1;ctx.stroke();}
+    if(active){
+      ctx.font='600 12px "Source Sans 3", sans-serif';let label=active.nome;
+      while(ctx.measureText(label).width>140&&label.length>1)label=label.slice(0,-2)+'…';
+      const w=ctx.measureText(label).width+15,x=Math.min(width-w-5,Math.max(5,active.x+14)),y=Math.max(4,active.y-25);
+      ctx.fillStyle='#11374ae8';ctx.fillRect(x,y,w,24);ctx.strokeStyle='#88acbd';ctx.lineWidth=.8;ctx.strokeRect(x,y,w,24);
+      ctx.fillStyle='#fff';ctx.fillText(label,x+7,y+16);
+    }
     host.dataset.state=transition?'moving':'ready';
     if(transition)schedule();
   }
@@ -56,7 +75,7 @@ export async function createLocator(host,onSelect){
   function focus(){
     if(!selected)return;tip.hidden=true;choices.hidden=true;
     const target=new T.Quaternion().setFromEuler(new T.Euler(...globeAngles(selected.longitude,selected.latitude),'XYZ'));
-    camera.position.z=3.65;
+    camera.position.z=3.4;
     if(reduced.matches||document.hidden||new URLSearchParams(location.search).get('motion')==='static'){world.quaternion.copy(target);transition=null;}
     else transition={from:world.quaternion.clone(),to:target,start:performance.now()};
     schedule();

@@ -10,6 +10,10 @@ for(id in c("GN-3445133","GN-3041563",indice$id[indice$pais_iso2=="NA"][1])) {
       all(a$diferenca==a$valor-a$referencia))
   }
 }
+source("../R/fixture_fonte_unica.R")
+fixture <- fixture_fonte_unica(indice, ler_ponto_mundial)
+indice <- fixture$indice
+ler_ponto_mundial <- fixture$leitor
 testServer(server, {
   unica <- indice[indice$fontes=="POWER", ][1, ]
   stopifnot(nrow(unica)==1L,!is.na(unica$id))

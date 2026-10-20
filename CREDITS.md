@@ -1,6 +1,6 @@
 # Sources and third-party notices
 
-Checked during preparation on 17 October 2026. The project's MIT licence applies to original code only. It does not relicense datasets, fonts, textures or third-party libraries. Exact retrieval times and source hashes are in `proveniencia_publica.json` and `dados/mundial/integracao/fontes.csv`.
+Updated for the full-coverage candidate on 19 October 2026. The project's MIT licence applies to original code only. It does not relicense datasets, fonts, textures or third-party libraries. API retrieval metadata and AWS source-object lineage are in `proveniencia_publica.json`, `dados/mundial/integracao/fontes.csv` and the referenced AWS manifests.
 
 ## Climate and catalogue data
 
@@ -10,8 +10,11 @@ Checked during preparation on 17 October 2026. The project's MIT licence applies
 - **UN DESA World Urbanization Prospects 2025:** population/reference-city selection, supplemented by national official sources. [WUP downloads](https://population.un.org/wup/downloads), [methodological context](https://population.un.org/wup/faqs). The package distributes the derived catalogue, not the original UN workbooks. Source-specific URLs and geographic unit decisions remain in the catalogue. Do not present urban agglomeration and municipal definitions as interchangeable.
 - **GeoNames:** coordinates and reference-point identifiers where used, [CC BY 4.0](https://www.geonames.org/about.html). Original identifiers and source URLs are preserved. National catalogue supplements retain their own source attribution; availability of a table is not a claim that every ranking is homologated.
 
+The full-coverage candidate contains 126 ERA5 points from archived daily API responses and 558 from the Open-Meteo public AWS hourly archive. AWS monthly series preserve the audited daily rounding and 01..next00 UTC rainfall accumulation convention, rather than treating hourly precipitation as unshifted daily totals. AWS lineage files record the grid, monthly CSV hash and source-manifest hash; the source manifests retain hourly-object lineage and the original audit references. Heavy hourly archives and internal audit folders are excluded. This is distinct provenance for the same ERA5 model, not a third independent climate source.
+
 ## Maps, graphics and interface assets
 
+- **D3 Geo / D3 Array:** ISC; bundled local projection library and licence files under `www/vendor/d3-geo/`. The current Mollweide ocean illustration is original schematic code: continuous qualitative colours, neutral land and three ENSO phases. It is not measured SST, a simulation or an additional climate dataset. NASA Earth Observatory and NOAA JetStream were consulted as visual/conceptual references; their observed maps were not copied.
 - **Natural Earth:** public-domain cartography, [terms](https://www.naturalearthdata.com/about/terms-of-use/). Land polygons were simplified/combined for the illustrative globe. Borders are context, not climate observations or a statement on sovereignty.
 - **IBGE:** simplified public cartographic meshes used in the shared regional locator; geometries projected and reduced for display. Original endpoint URLs and hashes are in `dados/cartografia/fontes.json`. They are visual context and do not define the support of a climate grid cell.
 - **Three.js r180:** MIT; licence and provenance under `prototipo_revisado/www/vendor/three/` and the corresponding English asset folder.

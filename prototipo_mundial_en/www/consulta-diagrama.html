@@ -1,27 +1,69 @@
 <div class="fluxo-consulta" aria-label="The city defines the point; POWER and ERA5 provide time series; the same months are grouped; the chart compares years.">
   <section class="fluxo-etapa">
-    <svg viewBox="0 0 180 100" aria-hidden="true"><g fill="none" stroke="#b4c9d2"><path d="M18 32L54 18 100 30 158 14V76L113 90 63 78 18 91Z"/><path d="M54 18L63 78M100 30L113 90M18 60L62 48 107 60 158 45"/></g><path d="M91 16a17 17 0 0 0-17 17c0 13 17 30 17 30s17-17 17-30a17 17 0 0 0-17-17" fill="#246d80"/><circle cx="91" cy="32" r="5" fill="white"/></svg>
+    <div class="fluxo-arte">
+      <svg viewBox="0 0 240 148" aria-hidden="true"><defs><linearGradient id="map-paper" x2="1" y2="1"><stop stop-color="#f8fcfd"/><stop offset="1" stop-color="#d8eaf1"/></linearGradient></defs>
+        <ellipse cx="116" cy="130" rx="83" ry="6" fill="#32637d" opacity=".08"/>
+        <path d="M24 52 83 31 145 47 213 26V110L152 132 86 114 24 135Z" fill="url(#map-paper)" stroke="#9ebdcd"/>
+        <path d="M83 31 86 114 152 132 145 47Z" fill="#fff" opacity=".8"/>
+        <g fill="none" stroke="#b9d3df" stroke-width=".8"><path d="M44 45V128M64 38 66 121M104 37 108 120M124 42 130 126M168 39 174 124M190 33 194 117M24 76 84 55 148 71 213 50M24 99 85 79 150 95 213 74M24 119 86 101 152 117 213 97"/></g>
+        <path d="M31 102 64 91 75 97 93 89 113 99 125 91 150 98 179 86 202 93" fill="none" stroke="#8fc8d9" stroke-width="7"/>
+        <path d="M57 121 73 105 87 104 106 83 124 77 140 58 166 56 191 42" fill="none" stroke="#fff" stroke-width="4"/>
+        <path d="M83 31 86 114M145 47 152 132" fill="none" stroke="#9ebdcd"/>
+        <ellipse cx="125" cy="84" rx="15" ry="6" fill="#1b6784" opacity=".14"/>
+        <path d="M125 24a20 20 0 0 0-20 20c0 16 20 38 20 38s20-22 20-38a20 20 0 0 0-20-20Z" fill="#176c8a" stroke="#fff" stroke-width="2"/>
+        <circle cx="125" cy="44" r="7" fill="#fff"/><circle cx="125" cy="44" r="3" fill="#9bd9e7"/>
+      </svg>
+    </div>
     <h3>One city</h3><p>A reference point locates the query on the map.</p>
   </section>
-  <span class="fluxo-conector" aria-hidden="true">→</span>
+  <span class="fluxo-conector" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h32m-7-6 7 6-7 6"/></svg></span>
   <section class="fluxo-etapa">
-    <svg viewBox="0 0 180 100" aria-hidden="true"><path d="M14 15H166V85H14Z M14 50H166" fill="none" stroke="#c7d4da"/><path d="M24 37L43 30 63 34 83 22 103 31 123 24 156 18" fill="none" stroke="#bd4936" stroke-width="2.5"/><path d="M24 76L43 64 63 69 83 57 103 65 123 58 156 61" fill="none" stroke="#207b94" stroke-width="2.5" stroke-dasharray="5 3"/></svg>
+    <div class="fluxo-arte"><svg viewBox="0 0 240 148" aria-hidden="true">
+      <ellipse cx="120" cy="130" rx="86" ry="6" fill="#32637d" opacity=".08"/>
+      <path d="M39 34H165V105H39Z" fill="#f6fcfe" stroke="#b3d2df"/><path d="M39 34H165V57H39Z" fill="#217fa5"/>
+      <text x="52" y="50" fill="white" font-size="13" font-weight="650">ERA5</text>
+      <g fill="#c0dce7"><path d="M49 65h23v13H49ZM78 65h23v13H78ZM107 65h23v13H107ZM136 65h19v13H136ZM49 84h23v13H49ZM78 84h23v13H78ZM107 84h23v13H107ZM136 84h19v13H136Z"/></g>
+      <path d="M78 63H204V129H78Z" fill="#fffaf6" stroke="#e1bbac"/><path d="M78 63H204V86H78Z" fill="#e35439"/>
+      <text x="91" y="79" fill="white" font-size="13" font-weight="650">POWER</text>
+      <g fill="#f7cebc"><path d="M88 94h23v11H88ZM117 94h23v11H117ZM146 94h23v11H146ZM175 94h19v11H175ZM88 111h23v10H88ZM117 111h23v10H117ZM146 111h23v10H146ZM175 111h19v10H175Z"/></g>
+      <path d="M178 20v22m-6-6 6 6 6-6" fill="none" stroke="#769cab" stroke-width="1.5"/><circle cx="178" cy="16" r="3" fill="#91c3d3"/>
+    </svg></div>
     <h3>Two possible sources</h3><p><span class="power-text">POWER</span> and <span class="era5-text">ERA5</span> estimate climate on grids.</p>
   </section>
-  <span class="fluxo-conector" aria-hidden="true">→</span>
+  <span class="fluxo-conector" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h32m-7-6 7 6-7 6"/></svg></span>
   <section class="fluxo-etapa">
-    <svg viewBox="0 0 180 100" aria-hidden="true"><rect x="24" y="18" width="132" height="65" rx="3" fill="none" stroke="#b4c9d2"/><path d="M24 35H156M68 35V83M112 35V83M43 10V24M137 10V24" fill="none" stroke="#b4c9d2"/><rect x="32" y="43" width="28" height="30" fill="#d7e8ed"/><rect x="76" y="43" width="28" height="30" fill="#b5d4df"/><rect x="120" y="43" width="28" height="30" fill="#82b7c8"/></svg>
+    <div class="fluxo-arte"><svg viewBox="0 0 240 148" aria-hidden="true">
+      <ellipse cx="121" cy="131" rx="84" ry="6" fill="#32637d" opacity=".08"/>
+      <path d="M44 41H202V127H44Z" fill="#deebf1" stroke="#b8d0dc"/>
+      <rect x="37" y="32" width="158" height="89" rx="4" fill="#fff" stroke="#91b5c9"/><path d="M37 36a4 4 0 0 1 4-4h150a4 4 0 0 1 4 4v22H37Z" fill="#e3f0f6"/>
+      <g stroke="#2c6f8b" stroke-width="3" stroke-linecap="round"><path d="M61 23v18M172 23v18"/></g>
+      <rect x="48" y="69" width="39" height="38" rx="3" fill="#dceef4"/><rect x="96" y="69" width="39" height="38" rx="3" fill="#b7dce9"/><rect x="144" y="69" width="39" height="38" rx="3" fill="#83bfd4"/>
+      <g fill="#195c7c" font-size="17" font-weight="600" text-anchor="middle"><text x="67" y="94">1</text><text x="115" y="94">2</text><text x="163" y="94">3</text></g>
+      <path d="M48 115H183" stroke="#377e9e" stroke-width="2"/>
+    </svg></div>
     <h3>The same time of year</h3><p>Three months each year: mean temperature or total rainfall.</p>
   </section>
-  <span class="fluxo-conector" aria-hidden="true">→</span>
+  <span class="fluxo-conector" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h32m-7-6 7 6-7 6"/></svg></span>
   <section class="fluxo-etapa">
-    <svg viewBox="0 0 180 100" aria-hidden="true"><path d="M20 15V82H166M20 48H166" fill="none" stroke="#c7d4da"/><path d="M24 64L43 53 63 61 83 37 103 48 123 26 156 32" fill="none" stroke="#bd4936" stroke-width="2.5"/><path d="M24 72L43 64 63 69 83 49 103 58 123 36 156 40" fill="none" stroke="#207b94" stroke-width="2.5" stroke-dasharray="5 3"/></svg>
+    <div class="fluxo-arte"><svg viewBox="0 0 240 148" aria-hidden="true">
+      <ellipse cx="122" cy="132" rx="86" ry="5" fill="#32637d" opacity=".08"/>
+      <rect x="28" y="26" width="184" height="98" rx="4" fill="#fcfeff" stroke="#b9d1df"/>
+      <g stroke="#e1edf2" stroke-width="1"><path d="M40 50H200M40 76H200M40 102H200M72 38V113M120 38V113M168 38V113"/></g>
+      <path d="M40 106 61 85 82 92 103 66 124 78 145 57 166 69 199 42V113H40Z" fill="#fbe3d8" opacity=".5"/>
+      <path class="linha-fonte" d="M40 90 61 77 82 85 103 50 124 65 145 42 166 55 199 34" fill="none" stroke="#e35439" stroke-width="2.6" stroke-linejoin="round"/>
+      <path class="linha-fonte" d="M40 106 61 85 82 92 103 66 124 78 145 57 166 69 199 42" fill="none" stroke="#217fa5" stroke-width="2.6" stroke-dasharray="6 4" stroke-linejoin="round"/>
+      <circle cx="199" cy="34" r="3.5" fill="#e35439"/><circle cx="199" cy="42" r="3" fill="#217fa5"/>
+    </svg></div>
     <h3>A local history</h3><p>The lines show how values changed across years.</p>
   </section>
 </div>
-<p class="diagrama-legenda">Illustrative diagrams; the lines above are not this city's data.</p>
+<p class="diagrama-legenda"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 5.5v1"/></svg>Illustrative diagrams; the lines above are not this city's data.</p>
 <div class="leitura-escalas">
-  <section><h3>Temperature in °C</h3><div class="exemplo-valor">23 <span>°C</span></div><p>An example seasonal mean. This is the chart's default scale.</p></section>
-  <section><h3>Difference from average</h3><div class="equacao"><span>23 °C<small>value</small></span><b>−</b><span>22 °C<small>reference</small></span><b>=</b><span class="resultado">+1 °C<small>above average</small></span></div><p>A teaching example. Zero on this scale means “equal to the reference”.</p></section>
+  <section class="escala-absoluta"><div class="escala-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0Z"/><path d="M12 8v9"/></svg><h3>Temperature in °C</h3></div>
+    <div class="escala-corpo"><svg class="termometro-exemplo" viewBox="0 0 36 84" aria-hidden="true"><path d="M12 56V12a6 6 0 0 1 12 0v44a11 11 0 1 1-12 0Z" fill="#fff" stroke="#b5cddd"/><path d="M18 27v36" stroke="#e35439" stroke-width="5" stroke-linecap="round"/><circle cx="18" cy="66" r="7" fill="#e35439"/><path d="M27 18h5M27 28h4M27 38h5M27 48h4" stroke="#99b7c8"/></svg><div><div class="exemplo-valor">23 <span>°C</span></div><p>An example seasonal mean. This is the chart's default scale.</p></div></div>
+  </section>
+  <section class="escala-diferenca"><div class="escala-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M16 3l4 4-4 4M20 17H4M8 13l-4 4 4 4"/></svg><h3>Difference from average</h3></div>
+    <div class="equacao"><span>23 °C<small>value</small></span><b>−</b><span>22 °C<small>reference</small></span><b>=</b><span class="resultado">+1 °C<small>above average</small></span></div><p>A teaching example. Zero on this scale means “equal to the reference”.</p>
+  </section>
 </div>
 <p class="limite-leitura"><strong>Historical records are not a forecast.</strong> The difference from average is not an effect attributed to El Niño either.</p>

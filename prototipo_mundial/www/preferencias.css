@@ -1,0 +1,45 @@
+/* Small additions to the approved editorial layout; figures and data stay intact. */
+.abertura{padding:19px 0 13px;border-bottom:1px solid var(--line)}
+.abertura h1{font-size:24px;font-weight:650;letter-spacing:-.025em;line-height:1.2;margin:0 0 5px;color:var(--ink)}
+.abertura p{font-size:14px;line-height:1.45;margin:0;color:var(--muted)}
+.abertura .abertura-enso{font-size:12px;margin-top:4px}.abertura a{color:#176e90;text-underline-offset:3px}
+.atlas-masthead nav{gap:20px;align-items:center}.tema-botao,.idioma-controle button{font:inherit;border:1px solid transparent;color:#e8f3f7;background:none;cursor:pointer;min-height:34px;border-radius:4px}
+.tema-botao{display:grid;place-items:center;width:34px;padding:5px}.tema-botao svg{width:20px;height:20px}.tema-sol{display:none}
+[data-theme=dark] .tema-sol{display:inline}[data-theme=dark] .tema-lua{display:none}
+.tema-botao:hover,.idioma-controle button:hover{background:#ffffff12}.idioma-controle{display:flex;gap:2px;border-left:1px solid #4b6675;padding-left:12px}.idioma-controle button{padding:4px 7px;font-size:12px}.idioma-controle [aria-pressed=true]{border-color:#83b4c8;background:#ffffff10;font-weight:650}
+.disponibilidade{display:flex;flex-direction:column;gap:4px;padding:5px 9px}.status-fonte,.status-pendente{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.consulta-toolbar{grid-template-columns:minmax(0,1fr) max-content}.cabecalho-consulta{gap:9px;min-width:0}
+.ajuda-info{display:inline-flex;vertical-align:middle;position:relative;margin-left:4px;font-weight:400;letter-spacing:normal;text-transform:none}
+.ajuda-botao{position:relative;font:600 10px/1 'Source Sans 3',sans-serif;display:inline-grid;place-items:center;border:1px solid currentColor;border-radius:50%;width:15px;height:15px;min-width:15px;padding:0;color:#35677e;background:transparent;cursor:pointer}
+.ajuda-botao:before{content:'';position:absolute;inset:-6px}
+.ajuda-texto{display:none;position:absolute;z-index:120;top:calc(100% + 8px);left:0;min-width:240px;width:280px;max-width:calc(100vw - 42px);background:#123b50;color:#f4f9fc;padding:12px 14px;border:1px solid #447a92;border-radius:5px;box-shadow:0 6px 20px #0a26352b;font-size:13px;line-height:1.5;white-space:normal;text-align:left}
+.ajuda-info:hover>.ajuda-texto,.ajuda-info:focus-within>.ajuda-texto,.ajuda-info:has([aria-expanded=true])>.ajuda-texto{display:block}
+.ajuda-info[data-dismissed=true]>.ajuda-texto{display:none}
+.disponibilidade .ajuda-texto{left:auto;right:0}.filtro-rotulo .ajuda-texto{left:auto;right:-12px}.ajuda-botao:focus-visible,.tema-botao:focus-visible,.idioma-controle button:focus-visible{outline:2px solid #e5a65e;outline-offset:3px}
+[data-theme=dark]{--ink:#e3eef4;--muted:#b4c9d5;--line:#365266;--paper:#0e2230;--power:#ff8065;--era5:#6ab9d7;color-scheme:dark;--bs-body-color:#e3eef4;--bs-body-bg:#102735;--bs-border-color:#365266;--bs-secondary-color:#b4c9d5;--bs-emphasis-color:#e3eef4}
+[data-theme=dark] body{background:linear-gradient(120deg,#0e202d,#122c3c);color:var(--ink)}
+[data-theme=dark] :is(.exploracao,.serie,.indicadores,.evidencia,.detalhes,.documentacao){background:#142e40;color:var(--ink);border-color:var(--line)}
+[data-theme=dark] .geografia{background:linear-gradient(125deg,#1c394b,#193344)}
+[data-theme=dark] :is(h1,h2,h3,.mini-fonte strong,.respostas-locais .distancia-destaque strong){color:var(--ink)}
+[data-theme=dark] :is(.lugar-subtitulo,.nota,.mapa-nota,.recorte-comparacao,.ultimo-ano,.referencia-valores,.mini-fonte p,.documentacao p,.respostas-locais p,.rodape,.control-label,.distribuicao-contexto,.nome-completo){color:var(--muted)}
+[data-theme=dark] a{color:#8bc9e1}[data-theme=dark] .abertura a{color:#8bc9e1}
+[data-theme=dark] :is(.comparacao-card,.disponibilidade,.exportacoes summary,.exportacoes[open],.exportacoes[open] a){background:#1b394c;color:var(--ink);border-color:#416277}
+[data-theme=dark] :is(.comparacao-card p,.comparacao-card small){color:var(--muted)}
+[data-theme=dark] .filtros select{background-color:#18384b;color:var(--ink);border-color:#4b697b}
+[data-theme=dark] .nav-tabs{background:#1c3b4f;border-color:var(--line)}[data-theme=dark] .nav-tabs .nav-link{color:#b9d1de}[data-theme=dark] .nav-tabs .nav-link.active{background:#142e40;color:#e7f5fb;border-color:#69b4d2}
+[data-theme=dark] :is(.icone-painel,.resumo-icone,.filtro-rotulo svg,.ajuda-botao){color:#82c4de}
+[data-theme=dark] :is(.mapa-barra,.indicador-bloco,.grafico-cabecalho,.valor-fonte+.valor-fonte,.respostas-locais section+section){border-color:var(--line)}
+[data-theme=dark] .globo-tools button{background:#1b3c50;color:#e5f2fa;border-color:#52758a}
+[data-theme=dark] #escala .shiny-options-group{background:#1c3b4f;border-color:#52758a}[data-theme=dark] #escala input:checked+span{background:#286d8d;color:#fff}
+[data-theme=dark] .mini-fonte.era5 strong{color:var(--era5)}
+[data-theme=dark] :is(.pais-identidade,.mapa-barra h2,.explica-escala summary,.rodape-titulo){color:var(--muted)}
+[data-theme=dark] .mapa-acoes button{color:#b9d9e8}
+@media(max-width:1250px){.consulta-toolbar{grid-template-columns:minmax(0,1fr) max-content}.filtros{gap:12px}.atlas-masthead nav{gap:12px}.atlas-edicao{font-size:12px}}
+@media(max-width:1000px){.atlas-masthead .atlas-edicao{display:none}.consulta-toolbar{grid-template-columns:1fr}.cabecalho-consulta{border:0;padding:0;margin:0;justify-content:space-between}.disponibilidade{flex-direction:row;flex-wrap:wrap;gap:6px 12px}.atlas-masthead nav{margin-left:auto}}
+@media(max-width:760px){.atlas-masthead{gap:10px;flex-wrap:nowrap}.atlas-masthead nav{display:flex;gap:6px}.atlas-masthead .nav-editorial{display:none}.idioma-controle{padding-left:5px}.idioma-controle button{padding:4px 5px;font-size:11px}.marca{font-size:25px}.identidade{gap:8px}.tema-botao{width:30px;min-height:34px}.abertura{padding:16px 0 12px}.abertura h1{font-size:22px;max-width:22ch}.abertura p{font-size:14px}.abertura .abertura-enso{font-size:12px}.filtro-rotulo{flex-wrap:nowrap}.filtro-rotulo .ajuda-info{margin-left:0}.ajuda-texto{width:245px;min-width:220px}.nome-fonte .ajuda-texto{left:50%;transform:translateX(-50%);min-width:220px;width:220px}.disponibilidade .ajuda-texto{left:0;right:auto}.disponibilidade .status-fonte:nth-child(2) .ajuda-texto{left:auto;right:0}.status-fonte{font-size:10px}.ajuda-botao{width:16px;height:16px}.cabecalho-consulta{gap:6px}.disponibilidade{padding:0;gap:5px}.filtros{padding:0}.consulta-toolbar{padding:13px 0}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media(max-width:760px){
+  .valores-fontes,.disponibilidade{position:relative}
+  .valores-fontes .ajuda-info,.disponibilidade .ajuda-info{position:static}
+  .valores-fontes .ajuda-texto,.disponibilidade .ajuda-texto,.disponibilidade .status-fonte:nth-child(2) .ajuda-texto{left:0;right:auto;top:calc(100% + 8px);transform:none;width:245px;min-width:220px}
+}

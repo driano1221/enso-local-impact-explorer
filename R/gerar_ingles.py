@@ -47,11 +47,13 @@ def main():
     comparison=comparison.replace('Histórico de POWER e ERA5 nos mesmos anos. Valores e referências disponíveis ao tocar nas linhas e no CSV.', 'Historical POWER and ERA5 records for the same years. Values and references are available on the lines and in the CSV.')
     (OUT/'comparacao_en.R').write_text(comparison,encoding='utf-8')
     pattern=re.compile('|'.join(re.escape(k) for k in sorted(assets,key=len,reverse=True)))
-    files=['consulta-diagrama.html','enso.html','mundial.js','globo.js',
+    files=['consulta-diagrama.html','enso.html','mundial.js','globo.js','corte-interacao.js','corte-oceanico.js',
            'aprovado-en/pacifico.js','aprovado-en/pacifico-model.js','aprovado-en/terra.js','aprovado-en/atlas.js']
     for name in files:
         path=OUT/'www'/name; text=path.read_text(encoding='utf-8')
         text=pattern.sub(lambda m: assets[m[0]].replace("'", "\\'") if path.suffix=='.js' else assets[m[0]],text)
+        if name in ['corte-interacao.js','corte-oceanico.js']:
+            text=text.replace('./aprovado/','./aprovado-en/')
         if name=='aprovado-en/atlas.js':
             text=text.replace("'temperatura'", "'temperature'").replace("'chuva'", "'rainfall'")
         path.write_text(text,encoding='utf-8')

@@ -118,3 +118,27 @@ Inferência mundial não liberada: não há conclusão sobre associação, causa
 A validação por estações do piloto não se estende automaticamente a este ponto. Catálogo mundial ainda tem lacunas de ranking/delimitação.	Pilot station checks do not automatically apply to this point. The global catalogue still has ranking and boundary gaps.
 Fonte:	Source:
 <b>%s · %s</b><br>Valor: %s %s<br>Média 1991–2020: %s %s<br>Diferença: %s %s	<b>%s · %s</b><br>Value: %s %s<br>1991–2020 average: %s %s<br>Difference: %s %s
+
+Indicadores históricos	Historical indicators
+Diferença entre fontes	Difference between sources
+Distância média; não indica a fonte mais precisa.	Mean absolute gap; it does not identify the more accurate source.
+Último ano (	Latest year (
+Média de referência	Reference average
+Distribuição dos anos	Distribution of years
+Cada ponto é uma temporada. Caixa: 50% central dos anos; traço: mediana.	Each point is a season. Box: middle 50% of years; line: median.
+Distribuição descritiva dos valores anuais por fonte	Descriptive distribution of seasonal values by source
+
+Referência 1991–2020	Reference 1991–2020
+Cada ponto é uma temporada. Caixa: 50% central; traço: mediana; tracejado: referência.	Each point is a season. Box: middle 50%; line: median; dashed line: reference.
+Sobre as épocas do ano	About the time-of-year periods
+Usamos quatro trimestres climatológicos: dez–fev, mar–mai, jun–ago e set–nov. Assim comparamos os mesmos meses entre anos. As estações variam entre hemisférios e regiões; aqui os meses são fixos. Em dez–fev, dezembro pertence ao ano seguinte.	We use four standard three-month climate periods: Dec–Feb, Mar–May, Jun–Aug and Sep–Nov. This compares the same months across years. Seasons differ between hemispheres and regions; the months here stay fixed. In Dec–Feb, December is assigned to the following year.
+Fonte da NASA que disponibiliza estimativas históricas de temperatura e chuva em uma grade geográfica. Aqui consultamos a célula próxima ao local escolhido.	A NASA source providing historical temperature and rainfall estimates on a geographic grid. We query the cell near the selected location.
+Reconstrução do clima do ECMWF/Copernicus, que combina observações e modelos meteorológicos. Aqui usamos ERA5 via Open-Meteo, na célula próxima ao local escolhido.	A reconstruction of past climate by ECMWF/Copernicus, combining observations and weather models. Here we use ERA5 via Open-Meteo, in the cell near the selected location.
+Sobre	About
+Ativar tema escuro	Switch to dark theme
+Idioma	Language
+Sobre esta consulta	About this query
+Como o clima variou na sua cidade?	How has the climate varied in your city?
+Explore temperatura e chuva de 1981–2025 e compare duas fontes climáticas.	Explore temperature and rainfall from 1981–2025 and compare two climate sources.
+El Niño e La Niña fazem parte do ENSO: uma variação natural do oceano e da atmosfera no Pacífico.	El Niño and La Niña are phases of ENSO: a natural variation of the Pacific Ocean and atmosphere.
+Entenda o fenômeno ↘	Explore El Niño and La Niña ↘

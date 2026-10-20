@@ -1,8 +1,8 @@
 {
   "pontos": 684,
-  "registros": 437400,
-  "dupla_fonte": 126,
-  "apenas_power": 558,
+  "registros": 738720,
+  "dupla_fonte": 684,
+  "apenas_power": 0,
   "teste_referencia_incompleta": "rejeitada",
   "inferencia_mundial": false
 }
