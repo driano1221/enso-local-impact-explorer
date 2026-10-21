@@ -47,7 +47,7 @@ shiny::shinyApp(ui=function(request) {
   lang <- idioma_enso(request$QUERY_STRING)
   ui <- apps_enso[[lang]]$ui
   ui <- enso_ai_inserir(ui,lang)
-  ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-ai/assistente.css?v=ia1"),shiny::tags$script(src="enso-ai/assistente.js?v=ia1"))
+  ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-ai/assistente.css?v=altas1"),shiny::tags$script(src="enso-ai/assistente.js?v=ia1"))
   q <- shiny::parseQueryString(if(is.null(request$QUERY_STRING)) "" else request$QUERY_STRING)
   if(length(q$escala)==1L && q$escala %in% c("valor","diferenca")) ui <- escala_inicial_ui(ui,q$escala)
   ui[[length(ui)+1L]] <- shiny::tags$div(style="display:none",`aria-hidden`="true",shiny::textInput("ui_language",NULL,value=lang))

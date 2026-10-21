@@ -6,12 +6,13 @@
 .enso-assistente>summary small{font-size:10px;letter-spacing:.04em;font-weight:500;color:var(--muted,#5b7485)}
 .enso-assistente-corpo{max-width:920px;padding:12px 0 4px}
 .enso-assistente-corpo p{font-size:14px;line-height:1.55;color:var(--ink,#15384c);margin:0 0 10px}
-.enso-assistente-corpo .enso-ai-intro,.enso-assistente-corpo .enso-ai-privacidade{color:var(--muted,#5b7485);font-size:12px}
+.enso-assistente-corpo .enso-ai-intro{color:var(--ink,#15384c);font-size:14px;max-width:70ch}
+.enso-assistente-corpo .enso-ai-privacidade{color:var(--muted,#5b7485);font-size:12px;max-width:80ch}
 .enso-assistente .shiny-input-container{max-width:none;margin-bottom:6px}
 .enso-assistente label{font-size:13px;margin-top:12px}
 .enso-assistente textarea{resize:vertical;min-height:70px;max-height:180px;font:inherit;line-height:1.45;background:var(--paper,#fff);color:var(--ink,#15384c);border-color:var(--line,#c7dbe5)}
 .enso-ai-sugestoes{display:flex;flex-wrap:wrap;gap:6px 14px;margin:5px 0}
-.enso-ai-sugestoes button{background:none;border:0;border-bottom:1px solid var(--line,#c7dbe5);padding:3px 0;color:var(--era5,#217fa5);font:inherit;font-size:12px;cursor:pointer;text-align:left}
+.enso-ai-sugestoes button{background:none;border:0;border-bottom:1px solid var(--line,#c7dbe5);padding:5px 0;color:var(--era5,#217fa5);font:inherit;font-size:14px;cursor:pointer;text-align:left}
 .enso-ai-enviar{border:1px solid #1d617c;background:#18536c;color:#fff;font:inherit;font-size:13px;padding:7px 13px;border-radius:3px}
 .enso-ai-enviar:hover{background:#123f55;color:#fff}.enso-ai-enviar:disabled{opacity:.6;cursor:wait}
 .enso-assistente :is(summary,button,textarea,a):focus-visible{outline:2px solid #d79336;outline-offset:3px}

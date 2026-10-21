@@ -142,3 +142,10 @@ Como o clima variou na sua cidade?	How has the climate varied in your city?
 Explore temperatura e chuva de 1981–2025 e compare duas fontes climáticas.	Explore temperature and rainfall from 1981–2025 and compare two climate sources.
 El Niño e La Niña fazem parte do ENSO: uma variação natural do oceano e da atmosfera no Pacífico.	El Niño and La Niña are phases of ENSO: a natural variation of the Pacific Ocean and atmosphere.
 Entenda o fenômeno ↘	Explore El Niño and La Niña ↘
+Explorar localização	Explore location
+Último ano da base	Latest year in the dataset
+Comparação do histórico	Comparing the full history
+temporadas pareadas	paired seasons
+Distância média entre POWER e ERA5. Não indica a fonte mais precisa.	Mean distance between POWER and ERA5. It does not identify the more accurate source.
+Como comparar	How to compare
+Compare POWER e ERA5 no mesmo ano. A comparação do histórico resume a distância entre as fontes em todas as temporadas; ela não identifica a fonte mais precisa.	Compare POWER and ERA5 for the same year. The full-history comparison summarises the distance between sources across all seasons; it does not identify the more accurate source.

@@ -13210,8 +13210,8 @@
     },
     {
       "path": "ia/www/assistente.css",
-      "bytes": 2679,
-      "sha256": "9f4957320ff9e1d72b1edefc859794ee4637d521f6c233af7f21914878205d60"
+      "bytes": 2750,
+      "sha256": "f8a8b4886c0a2c2066fcca8f937f0034ce321f35fc3ec145b67a86211cc96e54"
     },
     {
       "path": "ia/www/assistente.js",
@@ -13225,8 +13225,8 @@
     },
     {
       "path": "idiomas/en.tsv",
-      "bytes": 13249,
-      "sha256": "6c85650797d77e536090b257b24bb16bee43b7108d4a760301b32d6688f6c9a6"
+      "bytes": 13961,
+      "sha256": "f9e986babe7c20ac444a3a5ad34b5d56d6cf4f762948d865e10907b2c3442f50"
     },
     {
       "path": "idiomas/exports_en.R",
@@ -13305,13 +13305,13 @@
     },
     {
       "path": "prototipo_mundial/app.R",
-      "bytes": 19589,
-      "sha256": "74ec0b2e2a1fc9d1062513a55678402087e0530e24141e9473b5cbf7d74cb680"
+      "bytes": 19625,
+      "sha256": "95ddbee1d69385c324e8dc3d05dc73d03b7ce7905088214dc387d3dbcf248b45"
     },
     {
       "path": "prototipo_mundial/layout.R",
-      "bytes": 11510,
-      "sha256": "766b67aab3a7b00d618d28033a58eab653942e4f7775aa0a82d18f14e3a57780"
+      "bytes": 11783,
+      "sha256": "96dddc442462022e2b37f51c261410da03ea9a43848c451a3c09a7bf76560b01"
     },
     {
       "path": "prototipo_mundial/paises-pt.json",
@@ -13340,13 +13340,13 @@
     },
     {
       "path": "prototipo_mundial/www/enso-atlas.css",
-      "bytes": 6763,
-      "sha256": "518ffb5606bfe264872126cb80c8aa0053b8365ce45739f964583437610979b2"
+      "bytes": 8133,
+      "sha256": "e073354faab70f7f8910f482380abdeef1258194e29b8eb465141178caea52ee"
     },
     {
       "path": "prototipo_mundial/www/enso-payload.json",
-      "bytes": 5491,
-      "sha256": "514f4389d738312ea3f8cb50bad71bc773e9a79ca15868824d4e64a4c7166b21"
+      "bytes": 5490,
+      "sha256": "9dad9c2ba4e37a7219634d459c47bf769733b2d4cb0ab11d3f40044ec4995362"
     },
     {
       "path": "prototipo_mundial/www/enso.css",
@@ -13355,8 +13355,8 @@
     },
     {
       "path": "prototipo_mundial/www/enso.html",
-      "bytes": 5223,
-      "sha256": "8d745c7c7839e732393013565de6134650799fb058a63c0f2f3eb66135ede6ee"
+      "bytes": 5222,
+      "sha256": "d92021bf0785a661c4365082cc0e779d1a460842c44b830cd5defe5b6c9689ed"
     },
     {
       "path": "prototipo_mundial/www/globo-interacao.js",
@@ -13390,8 +13390,8 @@
     },
     {
       "path": "prototipo_mundial/www/mundial.js",
-      "bytes": 5136,
-      "sha256": "aba96c95b37ccc3f269f8b2876ad9a8ece6687a546a2eaeb0add61e1d5370ed6"
+      "bytes": 5663,
+      "sha256": "5c882ee109435aa0fde9117aad57bd01845776229984f61d2264cf89210090a0"
     },
     {
       "path": "prototipo_mundial/www/pacifico-atlas.js",
@@ -13427,6 +13427,11 @@
       "path": "prototipo_mundial/www/redesign.css",
       "bytes": 18120,
       "sha256": "5ea92d05021c04aaba244370e95646342942b8cf97455d798c77599223affb10"
+    },
+    {
+      "path": "prototipo_mundial/www/refino.css",
+      "bytes": 7271,
+      "sha256": "5076f756b92670ba09d4cb53aa44642d4f03a47b31a74c6ecc70a8b60e9c3530"
     },
     {
       "path": "prototipo_mundial/www/vendor/assets-manifest.json",
@@ -14735,8 +14740,8 @@
     },
     {
       "path": "prototipo_mundial_en/app.R",
-      "bytes": 19670,
-      "sha256": "cc09af50baa1dadeaa63d2152dce6107b67e0844cd5556421a7443c4a0e1f746"
+      "bytes": 19696,
+      "sha256": "79ff0def1e21fe7b1c6b7ad41b5a7b11163cf1b74dc73402e82a3cbeb5e03c44"
     },
     {
       "path": "prototipo_mundial_en/comparacao_en.R",
@@ -14745,8 +14750,8 @@
     },
     {
       "path": "prototipo_mundial_en/layout.R",
-      "bytes": 11536,
-      "sha256": "4624328ebd632643d60c29cd58c780054fa0a1c56af493966bb4ceeb6e6ec571"
+      "bytes": 11803,
+      "sha256": "fe94e9936516f469aa11352ae52130940a9f81759299ac93f06fb8598070d83d"
     },
     {
       "path": "prototipo_mundial_en/www/aprovado-en/atlas.js",
@@ -14910,13 +14915,13 @@
     },
     {
       "path": "prototipo_mundial_en/www/enso-atlas.css",
-      "bytes": 6763,
-      "sha256": "518ffb5606bfe264872126cb80c8aa0053b8365ce45739f964583437610979b2"
+      "bytes": 8133,
+      "sha256": "e073354faab70f7f8910f482380abdeef1258194e29b8eb465141178caea52ee"
     },
     {
       "path": "prototipo_mundial_en/www/enso-payload.json",
-      "bytes": 5426,
-      "sha256": "a591454f831a023384bc7ca06fbc1ebced347d11194a9e97f5e20daad80ed378"
+      "bytes": 5425,
+      "sha256": "60b20edc886a99f7d59980e0492d2f50d3a85ce7dd2d54fe633fdc52d3c5ae97"
     },
     {
       "path": "prototipo_mundial_en/www/enso.css",
@@ -14925,8 +14930,8 @@
     },
     {
       "path": "prototipo_mundial_en/www/enso.html",
-      "bytes": 5158,
-      "sha256": "1599258f0facd07db57ca69aef8ab15a0ca353652d946ce3e0597fac34320580"
+      "bytes": 5157,
+      "sha256": "5ae8143f95108642264a04de32a87331615d473d99e930e31cb656eaf59c956f"
     },
     {
       "path": "prototipo_mundial_en/www/globo-interacao.js",
@@ -14960,8 +14965,8 @@
     },
     {
       "path": "prototipo_mundial_en/www/mundial.js",
-      "bytes": 5126,
-      "sha256": "db95eb58b2f8e511a4f727cc1b8b194c32fa4bf285d840068d055d775a0d7c19"
+      "bytes": 5653,
+      "sha256": "e97ae218a9c82402d24835b8816b6267edd7418695e07a78988fe70f0f8eaffa"
     },
     {
       "path": "prototipo_mundial_en/www/pacifico-atlas.js",
@@ -14997,6 +15002,11 @@
       "path": "prototipo_mundial_en/www/redesign.css",
       "bytes": 18120,
       "sha256": "5ea92d05021c04aaba244370e95646342942b8cf97455d798c77599223affb10"
+    },
+    {
+      "path": "prototipo_mundial_en/www/refino.css",
+      "bytes": 7271,
+      "sha256": "5076f756b92670ba09d4cb53aa44642d4f03a47b31a74c6ecc70a8b60e9c3530"
     },
     {
       "path": "prototipo_mundial_en/www/vendor/assets-manifest.json",
@@ -16475,8 +16485,8 @@
     },
     {
       "path": "R/app_bilingue.R",
-      "bytes": 3343,
-      "sha256": "0a266efd0c15a4ef8e75f07a6aa02c304d187d217dc55259dc1014fa6d215e19"
+      "bytes": 3346,
+      "sha256": "744b3981712b098ae9c401a5b02b14fa22ab6b6abb4cccb5b18d831013e26286"
     },
     {
       "path": "R/fixture_fonte_unica.R",
@@ -16520,8 +16530,8 @@
     },
     {
       "path": "R/testar_interface_mundial.R",
-      "bytes": 3085,
-      "sha256": "12177f801d65b1e9c23980f681fe4d24a22fc6d23c33620ad9c15e1d1cdfc1d0"
+      "bytes": 3666,
+      "sha256": "f5288fe68e51287ae3a7c908a70e4ba4165ca0f40b52da88ff3f7bc193662bc4"
     },
     {
       "path": "R/testar_leitor_mundial.R",
@@ -16535,8 +16545,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 11298,
-      "sha256": "224a8b9dfc551eef59960ef5165bf013d5d52ce54b29ab3fbd456478272878c7"
+      "bytes": 11799,
+      "sha256": "94c0a06f12e58e233e0fb653a950399f52bb3a581b59050b084766614c2c10b2"
     },
     {
       "path": "renv.lock",
@@ -16560,8 +16570,8 @@
     },
     {
       "path": "SNAPSHOT.json",
-      "bytes": 1081,
-      "sha256": "61bf8bb32d227c8f276ebf9f9fef9528650dac822ccef1c9f2d36291635761bc"
+      "bytes": 890,
+      "sha256": "cbd21f79bc5eeac6da96485d5f052a2c4e62ea008d51cb799214a7adf76d81f7"
     },
     {
       "path": "verificar_pacote.py",

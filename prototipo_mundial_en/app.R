@@ -143,7 +143,8 @@ server <- function(input, output, session) {
     tags$div(class="resumo resumo-fontes",
       tags$div(class="titulo-metrica", HTML(icone_metrica(input$variavel)),
         tags$h2(if(input$variavel=="temperatura_c") "Mean air temperature" else "Total rainfall")),
-      tags$p(class="recorte-comparacao", paste(rotulos_estacao[[input$estacao]], a$ano_sazonal[1], sep=" · "),tags$span(class="ultimo-ano","Latest year in the dataset, not today's weather")),
+      tags$p(class="recorte-comparacao",tags$span(class="recorte-epoca",rotulos_estacao[[input$estacao]]),
+        tags$span(class="ultimo-ano",paste("Latest year in the dataset",a$ano_sazonal[1],sep=" · "))),
       tags$div(class="valores-fontes", lapply(seq_len(nrow(a)), function(i)
         tags$div(class=paste("valor-fonte",tolower(a$fonte[i])), tags$span(class="nome-fonte",a$fonte[i],ajuda_fonte(a$fonte[i])),
           tags$div(tags$strong(num(a$valor[i])), tags$span(if(input$variavel=="temperatura_c") " °C" else " mm")),
@@ -166,24 +167,26 @@ server <- function(input, output, session) {
     p <- plotly::layout(p,shapes=referencias,paper_bgcolor="#ffffff",plot_bgcolor="#ffffff",
       margin=list(l=44,r=8,t=12,b=28),
       xaxis=list(showgrid=TRUE,gridcolor="#eef3f6",tickvals=c(1981,1990,2000,2010,2025)),
-      yaxis=list(gridcolor="#e4ebee"),font=list(family="Source Sans 3, sans-serif",color="#536771",size=11))
+      yaxis=list(gridcolor="#e4ebee"),font=list(family="Source Sans 3, sans-serif",color="#536771",size=12))
     # Only scatter traces are used. Local basic bundle avoids the full 3D/map payload
     # and avoids partial_bundle() downloading a dependency at application runtime.
     plotly_local(p,paste("Historical records for",ponto()$ponto$cidade,". Sources:",paste(unique(a$fonte),collapse=", ")))
   })
   output$comparacao_destaque <- renderUI({
-    c <- comparar_mundial(serie())
-    tags$div(class="comparacao-card",tags$p("Difference between sources"),
-      tags$strong(if(is.null(c)) "—" else num(c$distancia)),tags$span(paste0(" ",unidade_grafico(input$variavel))),
-      tags$small(if(is.null(c)) "One source available" else "Mean absolute gap; it does not identify the more accurate source."))
+    a <- serie(); c <- comparar_mundial(a)
+    tags$section(class="comparacao-card",tags$h2("Comparing the full history"),
+      tags$p(class="comparacao-periodo",paste0(min(a$ano_sazonal),"–",max(a$ano_sazonal),
+        if(!is.null(c)) paste0(" · ",c$n," ","paired seasons") else "")),
+      tags$p(class="comparacao-numero",tags$strong(if(is.null(c)) "—" else num(c$distancia)),
+        tags$span(paste0(" ",unidade_grafico(input$variavel)))),
+      tags$small(if(is.null(c)) "One source available" else "Mean distance between POWER and ERA5. It does not identify the more accurate source."))
   })
   output$indicadores <- renderUI({
     s <- descrever_anos(serie()); u <- unidade_grafico(input$variavel)
     valores <- function(col) tags$div(class="mini-fontes",lapply(seq_len(nrow(s)),function(i)
       tags$div(class=paste("mini-fonte",tolower(s$fonte[i])),tags$span(s$fonte[i]),
         tags$p(tags$strong(num(s[[col]][i])),tags$span(class="unidade-indicador",u)))))
-    tagList(tags$section(class="indicador-bloco",tags$h2(paste0("Latest year (",max(s$ultimo_ano),")")),valores("ultimo")),
-      tags$section(class="indicador-bloco",tags$h2("Reference average",tags$small("1991–2020")),valores("referencia")))
+    tags$section(class="indicador-bloco",tags$h2("Reference average",tags$small("1991–2020")),valores("referencia"))
   })
   output$distribuicao_subtitulo <- renderUI(tags$p(class="distribuicao-contexto",
     paste(if(input$variavel=="temperatura_c") "Mean air temperature" else "Total rainfall",rotulos_estacao[[input$estacao]],sep=" · ")))
@@ -206,7 +209,7 @@ server <- function(input, output, session) {
     }
     p <- plotly::layout(p,shapes=shapes,showlegend=FALSE,margin=list(l=52,r=12,t=10,b=30),
       paper_bgcolor="white",plot_bgcolor="white",separators=",.",
-      font=list(family="Source Sans 3, sans-serif",size=11,color="#536771"),
+      font=list(family="Source Sans 3, sans-serif",size=12,color="#536771"),
       xaxis=list(title="",ticksuffix=if(input$variavel=="temperatura_c") " °C" else " mm",gridcolor="#e9f0f4",fixedrange=TRUE),
       yaxis=list(title="",tickvals=ifelse(s$fonte=="POWER",2,1),ticktext=s$fonte,range=c(.45,2.55),showgrid=FALSE,zeroline=FALSE,fixedrange=TRUE))
     plotly_local(plotly::config(p,displayModeBar=FALSE,responsive=TRUE,scrollZoom=FALSE),"Descriptive distribution of seasonal values by source")
@@ -227,9 +230,9 @@ server <- function(input, output, session) {
   output$resumo_local <- renderUI({ a <- serie(); comparacao <- comparar_mundial(a)
     tags$div(class="respostas-locais",
       tags$section(class="leitura-historico",tags$h3(icone_resumo("documento"),"The historical record"),tags$p(paste("Each year shows",if(input$variavel=="temperatura_c") "the mean air temperature" else "the total rainfall","for",rotulos_estacao[[input$estacao]],"in",ponto()$ponto$cidade,". This keeps the time of year consistent across the comparison."))),
-      tags$section(class="leitura-fontes",tags$h3(icone_resumo("comparacao"),"The comparison"),
-        if(!is.null(comparacao)) tagList(tags$p(class="distancia-destaque",tags$strong(num(comparacao$distancia)),tags$span(unidade_grafico(input$variavel))),
-          tags$p(paste("mean absolute difference between POWER and ERA5 across",comparacao$n,"seasons. The gap between the lines does not tell us which source is more accurate.")))
+      tags$section(class="leitura-fontes",tags$h3(icone_resumo("comparacao"),"How to compare"),
+        if(!is.null(comparacao))
+          tags$p("Compare POWER and ERA5 for the same year. The full-history comparison summarises the distance between sources across all seasons; it does not identify the more accurate source.")
         else tagList(tags$p(class="fonte-ausente","One source available"),tags$p("POWER is available. ERA5 has not yet been acquired; its absence does not mean zero."))),
       tags$section(class="conclusao-local",tags$h3(icone_resumo("pessoa"),"What about El Niño?"),tags$p("An association has not yet been calculated for this global query. Historical records alone do not explain what caused the changes or predict next year.")))
   })

@@ -1,0 +1,132 @@
+/* High-priority refinement: data hierarchy and readable explanations, same identity. */
+:root{--texto-consulta:14px;--texto-meta:12px}
+.abertura p{font-size:15px;line-height:1.5}
+.abertura .abertura-enso{font-size:13px;max-width:90ch}
+.control-label{font-size:13px}
+.filtros select{min-height:40px;font-size:15px}
+.disponibilidade,.status-fonte{font-size:12px}
+.exportacoes,.exportacoes summary{font-size:13px}
+.contexto .pais-identidade,.lugar-subtitulo{font-size:13px;line-height:1.5}
+.contexto h1{font-size:34px;line-height:1.12}
+.contexto.nome-longo h1{font-size:27px}
+.geografia{padding:20px 20px 16px}
+.localizacao-expandivel>summary{display:none}
+.localizacao-conteudo{min-width:0}
+.mapa-nota{font-size:12px;line-height:1.5;margin-top:10px}
+.local-mapa strong,.local-mapa span{font-size:12px;line-height:1.5}
+.serie{padding:20px 24px 15px}
+.titulo-metrica h2{font-size:22px;line-height:1.25}
+.recorte-comparacao{display:flex;flex-direction:column;align-items:start;gap:2px;margin:7px 0 18px;font-size:14px;line-height:1.4}
+.ultimo-ano{font-size:13px;line-height:1.5;color:var(--muted)}
+.valores-fontes{padding-right:0;min-height:0;margin-bottom:12px}
+.valor-fonte{padding-left:0}
+.valor-fonte+.valor-fonte{padding-left:24px}
+.nome-fonte{font-size:12px;line-height:1.5;margin-bottom:6px}
+.valor-fonte strong{font-size:34px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.valor-fonte small{font-size:14px;line-height:1.5}
+.referencia-valores{font-size:12px;line-height:1.5;margin:0 0 16px;max-width:65ch}
+.grafico-cabecalho{padding-top:13px;gap:10px}
+.grafico-cabecalho h3{font-size:14px;line-height:1.4}
+.grafico-cabecalho .form-group{position:static;width:auto}
+#escala span{font-size:12px;padding:7px 10px}
+.legenda-dupla{font-size:12px;line-height:1.5;gap:6px 20px;margin:12px 0 0 20px}
+.fonte-credito{font-size:12px;line-height:1.5;margin:8px 0 0}
+.explica-escala{font-size:13px;line-height:1.5}
+.explica-escala summary{padding:8px 0}
+.explica-escala p{font-size:14px;max-width:65ch}
+.indicadores .comparacao-card{position:static;width:auto;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:20px;display:block;margin:0}
+.comparacao-card h2{font-size:16px;line-height:1.3;margin:0 0 6px}
+.indicadores .comparacao-card .comparacao-periodo{font-size:12px;line-height:1.5;color:var(--muted);margin:0 0 10px}
+.indicadores .comparacao-card .comparacao-numero{font-size:16px;line-height:1.3;color:var(--ink);margin:0 0 8px;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.comparacao-numero strong{font-size:28px;line-height:1.2;font-variant-numeric:tabular-nums;color:var(--ink)}
+.comparacao-card small{font-size:13px;line-height:1.5;color:var(--muted);display:block}
+.indicador-bloco,.indicador-bloco+.indicador-bloco{padding:20px}
+.indicador-bloco h2,.distribuicao h2{font-size:15px;line-height:1.35;margin:0 0 12px}
+.indicador-bloco h2 small{font-size:12px;display:block;margin:4px 0 0}
+.mini-fonte>span{font-size:12px}
+.mini-fonte strong{font-size:22px;font-variant-numeric:tabular-nums}
+.unidade-indicador{font-size:12px}
+.distribuicao{padding:20px 16px 14px}
+.distribuicao-contexto{font-size:12px;line-height:1.5}
+.distribuicao .nota{font-size:12px;line-height:1.5;margin-top:8px}
+.evidencia{padding:20px 24px;margin:14px 0}
+.respostas-locais{gap:24px}
+.respostas-locais h3{font-size:16px;line-height:1.3;margin-bottom:8px}
+.respostas-locais p{font-size:14px;line-height:1.55;color:var(--ink);max-width:62ch}
+.respostas-locais section{padding-left:34px}
+.respostas-locais section+section{padding-left:42px}
+.respostas-locais section+section .resumo-icone{left:10px}
+.nav-tabs .nav-link{font-size:14px;line-height:1.4;padding:12px 16px}
+.documentacao p,.documentacao details p{font-size:15px;line-height:1.55;max-width:75ch}
+.documentacao:has(.fluxo-consulta) .fluxo-etapa p,.documentacao:has(.fluxo-consulta) details p,.leitura-escalas p{font-size:14px;line-height:1.5}
+.rodape{font-size:12px;line-height:1.5;padding-bottom:16px}
+.rodape summary,.nome-completo{font-size:12px}
+/* Room for two sources and a readable rail; do not compress the chart with floats. */
+@media(min-width:1251px){
+ .exploracao{grid-template-columns:minmax(260px,24fr) minmax(0,52fr) minmax(270px,24fr)}
+ #globo-local{height:300px}
+ .geografia .local-mapa{margin-top:10px;padding-top:10px}
+}
+@media(min-width:761px) and (max-width:1250px){
+ .indicadores{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+ .indicadores>#indicadores{display:block}
+ .indicadores .comparacao-card{border-bottom:0}
+ .indicador-bloco{border-bottom:0}
+ .distribuicao{grid-column:1/-1;border-top:1px solid var(--line);border-left:0}
+ .distribuicao .nota{max-width:75ch}
+}
+@media(max-width:760px){
+ main{padding-inline:14px}
+ .abertura{padding-top:14px}
+ .abertura h1{font-size:23px}
+ .abertura p{font-size:14px}
+ .abertura .abertura-enso{font-size:12px;line-height:1.5}
+ .consulta-toolbar{padding-block:12px;gap:10px}
+ .filtros{gap:10px 12px}
+ .filtros select{font-size:16px;min-height:44px}
+ .control-label{font-size:12px}
+ .status-fonte{font-size:12px}
+ .cabecalho-consulta{align-items:center}
+ .exportacoes{max-width:125px}
+ .geografia{padding:16px 18px 0}
+ .contexto h1{font-size:30px}
+ .contexto.nome-longo h1{font-size:25px}
+ .lugar-subtitulo{font-size:12px;margin-bottom:10px}
+ .localizacao-expandivel>summary{display:flex;align-items:center;gap:5px;justify-content:flex-start;list-style:none;font-size:14px;font-weight:600;min-height:44px;border-top:1px solid var(--line);color:var(--ink)}
+ .localizacao-expandivel>summary::-webkit-details-marker{display:none}
+ .localizacao-expandivel>summary:after{content:'+';margin-left:auto;font-size:20px;font-weight:400}
+ .localizacao-expandivel[open]>summary:after{content:'−'}
+ .localizacao-conteudo{padding-bottom:16px}
+ .mapa-barra{display:none}
+ #globo-local{height:290px}
+ .globo-tools button{width:36px;height:36px;min-width:36px}
+ .serie{padding:18px 18px 14px}
+ .titulo-metrica h2{font-size:21px}
+ .recorte-comparacao{margin-bottom:14px;font-size:14px}
+ .ultimo-ano{font-size:12px}
+ .valor-fonte strong{font-size:32px}
+ .valor-fonte small{font-size:13px}
+ .valor-fonte+.valor-fonte{padding-left:16px}
+ .referencia-valores{font-size:12px;margin-bottom:14px}
+ .grafico-cabecalho{gap:10px}
+ .grafico-cabecalho .form-group{flex-basis:100%}
+ #escala .shiny-options-group{width:100%}
+ #escala .radio-inline{flex:1}
+ #escala span{font-size:12px;padding:9px 8px;text-align:center;min-height:40px}
+ .legenda-dupla{margin-left:0;gap:6px 16px}
+ .indicadores{display:block}
+ .indicadores>#indicadores{display:block}
+ .indicadores .comparacao-card{padding:18px;border-bottom:1px solid var(--line)}
+ .indicador-bloco{padding:18px;border-right:0}
+ .mini-fontes{gap:16px}
+ .mini-fonte strong{font-size:23px}
+ .mini-fonte>span,.unidade-indicador{font-size:12px}
+ .distribuicao{padding:18px}
+ .evidencia{padding:18px}
+ .respostas-locais h3{font-size:16px}
+ .respostas-locais p{font-size:14px;line-height:1.55}
+ .respostas-locais section+section{padding:16px 0 0 32px;margin-top:16px}
+ .respostas-locais section+section .resumo-icone{left:0;top:16px}
+ .nav-tabs .nav-link{font-size:12px;min-height:64px;padding:8px 4px}
+ .nav-tabs .nav-link .icone-painel{width:18px;height:18px}
+}

@@ -142,7 +142,8 @@ server <- function(input, output, session) {
     tags$div(class="resumo resumo-fontes",
       tags$div(class="titulo-metrica", HTML(icone_metrica(input$variavel)),
         tags$h2(if(input$variavel=="temperatura_c") "Temperatura média" else "Chuva acumulada")),
-      tags$p(class="recorte-comparacao", paste(rotulos_estacao[[input$estacao]], a$ano_sazonal[1], sep=" · "),tags$span(class="ultimo-ano","Último ano da base, não é o tempo agora")),
+      tags$p(class="recorte-comparacao",tags$span(class="recorte-epoca",rotulos_estacao[[input$estacao]]),
+        tags$span(class="ultimo-ano",paste("Último ano da base",a$ano_sazonal[1],sep=" · "))),
       tags$div(class="valores-fontes", lapply(seq_len(nrow(a)), function(i)
         tags$div(class=paste("valor-fonte",tolower(a$fonte[i])), tags$span(class="nome-fonte",a$fonte[i],ajuda_fonte(a$fonte[i])),
           tags$div(tags$strong(num(a$valor[i])), tags$span(if(input$variavel=="temperatura_c") " °C" else " mm")),
@@ -165,24 +166,26 @@ server <- function(input, output, session) {
     p <- plotly::layout(p,shapes=referencias,paper_bgcolor="#ffffff",plot_bgcolor="#ffffff",
       margin=list(l=44,r=8,t=12,b=28),
       xaxis=list(showgrid=TRUE,gridcolor="#eef3f6",tickvals=c(1981,1990,2000,2010,2025)),
-      yaxis=list(gridcolor="#e4ebee"),font=list(family="Source Sans 3, sans-serif",color="#536771",size=11))
+      yaxis=list(gridcolor="#e4ebee"),font=list(family="Source Sans 3, sans-serif",color="#536771",size=12))
     # Only scatter traces are used. Local basic bundle avoids the full 3D/map payload
     # and avoids partial_bundle() downloading a dependency at application runtime.
     plotly_local(p,paste("Histórico de",ponto()$ponto$cidade,". Fontes:",paste(unique(a$fonte),collapse=", ")))
   })
   output$comparacao_destaque <- renderUI({
-    c <- comparar_mundial(serie())
-    tags$div(class="comparacao-card",tags$p("Diferença entre fontes"),
-      tags$strong(if(is.null(c)) "—" else num(c$distancia)),tags$span(paste0(" ",unidade_grafico(input$variavel))),
-      tags$small(if(is.null(c)) "Uma fonte disponível" else "Distância média; não indica a fonte mais precisa."))
+    a <- serie(); c <- comparar_mundial(a)
+    tags$section(class="comparacao-card",tags$h2("Comparação do histórico"),
+      tags$p(class="comparacao-periodo",paste0(min(a$ano_sazonal),"–",max(a$ano_sazonal),
+        if(!is.null(c)) paste0(" · ",c$n," ","temporadas pareadas") else "")),
+      tags$p(class="comparacao-numero",tags$strong(if(is.null(c)) "—" else num(c$distancia)),
+        tags$span(paste0(" ",unidade_grafico(input$variavel)))),
+      tags$small(if(is.null(c)) "Uma fonte disponível" else "Distância média entre POWER e ERA5. Não indica a fonte mais precisa."))
   })
   output$indicadores <- renderUI({
     s <- descrever_anos(serie()); u <- unidade_grafico(input$variavel)
     valores <- function(col) tags$div(class="mini-fontes",lapply(seq_len(nrow(s)),function(i)
       tags$div(class=paste("mini-fonte",tolower(s$fonte[i])),tags$span(s$fonte[i]),
         tags$p(tags$strong(num(s[[col]][i])),tags$span(class="unidade-indicador",u)))))
-    tagList(tags$section(class="indicador-bloco",tags$h2(paste0("Último ano (",max(s$ultimo_ano),")")),valores("ultimo")),
-      tags$section(class="indicador-bloco",tags$h2("Média de referência",tags$small("1991–2020")),valores("referencia")))
+    tags$section(class="indicador-bloco",tags$h2("Média de referência",tags$small("1991–2020")),valores("referencia"))
   })
   output$distribuicao_subtitulo <- renderUI(tags$p(class="distribuicao-contexto",
     paste(if(input$variavel=="temperatura_c") "Temperatura média" else "Chuva acumulada",rotulos_estacao[[input$estacao]],sep=" · ")))
@@ -205,7 +208,7 @@ server <- function(input, output, session) {
     }
     p <- plotly::layout(p,shapes=shapes,showlegend=FALSE,margin=list(l=52,r=12,t=10,b=30),
       paper_bgcolor="white",plot_bgcolor="white",separators=",.",
-      font=list(family="Source Sans 3, sans-serif",size=11,color="#536771"),
+      font=list(family="Source Sans 3, sans-serif",size=12,color="#536771"),
       xaxis=list(title="",ticksuffix=if(input$variavel=="temperatura_c") " °C" else " mm",gridcolor="#e9f0f4",fixedrange=TRUE),
       yaxis=list(title="",tickvals=ifelse(s$fonte=="POWER",2,1),ticktext=s$fonte,range=c(.45,2.55),showgrid=FALSE,zeroline=FALSE,fixedrange=TRUE))
     plotly_local(plotly::config(p,displayModeBar=FALSE,responsive=TRUE,scrollZoom=FALSE),"Distribuição descritiva dos valores anuais por fonte")
@@ -226,9 +229,9 @@ server <- function(input, output, session) {
   output$resumo_local <- renderUI({ a <- serie(); comparacao <- comparar_mundial(a)
     tags$div(class="respostas-locais",
       tags$section(class="leitura-historico",tags$h3(icone_resumo("documento"),"O histórico"),tags$p(paste("Cada ano mostra",if(input$variavel=="temperatura_c") "a temperatura média" else "a chuva acumulada","de",tolower(rotulos_estacao[[input$estacao]]),"em",ponto()$ponto$cidade,". Assim, comparamos sempre a mesma época do ano."))),
-      tags$section(class="leitura-fontes",tags$h3(icone_resumo("comparacao"),"A comparação"),
-        if(!is.null(comparacao)) tagList(tags$p(class="distancia-destaque",tags$strong(num(comparacao$distancia)),tags$span(unidade_grafico(input$variavel))),
-          tags$p(paste("de diferença média entre POWER e ERA5, em",comparacao$n,"temporadas. A distância entre as linhas não diz qual fonte é mais precisa.")))
+      tags$section(class="leitura-fontes",tags$h3(icone_resumo("comparacao"),"Como comparar"),
+        if(!is.null(comparacao))
+          tags$p("Compare POWER e ERA5 no mesmo ano. A comparação do histórico resume a distância entre as fontes em todas as temporadas; ela não identifica a fonte mais precisa.")
         else tagList(tags$p(class="fonte-ausente","Uma fonte disponível"),tags$p("POWER já está aqui. ERA5 aguarda aquisição; sua ausência não significa zero."))),
       tags$section(class="conclusao-local",tags$h3(icone_resumo("pessoa"),"E o El Niño?"),tags$p("Ainda não calculada a associação nesta consulta mundial. O histórico sozinho não explica a causa das mudanças nem prevê o próximo ano.")))
   })

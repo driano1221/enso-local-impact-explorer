@@ -19,6 +19,8 @@ testServer(server, {
   stopifnot(nrow(unica)==1L,!is.na(unica$id))
   session$setInputs(pais=unica$pais_iso2,cidade=unica$id,estacao="SON",variavel="temperatura_c",escala="valor")
   stopifnot(nrow(serie())==45,grepl("ainda não adquirido",output$disponibilidade$html))
+  stopifnot(grepl("Uma fonte disponível",output$comparacao_destaque$html),
+    !grepl("temporadas pareadas",output$comparacao_destaque$html))
   h <- jsonlite::fromJSON(output$historico,simplifyVector=FALSE)
   stopifnot(length(h$x$data)==1)
   deps <- h$deps
@@ -30,6 +32,12 @@ testServer(server, {
   stopifnot(grepl("Ainda não calculada",output$resumo_local$html))
   a <- serie(); esperado <- comparar_mundial(a)
   stopifnot(identical(esperado,comparar_mundial(a[nrow(a):1,])),esperado$n==44)
+  # The full-history distance must not look like the latest year's difference.
+  stopifnot(grepl("1982–2025",output$comparacao_destaque$html,fixed=TRUE),
+    grepl("44 temporadas pareadas",output$comparacao_destaque$html,fixed=TRUE),
+    grepl("Último ano da base",output$resumo_valor$html,fixed=TRUE),
+    !grepl("Último ano",output$indicadores$html,fixed=TRUE),
+    !grepl("distancia-destaque",output$resumo_local$html,fixed=TRUE))
   falta <- a[-1,]
   stopifnot(inherits(try(comparar_mundial(falta),silent=TRUE),"try-error"))
   ficha <- ficha_mundial(ponto(),"DJF","precipitacao_mm_mes")

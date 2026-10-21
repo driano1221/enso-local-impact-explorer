@@ -10,6 +10,11 @@
     const pilot=['GN-3445133','GN-3455671','GN-3470127'].includes(current.id);
     if(view==='region'&&!pilot)view='globe';
     document.documentElement.style.setProperty('--metric',current.metrica==='temperatura_c'?'#e44e36':'#217fa5');
+    // On phones the data comes first; initialise WebGL only when the location is opened.
+    if(!document.querySelector('.localizacao-expandivel').open){
+      if(globePromise)globePromise.then(g=>g.hide()).catch(()=>{});
+      return;
+    }
     try{
       if(view==='globe'){
         try{const g=await globe();if(version!==revision)return;el.hidden=true;g.show(current);}
@@ -31,6 +36,10 @@
     }catch(e){el.hidden=false;el.textContent='Map unavailable. The city and coordinates remain available below.';}
   }
   document.addEventListener('DOMContentLoaded',()=>{
+    const location=document.querySelector('.localizacao-expandivel'),phone=matchMedia('(max-width:760px)');
+    location.open=!phone.matches;
+    location.addEventListener('toggle',()=>draw());
+    phone.addEventListener('change',()=>{location.open=!phone.matches;draw();});
     for(const id of ['pais','cidade']){
       const select=document.getElementById(id),label=document.createElement('span');label.className='nome-completo';label.id=id+'-completo';select.after(label);select.setAttribute('aria-describedby',label.id);
       const measure=document.createElement('canvas').getContext('2d');
