@@ -20,15 +20,15 @@ enso_ai_enabled <- function(state) is.character(state$config$api_key) && length(
 enso_ai_ui <- function(lang) {
   pt <- lang == "pt"
   shiny::tags$details(class = "enso-assistente", id = "enso-assistente",
-    shiny::tags$summary(shiny::tags$span(if (pt) "Pergunte sobre estes dados" else "Ask about these data"), shiny::tags$small(if (pt) "IA · DeepSeek" else "AI · DeepSeek")),
+    shiny::tags$summary(shiny::tags$span(if (pt) "Pergunte sobre estes dados" else "Ask about these data"), shiny::tags$small(if (pt) "IA" else "AI")),
     shiny::tags$div(class = "enso-assistente-corpo",
-      shiny::tags$p(class = "enso-ai-intro", if (pt) "Sobre o local, a medida e a época selecionados. A IA identifica sua dúvida; os números vêm dos dados do painel." else "About the selected location, measure and season. AI identifies your question; numbers come from the dashboard data."),
+      shiny::tags$p(class = "enso-ai-intro", if (pt) "Pergunte sobre o que está vendo no gráfico. A resposta usa os dados da cidade, da medida e da época que você escolheu." else "Ask about what you see in the chart. Answers use the data for the place, measure and season you selected."),
       shiny::tags$div(class = "enso-ai-sugestoes", lapply(if (pt) c("O que significa a diferença da média?", "Isso foi causado pelo El Niño?", "Qual fonte é mais precisa?") else c("What does the difference from the baseline mean?", "Was this caused by El Niño?", "Which source is more accurate?"), function(q)
         shiny::tags$button(type = "button", `data-enso-question` = q, q))),
       shiny::textAreaInput("enso_question", if (pt) "Sua pergunta" else "Your question", rows = 2, width = "100%",
-        placeholder = if (pt) "Por exemplo: a diferença da média é a temperatura real?" else "For example: is the difference from the baseline the actual temperature?"),
-      shiny::tags$p(class = "enso-ai-privacidade", if (pt) "Ao consultar, sua pergunta e este recorte são enviados à DeepSeek. Não inclua informações pessoais. Até 500 caracteres." else "When you ask, your question and this query are sent to DeepSeek. Do not include personal information. Up to 500 characters."),
-      shiny::actionButton("enso_ask", if (pt) "Consultar evidências" else "Consult evidence", class = "enso-ai-enviar"),
+        placeholder = if (pt) "Por exemplo: essa diferença é a temperatura real?" else "For example: is this difference the actual temperature?"),
+      shiny::tags$p(class = "enso-ai-privacidade", if (pt) "Sua pergunta e os dados desta consulta serão enviados a um serviço de IA para preparar a resposta. Evite informações pessoais. Até 500 caracteres." else "Your question and the data for this query will be sent to an AI service to prepare the answer. Avoid personal information. Up to 500 characters."),
+      shiny::actionButton("enso_ask", if (pt) "Enviar pergunta" else "Ask", class = "enso-ai-enviar"),
       shiny::tags$div(id = "enso-ai-status", role = "status", `aria-live` = "polite", tabindex = "-1", shiny::uiOutput("enso_ai_answer"))))
 }
 enso_ai_inserir <- function(tag, lang) {
@@ -47,7 +47,7 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     if (code == "input") return(if (pt) "Escreva uma pergunta de até 500 caracteres sobre esta consulta." else "Write a question of up to 500 characters about this query.")
     if (code == "changed") return(if (pt) "A seleção mudou. Faça sua pergunta novamente para este recorte." else "The selection changed. Ask again for this query.")
     if (code == "rate") return(if (pt) "Aguarde alguns segundos antes de enviar outra pergunta." else "Please wait a few seconds before sending another question.")
-    if (code == "waiting") return(if (pt) "Consultando as evidências… Você pode continuar usando os gráficos." else "Consulting the evidence… You can keep using the charts.")
+    if (code == "waiting") return(if (pt) "Preparando a resposta… Você pode continuar olhando os gráficos." else "Preparing your answer… You can keep exploring the charts.")
     if (code == "http_402") return(if (pt) "O saldo de demonstração da IA está indisponível. Explore o resumo, as fontes e os downloads abaixo." else "The AI demonstration balance is unavailable. Explore the summary, sources and downloads.")
     if (code == "http_429") return(if (pt) "A IA atingiu um limite temporário. Tente mais tarde; os dados continuam disponíveis." else "AI reached a temporary limit. Try later; the data remain available.")
     if (pt) "Não foi possível consultar a IA agora. O resumo, as fontes e os downloads continuam disponíveis." else "AI could not be consulted now. The summary, sources and downloads remain available."
@@ -75,7 +75,7 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     x <- answer(); if (is.null(x)) return(NULL)
     if (!is.null(x$message)) return(shiny::tags$p(class = "enso-ai-mensagem", x$message))
     shiny::tagList(
-      shiny::tags$p(class = "enso-ai-origem", if (isTRUE(x$cached)) if (pt) "Resposta reutilizada · mesma consulta" else "Reused response · same query" else if (pt) "Consulta interpretada por DeepSeek · fatos calculados pelo R" else "Query interpreted by DeepSeek · facts calculated by R"),
+      shiny::tags$p(class = "enso-ai-origem", if (isTRUE(x$cached)) if (pt) "Resposta para a mesma consulta" else "Answer for the same query" else if (pt) "Resposta com base nos dados selecionados" else "Answer based on the selected data"),
       lapply(strsplit(x$result$text, "\n\n", fixed = TRUE)[[1]], function(p) shiny::tags$p(p)),
       shiny::tags$div(class = "enso-ai-fontes", lapply(seq_len(nrow(x$facts$sources)), function(i) {
         url <- x$facts$sources$url[i]

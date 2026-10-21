@@ -1,6 +1,6 @@
 {
   "status": "publication candidate; not publicly deployed or submitted",
-  "created_at_utc": "2026-10-21T03:29:14.009644+00:00",
+  "created_at_utc": "2026-10-21T12:43:47.222545+00:00",
   "points": 684,
   "source_point_pairs": 1368,
   "monthly_rows": 738720,
@@ -18,5 +18,7 @@
     "credentials": "not included; configure on server",
     "dynamic_answers_anchored": false
   },
-  "integration_manifest_sha256": "c7174e57117266a0a2cfa2c761976f330b49a14e1e251a54aaaf1c1a045f4ce5"
+  "integration_manifest_sha256": "c7174e57117266a0a2cfa2c761976f330b49a14e1e251a54aaaf1c1a045f4ce5",
+  "parent_manifest_sha256": "bfd9261f8ca101495394235e28ffb391bbb56ca9ca771cd511425d8d32fee841",
+  "ui_revision": "natural assistant copy, provider-neutral labels, resize-aware ENSO guide"
 }

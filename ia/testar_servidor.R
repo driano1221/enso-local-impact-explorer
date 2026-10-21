@@ -4,7 +4,7 @@ state <- enso_ai_runtime(root_enso, list(api_key = "DUMMY_NOT_A_PROVIDER_KEY", e
 for (lang in c("pt", "en")) {
   ui <- htmltools::renderTags(enso_ai_inserir(apps_enso[[lang]]$ui, lang))$html
   stopifnot(length(gregexpr('id="enso-assistente"', ui, fixed = TRUE)[[1]]) == 1L,
-    !grepl("DUMMY_NOT_A_PROVIDER_KEY", ui, fixed = TRUE))
+    !grepl("DUMMY_NOT_A_PROVIDER_KEY", ui, fixed = TRUE), !grepl("deepseek", ui, ignore.case = TRUE))
 }
 original <- ia_fatos("WUP-7802", "SON", "temperatura_c")
 publico <- ia_fatos_publicos("WUP-7802", "SON", "temperatura_c")
