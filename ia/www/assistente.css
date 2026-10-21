@@ -1,0 +1,22 @@
+/* Scoped additions: preserve the approved dashboard, typography and figures. */
+.enso-assistente{border-top:1px solid var(--line,#d5e3e9);margin-top:14px;padding:11px 0 0;color:var(--ink,#15384c);grid-column:1/-1}
+.enso-assistente>summary{display:flex;align-items:center;gap:14px;cursor:pointer;font-size:14px;font-weight:600;list-style:none;width:fit-content}
+.enso-assistente>summary::before{content:'+';font-weight:400;color:var(--era5,#217fa5);font-size:21px;line-height:1;width:13px}
+.enso-assistente[open]>summary::before{content:'−'}
+.enso-assistente>summary small{font-size:10px;letter-spacing:.04em;font-weight:500;color:var(--muted,#5b7485)}
+.enso-assistente-corpo{max-width:920px;padding:12px 0 4px}
+.enso-assistente-corpo p{font-size:14px;line-height:1.55;color:var(--ink,#15384c);margin:0 0 10px}
+.enso-assistente-corpo .enso-ai-intro,.enso-assistente-corpo .enso-ai-privacidade{color:var(--muted,#5b7485);font-size:12px}
+.enso-assistente .shiny-input-container{max-width:none;margin-bottom:6px}
+.enso-assistente label{font-size:13px;margin-top:12px}
+.enso-assistente textarea{resize:vertical;min-height:70px;max-height:180px;font:inherit;line-height:1.45;background:var(--paper,#fff);color:var(--ink,#15384c);border-color:var(--line,#c7dbe5)}
+.enso-ai-sugestoes{display:flex;flex-wrap:wrap;gap:6px 14px;margin:5px 0}
+.enso-ai-sugestoes button{background:none;border:0;border-bottom:1px solid var(--line,#c7dbe5);padding:3px 0;color:var(--era5,#217fa5);font:inherit;font-size:12px;cursor:pointer;text-align:left}
+.enso-ai-enviar{border:1px solid #1d617c;background:#18536c;color:#fff;font:inherit;font-size:13px;padding:7px 13px;border-radius:3px}
+.enso-ai-enviar:hover{background:#123f55;color:#fff}.enso-ai-enviar:disabled{opacity:.6;cursor:wait}
+.enso-assistente :is(summary,button,textarea,a):focus-visible{outline:2px solid #d79336;outline-offset:3px}
+#enso-ai-status{margin-top:14px;overflow-wrap:anywhere}
+#enso-ai-status:empty{margin:0}#enso-ai-status .enso-ai-origem{font-size:11px;color:var(--muted,#5b7485);padding-bottom:6px;border-bottom:1px solid var(--line,#d5e3e9)}
+.enso-ai-fontes{display:flex;flex-wrap:wrap;gap:18px;font-size:12px}.enso-ai-fontes a{color:var(--era5,#217fa5);text-underline-offset:3px}
+[data-theme=dark] .enso-ai-enviar{background:#276d88;border-color:#7bb4c9}[data-theme=dark] .enso-assistente textarea{background:#18384b}
+@media(max-width:760px){.enso-assistente{padding-top:12px}.enso-assistente>summary{font-size:14px;gap:8px;flex-wrap:wrap}.enso-ai-sugestoes{gap:7px}.enso-ai-sugestoes button{font-size:12px}.enso-assistente-corpo p{font-size:13px}.enso-assistente textarea{font-size:16px}.enso-ai-enviar{min-height:40px}}

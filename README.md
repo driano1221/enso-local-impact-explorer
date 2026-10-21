@@ -8,6 +8,10 @@ The header switches between English and Brazilian Portuguese while retaining the
 
 This package contains a versioned preview, including the data it uses. Read `SNAPSHOT.json` for this package's exact frozen POWER/ERA5 coverage, record counts and unresolved catalogue cases. A live preview or a newer local dataset may have a different snapshot. Later acquisitions do not change this package automatically. A published preview is not a final competition submission.
 
+## AI evidence interpreter
+
+“Ask about these data” opens a small, optional interpreter below the local summary. DeepSeek classifies a question; R displays reviewed explanations with the selected real data and source links. It does not produce forecasts or infer an El Niño cause. Requests require explicit submission; the credential stays on the server. The public package runs without a key. See [AI operation, privacy and configuration](ia/README.md). “Understand the phenomenon” now opens the ENSO tab and briefly highlights/focuses its phase controls, including on mobile and with reduced motion.
+
 ## Start the dashboard
 
 Install R 4.3 or newer. From the extracted package root, open R and restore the recorded dependencies into a project library:

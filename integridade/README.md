@@ -1,5 +1,7 @@
 # Integridade pública — Stellar Testnet
 
+**Atualização final — 19/10/2026:** o [manifesto completo da release r7](release_r7/README.md) foi ancorado na [Stellar Testnet](https://horizon-testnet.stellar.org/transactions/162206069078f8696f99a19dbbb26c5a83780c198f620ff88ccf79cb82ab10c2), cobrindo seus 3.301 arquivos listados. Teste real da release e adulterações passou; zero custo real, pacote e visual preservados. Recibo/prova disponíveis como anexos separados da [release](https://github.com/driano1221/enso-local-impact-explorer/releases/tag/v0.2.0-preview.684). Os blocos abaixo descrevem a demonstração histórica de dois exports, que permanece preservada e distinta da prova r7. Integridade não certifica exatidão climática; Testnet pode reiniciar.
+
 Implementado e consultado na rede em 17/10/2026. Nenhum custo em dinheiro real; nenhum recurso visual ou modelo climático alterado. Esta demonstração cobre **dois downloads congelados**, não todos os dados mundiais nem a versão final de entrega.
 
 ## Registro verificável

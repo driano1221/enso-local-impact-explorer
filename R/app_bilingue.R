@@ -30,6 +30,9 @@ for(lang in names(apps_enso)) {
   shiny::addResourcePath(paste0(prefix,"/aprovado"),approved)
   apps_enso[[lang]]$ui <- prefixar_recursos(apps_enso[[lang]]$ui,prefix)
 }
+source(file.path(root_enso,"ia/servidor.R"),local=TRUE,encoding="UTF-8")
+enso_ai_state <- enso_ai_runtime(root_enso)
+shiny::addResourcePath("enso-ai",file.path(root_enso,"ia/www"))
 # Reactive country flags use the shared vendor URL rather than a UI prefix.
 shiny::addResourcePath("vendor",file.path(apps_enso$pt$path,"www/vendor"))
 escala_inicial_ui <- function(tag,value) {
@@ -43,6 +46,8 @@ escala_inicial_ui <- function(tag,value) {
 shiny::shinyApp(ui=function(request) {
   lang <- idioma_enso(request$QUERY_STRING)
   ui <- apps_enso[[lang]]$ui
+  ui <- enso_ai_inserir(ui,lang)
+  ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-ai/assistente.css?v=ia1"),shiny::tags$script(src="enso-ai/assistente.js?v=ia1"))
   q <- shiny::parseQueryString(if(is.null(request$QUERY_STRING)) "" else request$QUERY_STRING)
   if(length(q$escala)==1L && q$escala %in% c("valor","diferenca")) ui <- escala_inicial_ui(ui,q$escala)
   ui[[length(ui)+1L]] <- shiny::tags$div(style="display:none",`aria-hidden`="true",shiny::textInput("ui_language",NULL,value=lang))
@@ -51,4 +56,5 @@ shiny::shinyApp(ui=function(request) {
   lang <- shiny::isolate(input$ui_language)
   if(is.null(lang) || !lang %in% names(apps_enso)) lang <- idioma_enso(shiny::isolate(session$clientData$url_search))
   apps_enso[[lang]]$server(input,output,session)
+  enso_ai_instalar(input,output,session,lang,enso_ai_state)
 })

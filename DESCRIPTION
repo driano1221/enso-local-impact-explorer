@@ -1,8 +1,8 @@
 Package: ensoLocalSnapshot
 Title: ENSO Local Impact Explorer Public Snapshot
-Version: 0.1.0
+Version: 0.3.0
 Description: Frozen descriptive climate dashboard and public verification tools.
 License: MIT + file LICENSE
 Depends: R (>= 4.3.0)
 Imports: shiny, bslib, dplyr, readr, tidyr, ggplot2, plotly,
-    jsonlite, digest, htmlwidgets, htmltools
+    jsonlite, digest, htmlwidgets, htmltools, httr2, processx, later

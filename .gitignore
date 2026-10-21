@@ -1,6 +1,7 @@
 .Rhistory
 .RData
 .Renviron
+.enso-runtime.json
 .r-library/
 .venv*/
 rsconnect/

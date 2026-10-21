@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 102,
-      "sha256": "fd50c8cd6b01bba755b8e51df817a3ae5d027c86b8135a03026ad60c04f0c9ab"
+      "bytes": 121,
+      "sha256": "6e1cfffb45efd197dcb6fa64a593e09eaaf73e0bf2bdf9c9def1d78855f2a752"
     },
     {
       "path": "app.R",
@@ -13155,8 +13155,68 @@
     },
     {
       "path": "DESCRIPTION",
-      "bytes": 329,
-      "sha256": "5a381a575221df1f4a42bc010d2840020e9119480c1ba74cfd05b5e3acd4770b"
+      "bytes": 353,
+      "sha256": "5b279aad58aea21fbbc315f16fb5c99866abaee380457391fa8f37a5ad4522f8"
+    },
+    {
+      "path": "ia/casos.json",
+      "bytes": 5358,
+      "sha256": "e7ed552cd5969d69752e843d09c8331f62a8d326492054e410eaeb3060d43fc8"
+    },
+    {
+      "path": "ia/deepseek.R",
+      "bytes": 7448,
+      "sha256": "c0dbb0a24ee33eee44b54c24dea49afaa0fcd7a3531ccf32d96a5be950848569"
+    },
+    {
+      "path": "ia/fatos.R",
+      "bytes": 7869,
+      "sha256": "bac16c129b73698158ee102e557f2ef2f86d520126ad837089faecb226e80d11"
+    },
+    {
+      "path": "ia/fatos_publicos.R",
+      "bytes": 1847,
+      "sha256": "844c2a02c35f9f70b0d93f028cfc30506f9d6aab84bbc2ef63c2eb0628f57393"
+    },
+    {
+      "path": "ia/README.md",
+      "bytes": 2897,
+      "sha256": "8ca4ef36901c174a090fa5628b6e011626f1c779c27cc1654f9372adeae37fbd"
+    },
+    {
+      "path": "ia/servidor.R",
+      "bytes": 11174,
+      "sha256": "c82d5ada8bf658a72bb85bb3da6c3a04071467e0edb7433a0c60ce36fb5a2af4"
+    },
+    {
+      "path": "ia/testar_local.R",
+      "bytes": 6734,
+      "sha256": "251e91b1f639895feda8a53eb3a40f4e41b89e2ef5755470e9f149f022d99c73"
+    },
+    {
+      "path": "ia/testar_servidor.R",
+      "bytes": 3352,
+      "sha256": "ae3058a761852928a24cd4ba8ebf59bbbc629e6f6a8859fb5a330e384b6a0e14"
+    },
+    {
+      "path": "ia/testes/worker_fake.R",
+      "bytes": 929,
+      "sha256": "d81dec9d26a0977f0930edde1e512745cb962c03b5ae4cd98736cf628ed65aa6"
+    },
+    {
+      "path": "ia/worker.R",
+      "bytes": 1855,
+      "sha256": "f821d36178d8016a0149de48c6288cf7b5b5f3a20a343fb28353cff3628d9b11"
+    },
+    {
+      "path": "ia/www/assistente.css",
+      "bytes": 2679,
+      "sha256": "9f4957320ff9e1d72b1edefc859794ee4637d521f6c233af7f21914878205d60"
+    },
+    {
+      "path": "ia/www/assistente.js",
+      "bytes": 3557,
+      "sha256": "4f9ca426237bcacdcfbab64f884cae3da1b5b49fb712a1e7ace039973b41d5a1"
     },
     {
       "path": "idiomas/en-assets.tsv",
@@ -13210,8 +13270,8 @@
     },
     {
       "path": "integridade/README.md",
-      "bytes": 7023,
-      "sha256": "10c2b8fbffd66d52b7ca37452b13a0579946e0b13042b2a4f67d8ddf75a505a3"
+      "bytes": 7751,
+      "sha256": "852f64a7054d6c33527d056fc3f8c6a103a72934d5a5a501551b240830987e9f"
     },
     {
       "path": "integridade/requirements-lock.txt",
@@ -16415,8 +16475,8 @@
     },
     {
       "path": "R/app_bilingue.R",
-      "bytes": 2901,
-      "sha256": "a98b0030342ffc076904ddcaa3cd43f479e012aab73af6d1990edf74bac73ca7"
+      "bytes": 3343,
+      "sha256": "0a266efd0c15a4ef8e75f07a6aa02c304d187d217dc55259dc1014fa6d215e19"
     },
     {
       "path": "R/fixture_fonte_unica.R",
@@ -16475,13 +16535,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 10683,
-      "sha256": "a28caaa814a338196cc09e6b4e50be4cebaebad1b551e812d931e7ce0f011c50"
+      "bytes": 11298,
+      "sha256": "224a8b9dfc551eef59960ef5165bf013d5d52ce54b29ab3fbd456478272878c7"
     },
     {
       "path": "renv.lock",
-      "bytes": 196076,
-      "sha256": "0ffd8cfb52a6f271dd3a88f3cf853f44595c7d32838644343b453e164fb69e73"
+      "bytes": 201854,
+      "sha256": "aa6ddc1c201a594729cb6e74307c95b9da39a1d66fc066dfdcb889dd083216dc"
     },
     {
       "path": "requirements-acquisition.txt",
@@ -16500,8 +16560,8 @@
     },
     {
       "path": "SNAPSHOT.json",
-      "bytes": 711,
-      "sha256": "30683b41da40ac94e36679feb20cd01a82e85847835a163214ae0d1d92815aef"
+      "bytes": 890,
+      "sha256": "f99500cc987ebec1808e69448ee0c57e995f9af3de1bbf7e3206a03b8248752a"
     },
     {
       "path": "verificar_pacote.py",

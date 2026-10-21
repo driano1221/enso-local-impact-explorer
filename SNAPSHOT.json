@@ -1,6 +1,6 @@
 {
   "status": "publication candidate; not publicly deployed or submitted",
-  "created_at_utc": "2026-10-20T00:33:31.689248+00:00",
+  "created_at_utc": "2026-10-21T03:29:14.009644+00:00",
   "points": 684,
   "source_point_pairs": 1368,
   "monthly_rows": 738720,
@@ -10,7 +10,13 @@
   "reference": "1991-2020 per source and month",
   "catalogue_ranking_boundary_gaps": 39,
   "global_inference_released": false,
-  "blockchain_scope": "two-export Testnet demo only; this full manifest is not anchored",
-  "integration_manifest_sha256": "c7174e57117266a0a2cfa2c761976f330b49a14e1e251a54aaaf1c1a045f4ce5",
-  "derived_from_archive_sha256": "820f324ade2f13a9bd13d2da28ffc37da3c6b6c780b3fac49cd7e31af992b8e8"
+  "blockchain_scope": "New manifest requires its own separate Testnet receipt; r7 proof covers r7 only.",
+  "ai": {
+    "model": "deepseek-flash",
+    "role": "validated intent routing to R-rendered climate evidence",
+    "expires_brasilia": "2026-11-08 23:59:59",
+    "credentials": "not included; configure on server",
+    "dynamic_answers_anchored": false
+  },
+  "integration_manifest_sha256": "c7174e57117266a0a2cfa2c761976f330b49a14e1e251a54aaaf1c1a045f4ce5"
 }
