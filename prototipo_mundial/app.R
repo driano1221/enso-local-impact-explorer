@@ -123,6 +123,11 @@ server <- function(input, output, session) {
     ler_ponto_mundial(input$cidade, file.path(app_dir,".."))
   })
   serie <- reactive({ req(input$estacao, input$variavel); series_mundiais(ponto(), input$estacao, input$variavel) })
+  observe({
+    a <- serie(); req(input$escala)
+    snapshot <- list(pais=input$pais,cidade=input$cidade,estacao=input$estacao,variavel=input$variavel,escala=input$escala)
+    session$onFlushed(function() session$sendCustomMessage("consulta-pronta",snapshot),once=TRUE)
+  })
   output$contexto <- renderUI({ p <- ponto()$ponto
     cidade <- trimws(sub("\\s*\\([^)]*\\)\\s*$","",p$cidade))
     alias <- if(cidade!=trimws(p$cidade)) trimws(sub(cidade,"",p$cidade,fixed=TRUE)) else NULL
@@ -195,7 +200,7 @@ server <- function(input, output, session) {
       f <- s$fonte[i]; d <- a[a$fonte==f, ]; y <- if(f=="POWER") 2 else 1
       cor <- if(f=="POWER") "#e44e36" else "#217fa5"
       p <- plotly::add_trace(p,x=d$valor,y=y+sin(seq_len(nrow(d))*2.4)*.045,type="scatter",mode="markers",name=f,
-        marker=list(color=cor,size=5,opacity=.65),
+        customdata=d$ano_sazonal,marker=list(color=cor,size=5,opacity=.65),
         text=paste(f,d$ano_sazonal,paste0(num(d$valor)," ",unidade_grafico(input$variavel)),sep=" · "),hoverinfo="text")
       shapes <- c(shapes,list(list(type="rect",x0=s$q1[i],x1=s$q3[i],y0=y-.18,y1=y+.18,
         line=list(color=cor,width=1),fillcolor=if(f=="POWER") "rgba(244,105,82,.26)" else "rgba(44,150,200,.28)"),

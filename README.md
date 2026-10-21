@@ -1,96 +1,73 @@
-# ENSO Local Impact Explorer
+# ENSO Local
 
-Historical climate evidence for local questions. Select a place, season and measure; compare NASA POWER and ERA5 when available; download chart data, monthly records and a factsheet. This package contains both the Portuguese dashboard and its English version, using the same calculations.
+### Local climate history. Two sources. Evidence you can inspect.
 
-**[Live dashboard — English](https://kl5ug0-adriano-pires.shinyapps.io/enso-local-preview/?lang=en)** · **[Português (Brasil)](https://kl5ug0-adriano-pires.shinyapps.io/enso-local-preview/?lang=pt)** · **[Source code](https://github.com/driano1221/enso-local-impact-explorer)**
+Explore temperature and rainfall for **684 locations**, compare **NASA POWER and ERA5**, ask about the selected data and download the evidence behind the chart.
 
-The header switches between English and Brazilian Portuguese while retaining the query. The moon/sun button switches light/dark appearance; the preference is stored locally in the browser. Information buttons explain POWER, ERA5 and the four three-month periods, and work with pointer, touch or keyboard (Esc closes). The opening explains the dashboard and introduces El Niño and La Niña as phases of ENSO. Language and appearance do not change climate calculations or source coverage.
+**[Open the dashboard →](https://kl5ug0-adriano-pires.shinyapps.io/enso-local-preview/?lang=en)** · [Português](https://kl5ug0-adriano-pires.shinyapps.io/enso-local-preview/?lang=pt) · [Releases and integrity proofs](https://github.com/driano1221/enso-local-impact-explorer/releases)
 
-This package contains a versioned preview, including the data it uses. Read `SNAPSHOT.json` for this package's exact frozen POWER/ERA5 coverage, record counts and unresolved catalogue cases. A live preview or a newer local dataset may have a different snapshot. Later acquisitions do not change this package automatically. A published preview is not a final competition submission.
+![ENSO Local dashboard: location globe, real POWER and ERA5 histories, source comparison and annual distribution](docs/dashboard.jpg)
 
-The refined interface separates the latest historical year from the full-history source comparison. The latter labels its actual year range and number of paired seasons; reference values and the annual distribution remain available. On phones, the selected city and climate result appear before an expandable location view, which loads the globe when opened. Larger explanatory text and separate ENSO control/cross-section rows improve reading without changing the data or scientific calculations.
+## One place, three ways to explore
 
-## AI evidence interpreter
+| Explore | What you can do |
+|---|---|
+| Compare climate history | Select a place, measure and three-month season. Inspect the same year in the line chart and distribution, by pointer, keyboard or touch. |
+| Ask a question | Open the optional AI evidence interpreter. See a reviewed explanation, actual source values, baselines and a scientific limit. |
+| Check the evidence | Download chart data, monthly records and a factsheet. Verify the frozen release against its public Stellar Testnet record. |
 
-“Ask about these data” opens a small, optional interpreter below the local summary. DeepSeek classifies a question; R displays reviewed explanations with the selected real data and source links. It does not produce forecasts or infer an El Niño cause. Requests require explicit submission; the credential stays on the server. The public package runs without a key. See [AI operation, privacy and configuration](ia/README.md). “Understand the phenomenon” now opens the ENSO tab and briefly highlights/focuses its phase controls, including on mobile and with reduced motion.
+**1981–2025 · 684 POWER + 684 ERA5 locations · 738,720 monthly records · English / PT-BR · Light / dark**
 
-## Start the dashboard
+These are historical grid estimates, not today's weather, municipal averages or local forecasts. The published world dashboard does not establish an El Niño cause. Thirty-nine country/territory population-ranking or boundary cases remain unresolved; unapproved candidate locations are excluded. Coverage of the 684 approved points is complete in both sources. See [the snapshot](SNAPSHOT.json) and [scientific limits](docs/RUNBOOK.md#what-the-numbers-mean).
 
-Install R 4.3 or newer. From the extracted package root, open R and restore the recorded dependencies into a project library:
+## From the Pacific to local questions
+
+The interactive Earth and ocean section explains neutral conditions, El Niño and La Niña. Its colours and movement are **didactic illustrations, not measured ocean temperatures**.
+
+![Interactive didactic ENSO views with Earth, phase controls and the ocean cross-section](docs/enso.jpg)
+
+## AI that stays with the evidence
+
+The optional interpreter uses DeepSeek Flash for constrained intent classification. R validates the result and displays reviewed evidence using the selected real values. It does not browse the web, invent forecasts or replace scientific inference. The server keeps the key private; requests require the user's explicit Ask action. The ordinary dashboard works without an API key. Availability through 8 November 2026 depends on the demonstration balance and provider.
+
+![Bilingual evidence interpreter with separate explanation, source values and reading limit](docs/assistant.jpg)
+
+```mermaid
+flowchart LR
+  A[POWER and ERA5 records] --> B[Audited monthly snapshot]
+  B --> C[R seasonal summaries]
+  C --> D[Shiny dashboard and downloads]
+  C --> E[Controlled evidence]
+  Q[User question] --> F[AI intent classification]
+  F --> E
+  G[Frozen code, data and assets] --> H[SHA-256 manifest]
+  H --> I[Stellar Testnet record]
+```
+
+The blockchain record verifies **which frozen files** you have; it does not certify climate accuracy, causality, new AI replies or ongoing server state. Each changed release needs its own record. Testnet can reset. Download the separate proof from the matching release; [verification details](docs/RUNBOOK.md#reproduce-and-verify).
+
+## Run locally
+
+Use R 4.3 or newer. From the repository or extracted release root:
 
 ```r
-install.packages("renv", repos="https://cloud.r-project.org")
-dir.create(".r-library", showWarnings=FALSE)
-renv::restore(project=getwd(), library=file.path(getwd(),".r-library"), prompt=FALSE)
-.libPaths(c(file.path(getwd(),".r-library"), .libPaths()))
+install.packages("renv", repos = "https://cloud.r-project.org")
+dir.create(".r-library", showWarnings = FALSE)
+renv::restore(project = getwd(), library = file.path(getwd(), ".r-library"), prompt = FALSE)
+.libPaths(c(file.path(getwd(), ".r-library"), .libPaths()))
 source("run.R")
 ```
 
-That opens the English version at `http://127.0.0.1:8080`. Installation needs internet; the dashboard reads the bundled climate files and visual resources locally. Links to original sources open external websites when requested. Browsers must support JavaScript; the 3D view has a fallback when WebGL is unavailable.
+Once dependencies are available, `Rscript run.R en 8080` or `Rscript run.R pt 8081` starts a language-specific local view. Keep the whole repository together. Bundled data are read locally; installation and optional AI need internet. No data acquisition starts when the dashboard is opened.
 
-With dependencies already on R's library path, use:
+**[Full runbook: installation, hosting, tests, provenance and limits](docs/RUNBOOK.md)** · [AI configuration and privacy](ia/README.md)
 
-```text
-Rscript run.R en 8080
-Rscript run.R pt 8081
-```
+## Reproduce, report and contribute
 
-Run one command per terminal, always from the package root. For hosting, `app.R` selects English by default, or Portuguese when `ENSO_LANGUAGE=pt`. Keep the **whole package** together; app subfolders depend on shared code and data outside them. A host must support R/Shiny and its persistent communication transports. This shinyapps.io preview uses HTTPS SockJS/XHR; native WebSocket is disabled by that host. `HOST=0.0.0.0` is available for a configured server; the local default is loopback only.
+- `python verificar_pacote.py` checks the files listed in the frozen manifest. Do not regenerate it to hide a mismatch.
+- R checks cover the reader, interface, PT/EN equivalence and the asynchronous evidence interpreter. See [test commands](docs/RUNBOOK.md#reproduce-and-verify).
+- Open an [issue](https://github.com/driano1221/enso-local-impact-explorer/issues) with the selected locality, measure, season, language and reproduction steps. Never include API keys or personal data. [Contribution guide](CONTRIBUTING.md).
 
-The runtime includes the previously tested provider attribution and lazy JSON/srcdoc loading for the approved ENSO illustration. This avoids the hosting platform injecting duplicate scripts and conflicting asset bases into the illustration. The local interface and hosted interface use the same source files.
+**Adriano Pires Cunha** · IEEE ClimateChain Global Hackathon · Climate Data & Environmental Monitoring.
 
-To deploy to your own configured shinyapps.io account, install `rsconnect` as an optional deployment tool and run `Rscript deploy.R ACCOUNT APP_NAME`. The script verifies the listed file hashes and uploads only those files. `manifest.json` is our SHA-256 integrity record; Posit generates a separate dependency manifest in its temporary bundle. Do not overwrite or include the root integrity manifest as a source file in a platform dependency manifest. Credentials and deployment records are excluded from version control; never put tokens in code.
-
-`renv.lock` records the R versions used in preparation. On 18 October, the r2 candidate was tested after restoring all 81 locked R packages into an initially empty library, with installed-package cache reuse disabled and no runtime access to the global user library. Python data checks used a fresh venv. Both languages passed reader/interface/export and browser checks at desktop and 320px, including real CSV downloads and the ENSO globe. The same Windows OS and R 4.3.1 executable were used; this does not establish compatibility with another OS or a public host. Some packages were compiled from source using RBuildTools 4.3; an appropriate build toolchain may be needed if compatible binaries are unavailable. Optional Python data checks use `requirements-data.txt`; the blockchain verifier has separate requirements under `integridade/`.
-
-## What the numbers mean
-
-- Climate history is 1981–2025, not today's weather or a forecast. The catalogue uses approved reference points; grid cells are not measurements of every neighbourhood or the municipal territory.
-- Temperature is the equally weighted mean of three monthly means, in °C. Rainfall is the sum of three monthly totals, in mm/season; 1 mm is 1 litre/m².
-- The difference from average uses each source's own 1991–2020 baseline. It is not an effect attributed to El Niño.
-- DJF assigns December to the following year: 44 complete seasons, 1982–2025. The other displayed seasons have 45 years.
-- POWER uses local solar time; ERA5 uses UTC. Product and grid differences can affect comparisons. Agreement between sources is not independent validation, and disagreement alone does not identify the correct source.
-- Global ENSO inference has not been released. This package contains the descriptive world dashboard; it does not offer the separate pilot's exploratory regressions as global conclusions. ONI/RONI are centred historical indices and include future information relative to the central month.
-- The goal remains all capitals and the three most populous cities per country, plus Viçosa, Ouro Preto and Belo Horizonte. Unresolved catalogue ranking/boundary cases are counted in `SNAPSHOT.json` and listed in `dados/mundial/pendencias_catalogo_20261016.csv`. Missing ERA5 means not yet acquired, never zero rainfall or no uncertainty.
-
-### Terrain and local representativeness
-
-The terrain and elevation represented by a grid can differ from the city or station. In a documented 2019–2021 comparison, selected ERA5 cells in Bishkek and Almaty averaged 6.61 °C and 5.53 °C below station observations across the same 35 complete months in each city. A fixed 3×3 neighbourhood showed smaller differences in lower-elevation cells directly to the north, but those cells are different locations about 20–30 km from the stations. This is evidence of spatial sensitivity, not proof that elevation explains the entire difference or a reason to replace the selected cell with the best-matching neighbour.
-
-The original source values and cell selections are retained. Station relocation/instrument histories remain incomplete; recent rainfall lacked complete primary-station months under the study's coverage rule. A temperature check does not validate rainfall or all locations worldwide. Source agreement, successful cache checks and reproducible aggregation do not by themselves establish local accuracy. The station investigation is documented research; these notes do not imply a new automatic warning or correction in the dashboard.
-
-## Reproduce and verify
-
-Every included file is listed with size and SHA-256 in `manifest.json`. Verify the entire extracted package using Python's standard library:
-
-```text
-python verificar_pacote.py
-```
-
-That verifies bytes, not scientific truth or the authenticity of a replaceable local manifest. Preserve the ZIP checksum through a separate trusted channel. This full candidate manifest has **not** been anchored on blockchain. The separate, real two-export Stellar Testnet demonstration is documented in `integridade/README.md` and can be checked using its fixed original transaction ID.
-
-To rebuild integrated files offline and run the included checks:
-
-```text
-python -m pip install -r requirements-data.txt
-python R/integrar_mundial.py
-python R/testar_integracao_mundial.py
-Rscript R/testar_leitor_mundial.R
-Rscript R/testar_interface_mundial.R
-Rscript R/testar_ingles.R
-Rscript R/testar_bilingue.R
-```
-
-Rebuilding changes the package manifest's recorded bytes if any output differs. Work on a copy when experimenting. The monthly inputs, integration source, catalogue and source hashes are included; raw HTTP responses, station investigations, heavy synthetic experiments and private project correspondence are excluded. `proveniencia_publica.json` retains source URLs, retrieval times, requested coordinates, calendars, original response hashes and POWER API versions. Re-downloading a live source can yield a revised response; it cannot be assumed to recreate an earlier raw snapshot.
-
-The shared `R/validar_piloto.R` is sourced for seasonal utilities. Do not execute its pilot analysis entry point inside this descriptive package: the separate pilot inputs are deliberately not included.
-
-Optional future data acquisition uses `R/adquirir_mundial.py` and `requirements-acquisition.txt`. It is not needed to view or reproduce this bundled snapshot. Respect provider quotas, sequential ERA5 requests and the cooldown recorded after HTTP 429; do not run acquisition during a provider pause. Raw downloads are written under `dados/originais/` and excluded from Git. Re-downloading can return revised data and is not proof of the original bytes. No acquisition is triggered by dashboard use.
-
-## Sources, licences and attribution
-
-Original project code: Adriano Pires Cunha, MIT, see `LICENSE`. Data, fonts, flags, textures and bundled libraries retain their own licences and attribution. See [CREDITS.md](CREDITS.md). No endorsement by NASA, Copernicus/ECMWF, Open-Meteo, NOAA, UN, GeoNames or the competition organizers is implied.
-
-## Português
-
-Esta prévia reúne o painel mundial e a versão inglesa. A cobertura exata pertence a `SNAPSHOT.json`; novas aquisições não alteram silenciosamente o pacote. Execute `Rscript run.R pt 8081` na raiz, com as dependências instaladas. O histórico é descritivo, tem lacunas explícitas e não prevê impactos locais. A altitude e o terreno da grade podem diferir dos da cidade ou estação; a investigação de Bishkek/Almaty mostrou sensibilidade espacial, sem correção dos valores ou troca das células. O histórico completo de estações permanece aberto, e a comparação de temperatura não valida chuva. `python verificar_pacote.py` confere os arquivos; a demonstração blockchain protege apenas os dois exports indicados em `integridade/README.md`. Vídeo e submissão final ainda pertencem às etapas de entrega.
+Original code: [MIT](LICENSE). Data and bundled resources retain their own licences: [credits and attribution](CREDITS.md). No endorsement by the data providers is implied. The competition draft has not been submitted; this is a public prototype.

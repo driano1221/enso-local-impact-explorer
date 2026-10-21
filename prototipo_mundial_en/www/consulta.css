@@ -1,0 +1,25 @@
+/* The approved palette, typography and scientific figures remain the base. */
+.abertura{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 32px;padding:22px 0 18px}
+.abertura h1{font-size:27px;grid-column:1;max-width:32ch;line-height:1.2;margin:0}
+.abertura .abertura-proposta{grid-column:1;font-size:15px;max-width:83ch;line-height:1.5}
+.abertura .abertura-enso{grid-column:1/-1;max-width:115ch;font-size:13px;line-height:1.5;margin-top:4px}
+.abertura-acoes{grid-column:2;grid-row:1/3;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:9px;font-size:13px}
+.abertura .atalho-ia{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--paper);padding:10px 13px;text-decoration:none;border-radius:4px;color:var(--ink);font-size:15px;font-weight:600;min-height:44px}
+.selo-ia{display:inline-grid;place-items:center;background:#185c77;color:white;font-size:11px;line-height:1.3;font-weight:650;padding:4px 6px;border-radius:3px;letter-spacing:.02em}
+.consulta-feedback{font-size:12px;color:var(--muted);margin:9px 0 0;min-height:18px;display:flex;align-items:center;gap:7px}
+.consulta-feedback:before{content:'';width:6px;height:6px;border-radius:50%;background:#2c965a}
+.consulta-feedback[data-state=waiting]:before{background:#cb8630}
+.consulta-atualizando :is(.serie>.shiny-html-output,.serie>#historico,.indicadores){visibility:hidden;pointer-events:none}
+.consulta-atualizando .inspecao{visibility:hidden}
+.inspecao{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding:10px 0 8px;font-size:13px;min-height:60px}
+.inspecao label{font-weight:600;margin:0}.inspecao select{font:inherit;color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:5px 8px;background:var(--paper);min-height:36px}
+#ano-valores{display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center;flex:1;min-width:180px;font-variant-numeric:tabular-nums}
+#ano-valores small{display:block;font-size:11px;flex-basis:100%;color:var(--muted)}
+.inspecao-power{color:var(--power,#c63f2d)}.inspecao-era5{color:var(--era5,#217fa5)}
+:is(.atalho-ia,.inspecao select):focus-visible{outline:2px solid #d79336;outline-offset:3px}
+.consulta-toolbar select,.exportacoes>summary{border-radius:4px}
+[data-theme=dark] .selo-ia{background:#8bc9dc;color:#103347}
+@media(max-width:1000px){.abertura{grid-template-columns:1fr}.abertura-acoes{grid-column:1;grid-row:auto;flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px 20px}.abertura .abertura-enso{grid-column:1}.abertura h1{font-size:25px}}
+@media(max-width:760px){.abertura{padding:18px 0 14px;gap:10px}.abertura .abertura-proposta{font-size:14px}.abertura .abertura-enso{font-size:12px}.abertura-acoes{gap:9px 15px}.abertura .atalho-ia{font-size:14px;padding:9px 11px}.inspecao{gap:8px}#ano-valores{flex-basis:100%;font-size:13px}.inspecao select{min-height:44px}.consulta-feedback{font-size:11px}}
+@media(prefers-reduced-motion:no-preference){.atalho-ia,.enso-ai-enviar,.inspecao select{transition:background-color .16s,border-color .16s}}
+.atalho-ia:hover{border-color:var(--era5);background:var(--paper)}

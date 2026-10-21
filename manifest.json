@@ -14,6 +14,11 @@
       "sha256": "0624e1ad654d8e17fb7750520e6eecc31729cc042eaa8cc8772d52e88befb792"
     },
     {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1061,
+      "sha256": "ed76566f9152d4c561d3c8e2dd1f44031e7bdc201bbb4324f1f3ea3076da1307"
+    },
+    {
       "path": "CREDITS.md",
       "bytes": 6082,
       "sha256": "6fc872168320f42eca29f3ff517e3a9b71a59fa1d929ca31c041e95982661638"
@@ -13159,6 +13164,26 @@
       "sha256": "5b279aad58aea21fbbc315f16fb5c99866abaee380457391fa8f37a5ad4522f8"
     },
     {
+      "path": "docs/assistant.jpg",
+      "bytes": 26034,
+      "sha256": "5646eac610aa02c8851d7f8e97f0a232e1825c71b19e61ad1d6c7e6bd4fc2cc2"
+    },
+    {
+      "path": "docs/dashboard.jpg",
+      "bytes": 78021,
+      "sha256": "bbd574b46807b9e3f8472cd0b80544c05e2d3b3310cf9f4b016d259d898a4863"
+    },
+    {
+      "path": "docs/enso.jpg",
+      "bytes": 66876,
+      "sha256": "1e1f62687b8f1ad6dfd0dd65e7a517a348fbdc99d62b0c4f7d4fd7527d56c8fd"
+    },
+    {
+      "path": "docs/RUNBOOK.md",
+      "bytes": 11805,
+      "sha256": "2a33effbc26960fc48fa1e6b5cbacb9dcd62311ddcb40cd45ab1f6f7b5393dd5"
+    },
+    {
       "path": "ia/casos.json",
       "bytes": 5358,
       "sha256": "e7ed552cd5969d69752e843d09c8331f62a8d326492054e410eaeb3060d43fc8"
@@ -13185,8 +13210,8 @@
     },
     {
       "path": "ia/servidor.R",
-      "bytes": 11095,
-      "sha256": "3abd753cdb55afd9c63b2fccb53ff19187fcc6ca9b487c0e5a9198d462e38bbb"
+      "bytes": 13148,
+      "sha256": "d608a4195d0e7170be6e6bb98bffdf7c4e2d5f0c879c7b87e310c88357161d42"
     },
     {
       "path": "ia/testar_local.R",
@@ -13210,8 +13235,8 @@
     },
     {
       "path": "ia/www/assistente.css",
-      "bytes": 2750,
-      "sha256": "f8a8b4886c0a2c2066fcca8f937f0034ce321f35fc3ec145b67a86211cc96e54"
+      "bytes": 5353,
+      "sha256": "c20d6d2b11e7f43e333de00888464a0bf90490aecdb8d709a4baf9f9a436bbb7"
     },
     {
       "path": "ia/www/assistente.js",
@@ -13225,8 +13250,8 @@
     },
     {
       "path": "idiomas/en.tsv",
-      "bytes": 13961,
-      "sha256": "f9e986babe7c20ac444a3a5ad34b5d56d6cf4f762948d865e10907b2c3442f50"
+      "bytes": 14898,
+      "sha256": "347a863d6f830551fae28bb5f5a3261924b162378bea82ad70327d4ee2d65bea"
     },
     {
       "path": "idiomas/exports_en.R",
@@ -13305,13 +13330,13 @@
     },
     {
       "path": "prototipo_mundial/app.R",
-      "bytes": 19625,
-      "sha256": "95ddbee1d69385c324e8dc3d05dc73d03b7ce7905088214dc387d3dbcf248b45"
+      "bytes": 19930,
+      "sha256": "e327eef75888011f21d27a87bc89727273541008907a4060bf6a17612e966b6d"
     },
     {
       "path": "prototipo_mundial/layout.R",
-      "bytes": 11783,
-      "sha256": "96dddc442462022e2b37f51c261410da03ea9a43848c451a3c09a7bf76560b01"
+      "bytes": 12643,
+      "sha256": "69a2a0510ad70c2b26f3ab16b2a9002cbbb25b2ee67485c6d10dcd7a3db31852"
     },
     {
       "path": "prototipo_mundial/paises-pt.json",
@@ -13327,6 +13352,16 @@
       "path": "prototipo_mundial/www/consulta-diagrama.html",
       "bytes": 7141,
       "sha256": "ad032681138676ee26639534b34ef788977a914687a80e6d9f8cb4aabd127341"
+    },
+    {
+      "path": "prototipo_mundial/www/consulta.css",
+      "bytes": 3155,
+      "sha256": "29bb46bdc929d51048ad8ea38ef599976b2b6be90265bae17081ee384771bf44"
+    },
+    {
+      "path": "prototipo_mundial/www/consulta.js",
+      "bytes": 4947,
+      "sha256": "d4acc2c38ee35606552132b8b989e1dd72a7bce447e62c0aa8ff6e0392dcfb73"
     },
     {
       "path": "prototipo_mundial/www/corte-interacao.js",
@@ -14740,8 +14775,8 @@
     },
     {
       "path": "prototipo_mundial_en/app.R",
-      "bytes": 19696,
-      "sha256": "79ff0def1e21fe7b1c6b7ad41b5a7b11163cf1b74dc73402e82a3cbeb5e03c44"
+      "bytes": 20001,
+      "sha256": "d438f7c5cb51a5d63af58f589bd45df779fbcca541a24335312b5a2a53147e0d"
     },
     {
       "path": "prototipo_mundial_en/comparacao_en.R",
@@ -14750,8 +14785,8 @@
     },
     {
       "path": "prototipo_mundial_en/layout.R",
-      "bytes": 11803,
-      "sha256": "fe94e9936516f469aa11352ae52130940a9f81759299ac93f06fb8598070d83d"
+      "bytes": 12621,
+      "sha256": "750941a681076b9280075675b9682dd7285058458a0ecceeefe7e1d13a70b4e2"
     },
     {
       "path": "prototipo_mundial_en/www/aprovado-en/atlas.js",
@@ -14902,6 +14937,16 @@
       "path": "prototipo_mundial_en/www/consulta-diagrama.html",
       "bytes": 7193,
       "sha256": "7da8053bcca8e0106cdf33d672a84e9fe72c778d0a93fc07cdb62cea9db4df7f"
+    },
+    {
+      "path": "prototipo_mundial_en/www/consulta.css",
+      "bytes": 3155,
+      "sha256": "29bb46bdc929d51048ad8ea38ef599976b2b6be90265bae17081ee384771bf44"
+    },
+    {
+      "path": "prototipo_mundial_en/www/consulta.js",
+      "bytes": 4947,
+      "sha256": "d4acc2c38ee35606552132b8b989e1dd72a7bce447e62c0aa8ff6e0392dcfb73"
     },
     {
       "path": "prototipo_mundial_en/www/corte-interacao.js",
@@ -16485,8 +16530,8 @@
     },
     {
       "path": "R/app_bilingue.R",
-      "bytes": 3346,
-      "sha256": "744b3981712b098ae9c401a5b02b14fa22ab6b6abb4cccb5b18d831013e26286"
+      "bytes": 3411,
+      "sha256": "6eeb6c28bae0a42f5eada8e089be10109e5a49d81d1dfb20d51e7b5dee38cdc2"
     },
     {
       "path": "R/fixture_fonte_unica.R",
@@ -16545,8 +16590,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 11799,
-      "sha256": "94c0a06f12e58e233e0fb653a950399f52bb3a581b59050b084766614c2c10b2"
+      "bytes": 5199,
+      "sha256": "c167840b06fd98fa3916789557833eab7e521158018625166ec6bef93b092b9f"
     },
     {
       "path": "renv.lock",
@@ -16571,7 +16616,7 @@
     {
       "path": "SNAPSHOT.json",
       "bytes": 890,
-      "sha256": "cbd21f79bc5eeac6da96485d5f052a2c4e62ea008d51cb799214a7adf76d81f7"
+      "sha256": "b303ceb832a0994a299497230c5ba971f8ae30febf975771723d6a9e59b3c4c9"
     },
     {
       "path": "verificar_pacote.py",

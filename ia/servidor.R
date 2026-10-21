@@ -20,7 +20,7 @@ enso_ai_enabled <- function(state) is.character(state$config$api_key) && length(
 enso_ai_ui <- function(lang) {
   pt <- lang == "pt"
   shiny::tags$details(class = "enso-assistente", id = "enso-assistente",
-    shiny::tags$summary(shiny::tags$span(if (pt) "Pergunte sobre estes dados" else "Ask about these data"), shiny::tags$small(if (pt) "IA" else "AI")),
+    shiny::tags$summary(shiny::tags$small(class="selo-ia",if (pt) "IA" else "AI"),shiny::tags$span(class="enso-ai-convite",shiny::tags$strong(if (pt) "Converse com os dados" else "Ask the data"),shiny::tags$span(if (pt) "Tire uma dúvida sobre o gráfico, as fontes ou o El Niño." else "Explore a question about the chart, its sources or El Niño."))),
     shiny::tags$div(class = "enso-assistente-corpo",
       shiny::tags$p(class = "enso-ai-intro", if (pt) "Pergunte sobre o que está vendo no gráfico. A resposta usa os dados da cidade, da medida e da época que você escolheu." else "Ask about what you see in the chart. Answers use the data for the place, measure and season you selected."),
       shiny::tags$div(class = "enso-ai-sugestoes", lapply(if (pt) c("O que significa a diferença da média?", "Isso foi causado pelo El Niño?", "Qual fonte é mais precisa?") else c("What does the difference from the baseline mean?", "Was this caused by El Niño?", "Which source is more accurate?"), function(q)
@@ -76,7 +76,22 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     if (!is.null(x$message)) return(shiny::tags$p(class = "enso-ai-mensagem", x$message))
     shiny::tagList(
       shiny::tags$p(class = "enso-ai-origem", if (isTRUE(x$cached)) if (pt) "Resposta para a mesma consulta" else "Answer for the same query" else if (pt) "Resposta com base nos dados selecionados" else "Answer based on the selected data"),
-      lapply(strsplit(x$result$text, "\n\n", fixed = TRUE)[[1]], function(p) shiny::tags$p(p)),
+      shiny::tags$div(class="enso-ai-conclusao",shiny::tags$h3(if(pt) "O que podemos dizer" else "What we can say"),
+        shiny::tags$p(if(x$result$intent=="value") {
+          if(pt) "Os valores abaixo descrevem o trimestre escolhido, no último ano da base." else "The values below describe the selected season in the latest historical year."
+        } else if(x$result$intent=="anomaly") {
+          if(pt) "A diferença compara o valor com a média dos mesmos meses em 1991–2020, em cada fonte. Não é efeito do ENSO (El Niño ou La Niña) nem teste de significância." else "The difference compares the value with the same months in each source's 1991–2020 baseline. This is not an ENSO effect or a significance test."
+        } else x$facts$evidence[[lang]][[ia_intencoes[[x$result$intent]]]])),
+      shiny::tags$p(class="enso-ai-recorte",x$facts$evidence[[lang]]$scope),
+      shiny::tags$div(class="enso-ai-numeros",lapply(order(match(x$facts$numbers$fonte,c("POWER","ERA5"))),function(i) {
+        d <- x$facts$numbers[i,]; n <- function(v) formatC(v,digits=2,format="f",decimal.mark=if(pt) "," else ".")
+        u <- if(x$facts$query$variavel=="temperatura_c") "°C" else if(pt) "mm/trimestre" else "mm/quarter"
+        shiny::tags$section(class=paste("enso-ai-numero",tolower(d$fonte)),shiny::tags$h4(d$fonte),
+          shiny::tags$p(class="enso-ai-valor",paste(n(d$valor),u)),
+          shiny::tags$p(paste(if(pt) "Referência 1991–2020:" else "1991–2020 baseline:",n(d$referencia),u)),
+          shiny::tags$p(paste(if(pt) "Diferença da média:" else "Difference from baseline:",n(d$diferenca),u)))
+      })),
+      shiny::tags$p(class="enso-ai-limite",shiny::tags$strong(if(pt) "Limite desta leitura. " else "Reading limit. "),x$facts$evidence[[lang]]$limits),
       shiny::tags$div(class = "enso-ai-fontes", lapply(seq_len(nrow(x$facts$sources)), function(i) {
         url <- x$facts$sources$url[i]
         if (grepl("^https://", url)) shiny::tags$a(href = url, target = "_blank", rel = "noopener", paste(x$facts$sources$fonte[i], "↗"))
