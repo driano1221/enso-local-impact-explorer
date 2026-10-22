@@ -13214,6 +13214,11 @@
       "sha256": "02d64f4c1e375406fe7d21ad99f7e37fa43a69ba9d1db151781d01cd3167c7f8"
     },
     {
+      "path": "docs/video.jpg",
+      "bytes": 80095,
+      "sha256": "1c39e4a26233c3224f12ac800b721487a263200930c44f43174d90fe9b9ecb7a"
+    },
+    {
       "path": "ia/casos.json",
       "bytes": 5358,
       "sha256": "e7ed552cd5969d69752e843d09c8331f62a8d326492054e410eaeb3060d43fc8"
@@ -16705,8 +16710,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8070,
-      "sha256": "ffd687238515c6b3aed4fa0d72a556a47f6617dca81d14e030220dc6d1ae5ee6"
+      "bytes": 9380,
+      "sha256": "68d6fdf847b2510e8d63d90fceb4c86010a457b60a0119a39561801cbb34fc1a"
     },
     {
       "path": "renv.lock",

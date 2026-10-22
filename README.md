@@ -8,11 +8,27 @@ Explore temperature and rainfall for **684 locations**, compare **NASA POWER and
 
 ![ENSO Local dashboard: location globe, real POWER and ERA5 histories, source comparison and annual distribution](docs/dashboard.jpg)
 
+## Watch the demo
+
+[![Watch the ENSO Local demonstration: real climate comparisons and in-app file verification](docs/video.jpg)](https://www.youtube.com/watch?v=tJWsIOU8CHA)
+
+**[Watch on YouTube — 3 min 33 s, English, captions available →](https://www.youtube.com/watch?v=tJWsIOU8CHA)**
+
+The demonstration combines animations derived from the real records with actual dashboard and StellarExpert captures. Waiting is shortened and screen regions are enlarged for reading. The ocean mechanism is a teaching illustration. Narration uses the author's authorized local voice clone.
+
+## Track
+
+**Climate Data & Environmental Monitoring · IEEE ClimateChain Global Hackathon.** ENSO Local connects local climate histories, source comparison and verifiable downloads to help readers inspect environmental evidence.
+
 ## Problem
 
 Climate datasets can disagree even for the same place, season and year. ENSO Local makes those differences visible, keeps the provenance with the downloads and lets readers verify the published files. It does not decide which estimate is correct or turn historical ENSO comparisons into local forecasts.
 
-## Audience
+## Solution
+
+One bilingual dashboard brings NASA POWER and ERA5 together for the same place, measure, season and year. It combines real historical charts, descriptive ENSO groups, a constrained AI question interpreter and browser-side CSV verification against a Stellar Testnet record.
+
+## Target users
 
 Students, educators and analysts can compare a local history, understand its units and reference period, explore ENSO context and reuse the documented records. The dashboard is not an operational flood-warning or planting-advice service.
 
@@ -55,6 +71,8 @@ flowchart LR
 
 ## Verify the published files
 
+**[Inspect the CSV-manifest transaction on StellarExpert →](https://stellar.expert/explorer/testnet/tx/f7af3e9e9073e7d5ce1bf79c3143f5acfaa12a6f21fb87769f992ee5153a849d)**
+
 In **Verify these data**, choose the downloaded CSV and check it. The browser calculates SHA-256 locally, verifies the CSV hash index against its manifest, and checks the manifest digest in the public Stellar Testnet transaction. Your file is not uploaded. Chart and monthly CSVs are covered for all 684 locations in PT/EN; editing or re-saving a CSV changes its bytes and can invalidate the match. This verifies correspondence with the recorded files, not climate accuracy, authorship, ENSO causality, new AI replies or ongoing server state. The check trusts the public Horizon HTTPS endpoint; Testnet can reset. The full software release has its separate matching proof. [Verification details](docs/RUNBOOK.md#reproduce-and-verify).
 
 The new ENSO summary uses the archived NOAA RONI index to group seasons into persistent El Niño, La Niña and neutral/transition conditions. ONI is available as a sensitivity view. The table reports **descriptive means, quartiles and counts**, not confidence intervals or significance tests. Climate trends and other factors can confound differences; years in one episode and the two climate sources are not independent replications.
@@ -63,7 +81,7 @@ The new ENSO summary uses the archived NOAA RONI index to group seasons into per
 
 ![Historical ENSO phase groups for Trujillo rainfall, with source-specific anomalies, sample counts and descriptive limits](docs/enso-phases.jpg)
 
-## Scalability
+## Scalability and adoption
 
 The same seasonal pipeline reads 684 approved locality files through a shared schema. Country, location, measure and season change the data selection, not the calculation code. Both integrated sources contain 738,720 monthly rows in total; opening the dashboard does not start acquisition.
 
