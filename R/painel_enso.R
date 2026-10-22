@@ -15,22 +15,29 @@ enso_recorte <- function(root,id,season,variable,index="RONI") {
   all <- enso_leitura(root)$summary
   all[all$id==id & all$estacao==season & all$variavel==variable & all$indice==index,]
 }
-enso_texto <- function(d,lang,variable) {
+enso_numero <- function(v,lang,digits=2,sign=FALSE) {
+  sub("^-","−",formatC(v,digits=digits,format="f",decimal.mark=if(lang=="pt") "," else ".",flag=if(sign) "+" else ""))
+}
+enso_texto <- function(d,lang,variable,sensitivity=NULL) {
   pt <- lang=="pt";u <- if(variable=="temperatura_c") "°C" else "mm"
-  n <- function(v) formatC(v,digits=2,format="f",decimal.mark=if(pt) "," else ".",flag="+")
+  n <- function(v) enso_numero(v,lang,sign=TRUE)
   nino <- d[d$fase=="nino",];neutral <- d[d$fase=="transicao",]
   common <- intersect(nino$fonte,neutral$fonte)
   if(!length(common)) return(if(pt) "Não há grupos suficientes para esta comparação." else "Insufficient groups for this comparison.")
   delta <- nino$media[match(common,nino$fonte)]-neutral$media[match(common,neutral$fonte)]
+  caution <- if(pt) "O sinal numérico, sozinho, não estabelece uma relação consistente com ENSO." else "The numerical sign alone does not establish a consistent ENSO relationship."
+  if(!is.null(sensitivity)) {
+    other_nino <- sensitivity[sensitivity$fase=="nino",];other_neutral <- sensitivity[sensitivity$fase=="transicao",]
+    other <- other_nino$media[match(common,other_nino$fonte)]-other_neutral$media[match(common,other_neutral$fonte)]
+    changed <- which(is.finite(other) & round(delta,2)!=0 & round(other,2)!=0 & sign(delta)!=sign(other))
+    if(length(changed)) caution <- paste(vapply(changed,function(i) {
+      if(pt) paste0("Em ",common[i],", o contraste muda para ",n(other[i])," ",u," com ONI; sua direção depende do índice.") else
+        paste0("In ",common[i],", the contrast changes to ",n(other[i])," ",u," with ONI; its direction depends on the index.")
+    },""),collapse=" ")
+  }
   paste(if(pt) "No histórico, diferença das médias El Niño menos neutro/transição:" else "Historical mean difference, El Niño minus neutral/transition:",
-    paste(paste(common,n(delta),u),collapse="; "),
-    if(any(round(delta,2)==0)) {
-      if(pt) "Uma diferença fica próxima de zero no arredondamento." else "A difference rounds close to zero."
-    } else if(length(common)==2 && sign(delta[1])==sign(delta[2])) {
-      if(pt) "As duas estimativas apontam na mesma direção." else "Both estimates point in the same direction."
-    } else if(length(common)==2) {
-      if(pt) "As estimativas apontam em direções diferentes." else "The estimates point in different directions."
-    },if(pt) "Comparação descritiva, sem ajuste de tendência ou teste de significância. Não atribui causa nem prevê outro evento." else
+    paste0(paste(paste(common,n(delta),u),collapse="; "),"."),caution,
+    if(pt) "Comparação descritiva, sem ajuste de tendência ou teste de significância. Não atribui causa nem prevê outro evento." else
       "Descriptive comparison without trend adjustment or a significance test. It does not attribute causality or forecast another event.")
 }
 enso_historico_ui <- function(lang) {
@@ -45,7 +52,8 @@ enso_historico_instalar <- function(input,output,session,lang,root) {
     d <- tryCatch(enso_recorte(root,input$cidade,input$estacao,input$variavel),error=function(e)NULL)
     if(is.null(d)||!nrow(d)) return(shiny::tags$p(t("Este resumo está temporariamente indisponível. Os dados originais continuam nos downloads.","This summary is temporarily unavailable. Original records remain available to download.")))
     unit <- if(input$variavel=="temperatura_c") "°C" else "mm"
-    format <- function(v) formatC(v,digits=2,format="f",decimal.mark=if(pt) "," else ".",flag="+")
+    format <- function(v) enso_numero(v,lang,sign=TRUE)
+    sensitivity <- enso_recorte(root,input$cidade,input$estacao,input$variavel,"ONI")
     labels <- if(pt)c(nina="La Niña",transicao="Neutro / transição",nino="El Niño") else c(nina="La Niña",transicao="Neutral / transition",nino="El Niño")
     table <- function(rows) shiny::tags$div(class="fases-table",shiny::tags$table(
       shiny::tags$thead(shiny::tags$tr(shiny::tags$th(t("Fase e amostra","Phase and sample")),shiny::tags$th(class="power","POWER"),shiny::tags$th(class="era5","ERA5"))),
@@ -63,8 +71,8 @@ enso_historico_instalar <- function(input,output,session,lang,root) {
     year <- if(is.null(input$ano_inspecao)) 2025L else as.integer(input$ano_inspecao)
     now <- current[current$indice=="RONI" & current$ano==year & current$estacao==input$estacao,]
     shiny::tagList(shiny::tags$p(class="fases-contexto",t("Diferença média da referência 1991–2020, por fase histórica do Pacífico. Cada fonte usa sua própria referência.","Mean difference from the 1991–2020 baseline by historical Pacific phase. Each source uses its own baseline.")),
-      if(nrow(now)==1)shiny::tags$p(paste(year,"·",input$estacao,"·",labels[[now$fase]],"· RONI",now$valor)),
-      table(d),shiny::tags$p(class="fases-conclusao",enso_texto(d,lang,input$variavel)),
+      if(nrow(now)==1)shiny::tags$p(paste(year,"·",input$estacao,"·",labels[[now$fase]],"· RONI",enso_numero(now$valor,lang,1))),
+      table(d),shiny::tags$p(class="fases-conclusao",enso_texto(d,lang,input$variavel,sensitivity)),
       shiny::tags$p(class="nota",t("Em destaque: média do grupo. A faixa abaixo reúne os 50% centrais dos anos, não um intervalo de confiança. n é o número de temporadas; anos de um mesmo episódio não são eventos independentes.","Bold: group mean. The range below contains the middle 50% of years, not a confidence interval. n counts seasons; years in the same episode are not independent events.")),
       shiny::tags$details(shiny::tags$summary(t("Método, anos e sensibilidade ao ONI","Method, years and ONI sensitivity")),
         shiny::tags$p(t("RONI ERSSTv6: pelo menos cinco temporadas sobrepostas consecutivas com índice ≥ +0,5 ou ≤ −0,5. A fase usa o índice do mês central do trimestre. Neutro/transição inclui flutuações sem um episódio persistente. Período 1981–2025; dez–fev começa em 1982.","RONI ERSSTv6: at least five consecutive overlapping seasons at ≥ +0.5 or ≤ −0.5. The phase uses the index of the central month. Neutral/transition includes fluctuations outside persistent episodes. Period 1981–2025; Dec–Feb starts in 1982.")),
@@ -72,6 +80,6 @@ enso_historico_instalar <- function(input,output,session,lang,root) {
         shiny::tags$p(shiny::tags$a(href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/",target="_blank",rel="noopener","NOAA/CPC · RONI ↗")),
         lapply(names(labels),function(phase)shiny::tags$p(paste(labels[[phase]],"·",paste(unique(d$anos[d$fase==phase]),collapse=" / ")))),
         shiny::tags$h4(t("Mesma comparação com ONI","Same comparison using ONI")),
-        table(enso_recorte(root,input$cidade,input$estacao,input$variavel,"ONI"))))
+        table(sensitivity)))
   })
 }

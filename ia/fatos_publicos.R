@@ -10,6 +10,7 @@ ia_fatos_publicos <- function(id, epoca, variavel, escala = "valor", raiz = ".",
   pairs <- merge(a[a$fonte=="POWER",c("ano_sazonal","valor")],a[a$fonte=="ERA5",c("ano_sazonal","valor")],by="ano_sazonal")
   pairs$gap <- abs(pairs$valor.x-pairs$valor.y)
   pairs <- pairs[order(-pairs$gap,pairs$ano_sazonal),]
+  f$rankings <- a[,c("fonte","ano_sazonal","valor")]
   f$query$display_scale <- if (identical(escala, "diferenca")) "difference_from_own_baseline" else "absolute_value"
   p <- read.csv(file.path(raiz, "dados/mundial/integracao/pontos.csv"), na.strings = "", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
   p <- p[p$id == id, , drop = FALSE]
@@ -42,7 +43,7 @@ ia_fatos_publicos <- function(id, epoca, variavel, escala = "valor", raiz = ".",
     groups <- tryCatch(enso_recorte(raiz,id,epoca,variavel),error=function(e)NULL)
     if(!is.null(groups)&&nrow(groups)) for(lang in c("pt","en"))
       f$evidence[[lang]]$enso <- paste(if(lang=="pt") "Não é possível atribuir a causa de um ano ao El Niño com esta comparação. Podemos examinar os grupos históricos classificados por RONI." else
-        "This comparison cannot attribute a year's cause to El Niño. We can examine historical groups classified using RONI.",enso_texto(groups,lang,variavel))
+        "This comparison cannot attribute a year's cause to El Niño. We can examine historical groups classified using RONI.",enso_texto(groups,lang,variavel,enso_recorte(raiz,id,epoca,variavel,"ONI")))
   }
   f
 }

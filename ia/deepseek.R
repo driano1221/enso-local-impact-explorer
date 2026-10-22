@@ -3,7 +3,38 @@ ia_intencoes <- c(value = "values", anomaly = "anomalies", comparison = "compari
   units = "units", season = "season", enso = "enso", forecast = "forecast",
   sources = "source_info", integrity = "integrity", missing = "missing", unclear = "unclear",
   extremes = "year_extremes", disagreement = "year_disagreement")
-ia_prompt_versao <- "enso-evidence-v2-20261022"
+ia_prompt_versao <- "enso-evidence-v3-20261022"
+
+# Ranking arithmetic stays in R; the model only selects a reviewed intent.
+ia_preparar_ranking <- function(fatos,pergunta) {
+  if(is.null(fatos$rankings)) return(fatos)
+  q <- tolower(iconv(pergunta,to="ASCII//TRANSLIT"))
+  high <- grepl("warmest|hottest|wettest|mais quentes?|mais chuvosos?|maiores temperaturas|mais choveu",q)
+  low <- grepl("coldest|coolest|driest|mais frios?|mais secos?|menores temperaturas|menos choveu",q)
+  if(high==low) return(fatos)
+  rain <- grepl("wettest|driest|chuv|choveu|secos?",q)
+  if(rain != (fatos$query$variavel=="precipitacao_mm_mes")) return(fatos)
+  hit <- regmatches(q,regexpr("\\b[0-9]{1,3}\\b",q))
+  count <- if(length(hit)&&nzchar(hit)) as.integer(gsub("[^0-9]","",hit)) else NA_integer_
+  words <- c(one=1,two=2,three=3,four=4,five=5,um=1,dois=2,tres=3,quatro=4,cinco=5)
+  if(is.na(count)) for(word in names(words)) if(grepl(paste0("\\b",word,"\\b"),q)) count <- words[[word]]
+  if(is.na(count)) count <- if(grepl("\\b(years|anos)\\b",q)) 3L else 1L
+  requested <- count;count <- max(1L,min(10L,count))
+  for(lang in c("pt","en")) {
+    fmt <- function(v) formatC(v,digits=2,format="f",decimal.mark=if(lang=="pt") "," else ".")
+    u <- if(rain) "mm" else "°C"
+    rows <- vapply(c("POWER","ERA5"),function(source) {
+      d <- fatos$rankings[fatos$rankings$fonte==source,]
+      d <- head(d[order(if(high)-d$valor else d$valor,d$ano_sazonal),],count)
+      paste0(source,": ",paste(paste0(d$ano_sazonal," (",fmt(d$valor)," ",u,")"),collapse="; "),".")
+    },"")
+    fatos$evidence[[lang]]$year_extremes <- paste(
+      if(lang=="pt") paste("Anos com os",if(high)"maiores"else"menores","valores da medida selecionada, em ordem:") else
+        paste("Years with the",if(high)"highest"else"lowest","selected-measure values, in order:"),
+      paste(rows,collapse=" "),if(requested>10L) if(lang=="pt") "Mostrando os primeiros 10; baixe a série para o ranking completo." else "Showing the first 10; download the series for the full ranking.")
+  }
+  fatos
+}
 
 ia_orcamento <- function(usd = .02, chamadas = 2L) {
   stopifnot(length(usd) == 1L, is.numeric(usd), is.finite(usd), usd > 0, usd <= 1,
@@ -81,6 +112,7 @@ ia_validar <- function(resp, idioma) {
 }
 
 ia_responder <- function(pergunta, fatos, idioma = "pt", orcamento = ia_orcamento(), transporte = ia_http) {
+  fatos <- ia_preparar_ranking(fatos,pergunta)
   payload <- ia_payload(pergunta, fatos, idioma)
   # Reserva pessimista: cada byte UTF-8 como um token + envelope; preços de pico, sem cache.
   bytes <- nchar(jsonlite::toJSON(payload, auto_unbox = TRUE), type = "bytes")

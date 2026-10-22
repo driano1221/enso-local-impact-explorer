@@ -56,6 +56,7 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     if(is.null(input$ano_inspecao)) "2025" else as.character(input$ano_inspecao)))
   busy <- function(value) session$sendCustomMessage("enso-ai-status", list(busy = value))
   show_message <- function(code) answer(list(message = message_text(code)))
+  show_unavailable <- function(code,facts) answer(list(message=message_text(code),fallback=facts))
   finish <- function() {
     if (!is.null(job)) {
       if (job$process$is_alive()) job$process$kill()
@@ -75,7 +76,13 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
   }, ignoreInit = TRUE, priority = 100)
   output$enso_ai_answer <- shiny::renderUI({
     x <- answer(); if (is.null(x)) return(NULL)
-    if (!is.null(x$message)) return(shiny::tags$p(class = "enso-ai-mensagem", x$message))
+    if (!is.null(x$message)) return(shiny::tagList(shiny::tags$p(class = "enso-ai-mensagem", x$message),
+      if(!is.null(x$fallback)) shiny::tags$div(class="enso-ai-conclusao",
+        shiny::tags$h3(if(pt) "Resumo calculado no painel, sem interpretação por IA" else "Dashboard summary, calculated without AI interpretation"),
+        shiny::tags$p(x$fallback$evidence[[lang]]$scope),
+        shiny::tags$p(x$fallback$evidence[[lang]]$values),
+        shiny::tags$p(x$fallback$evidence[[lang]]$anomalies),
+        shiny::tags$p(x$fallback$evidence[[lang]]$limits))))
     shiny::tagList(
       shiny::tags$p(class = "enso-ai-origem", if (isTRUE(x$cached)) if (pt) "Resposta para a mesma consulta" else "Answer for the same query" else if (pt) "Resposta com base nos dados selecionados" else "Answer based on the selected data"),
       shiny::tags$div(class="enso-ai-conclusao",shiny::tags$h3(if(pt) "O que podemos dizer" else "What we can say"),
@@ -110,9 +117,10 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     seen <<- sel
     f <- tryCatch(ia_fatos_publicos(sel[1], sel[2], sel[3], sel[4], state$root, ano=as.integer(sel[5])), error = function(e) NULL)
     if (is.null(f)) { show_message("input"); return() }
+    f <- ia_preparar_ranking(f,q)
     key <- digest::digest(list(q, f, lang, ia_prompt_versao), algo = "sha256")
     if (!is.null(state$cache[[key]])) { answer(c(state$cache[[key]], list(cached = TRUE))); return() }
-    if (!enso_ai_enabled(state)) { show_message(if (as.numeric(Sys.time()) >= enso_ai_expira) "expired" else "unavailable"); return() }
+    if (!enso_ai_enabled(state)) { show_unavailable(if (as.numeric(Sys.time()) >= enso_ai_expira) "expired" else "unavailable",f); return() }
     now <- as.numeric(Sys.time()); state$requests <- state$requests[state$requests > now - 60]
     if (now - last < 5) { show_message("rate"); return() }
     if (state$active >= 3L || length(state$requests) >= 30L) { show_message("busy"); return() }
@@ -147,7 +155,7 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
       finish()
       if (!identical(task$selection, selection())) { show_message("changed"); return() }
       r <- tryCatch(ia_responder(task$question, task$facts, lang, transporte = function(payload) response), error = function(e) NULL)
-      if (is.null(r) || !isTRUE(r$ok)) { show_message(if (!is.null(r$error)) r$error else "unavailable"); return() }
+      if (is.null(r) || !isTRUE(r$ok)) { show_unavailable(if (!is.null(r$error)) r$error else "unavailable",task$facts); return() }
       r$audit$seconds <- as.numeric(Sys.time()) - task$started
       entry <- list(result = r, facts = task$facts)
       state$cache[[task$key]] <- entry

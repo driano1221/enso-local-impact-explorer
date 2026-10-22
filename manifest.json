@@ -13220,8 +13220,8 @@
     },
     {
       "path": "ia/deepseek.R",
-      "bytes": 8131,
-      "sha256": "dc85018438cb3bdd4f9f8fa2da567bb410e6d28bc99d3513b086eea3d0e78ae1"
+      "bytes": 10180,
+      "sha256": "547e00b4b834af1d2a6fe2069f328c8b2165956a5e9e2e7425574a276d7134df"
     },
     {
       "path": "ia/fatos.R",
@@ -13230,8 +13230,8 @@
     },
     {
       "path": "ia/fatos_publicos.R",
-      "bytes": 5433,
-      "sha256": "b9974e7090b561d90c9eb62ce03e00cccfb9bc34ace0d18e8ad27fab59032311"
+      "bytes": 5529,
+      "sha256": "50881c80d66e8ffa02a35bc7b179b376a3fa69ca0d55ed95add1a95b1e15b2ad"
     },
     {
       "path": "ia/README.md",
@@ -13240,8 +13240,8 @@
     },
     {
       "path": "ia/servidor.R",
-      "bytes": 13439,
-      "sha256": "4aaccfef341442b2eafbc8472547b682ec37e529a903030d3cb16680b48aa18d"
+      "bytes": 14082,
+      "sha256": "37ad7f024e821ffc8ef352ef0328a56293141863669f15b1ed07c17a9f8d698e"
     },
     {
       "path": "ia/testar_local.R",
@@ -13330,8 +13330,8 @@
     },
     {
       "path": "integridade/painel.R",
-      "bytes": 3633,
-      "sha256": "2868aa8763e5bfd39f9cbccd3eb1420bfd21f7c6f6b9d3215b9b38f6f23dbded"
+      "bytes": 3969,
+      "sha256": "d6d23daa25967e8366d6f7f94e02f405d7b1df38bcd8b2ce7e0de4bad74d2046"
     },
     {
       "path": "integridade/README.md",
@@ -13400,8 +13400,8 @@
     },
     {
       "path": "integridade/www/verificar.js",
-      "bytes": 6283,
-      "sha256": "ad9224bc1ddf8136cae717f7784657bb1593950e33ffa733cd3c9434ea5dc032"
+      "bytes": 6296,
+      "sha256": "7abe08e807065014ed94db77335b541c71c1b0e366eaead7f9b2a86dfbfb3316"
     },
     {
       "path": "LICENSE",
@@ -16610,8 +16610,8 @@
     },
     {
       "path": "R/app_bilingue.R",
-      "bytes": 3987,
-      "sha256": "bda9289d34e9c9a5de00a0bf3819d96049ed0aeaf2879119eff932f71e8e0886"
+      "bytes": 3986,
+      "sha256": "f2bbd31414311d8ee18e75d714e3a4ead0f5553e826c1b56a3941adaa3cded7e"
     },
     {
       "path": "R/exportacoes.R",
@@ -16645,8 +16645,8 @@
     },
     {
       "path": "R/painel_enso.R",
-      "bytes": 7244,
-      "sha256": "72aee277b5b74439cd1526efc8aa5d28148f2946174ae760285a6dea6f3a5ec1"
+      "bytes": 7868,
+      "sha256": "e3fdbe34c1560b0c5b5140634b72aa844244ec270e19604dcd990385c3401500"
     },
     {
       "path": "R/preparar_entrega_r14.R",
@@ -16694,14 +16694,19 @@
       "sha256": "bab3c6ec3aec3144c56ce29d8a88db50ca4457f9fc1fa7297998b7a5f491aa38"
     },
     {
+      "path": "R/testar_revisao_v3.R",
+      "bytes": 2499,
+      "sha256": "85ffe6f7c6846157d07336917a35f1a8dc02402b7d3dfa4bd18f14f4f4d23138"
+    },
+    {
       "path": "R/validar_piloto.R",
       "bytes": 17102,
       "sha256": "cdc0876a54d0199d2bfc0ccafc4e2fad3493819d92009a1f9a869e96034cf9c1"
     },
     {
       "path": "README.md",
-      "bytes": 6607,
-      "sha256": "c48ae2683eaafcdd471a64f4d98923e69c9fdca92956d205920ea1ddcc0966ea"
+      "bytes": 8070,
+      "sha256": "ffd687238515c6b3aed4fa0d72a556a47f6617dca81d14e030220dc6d1ae5ee6"
     },
     {
       "path": "renv.lock",
@@ -16726,7 +16731,7 @@
     {
       "path": "SNAPSHOT.json",
       "bytes": 1136,
-      "sha256": "f321d43fff6dc1e3629c621880d7b585e408c8fa41285a0d9cc3e6ddc0d66b23"
+      "sha256": "b5d0058c10c26b407481f863d774bb035753a5ecf7848d5c9a9ed7937d1ab6ee"
     },
     {
       "path": "verificar_pacote.py",

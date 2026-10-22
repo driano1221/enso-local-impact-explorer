@@ -4,6 +4,7 @@ enso_integridade_ui <- function(lang) {
     shiny::tags$summary(t("Verificar estes dados","Verify these data")),
     shiny::tags$div(class="proof-body",
       shiny::tags$p(t("Confira se o CSV baixado é igual à versão registrada na rede de testes. O arquivo fica no seu navegador.","Check whether your downloaded CSV matches the version recorded on the test network. The file stays in your browser.")),
+      shiny::tags$p(class="nota",t("Verifique o arquivo como foi baixado. Não abra e salve no Excel antes: salvar novamente pode mudar os bytes, mesmo sem alterar os números.","Verify the file exactly as downloaded. Do not open and re-save it in Excel first: saving again can change the bytes even when the numbers stay the same.")),
       shiny::tags$div(class="proof-downloads",
         shiny::tags$button(type="button",`data-download`="serie_csv",t("Baixar CSV do gráfico","Download chart CSV")),
         shiny::tags$button(type="button",`data-download`="mensal_csv",t("Baixar CSV mensal","Download monthly CSV"))),

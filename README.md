@@ -8,7 +8,15 @@ Explore temperature and rainfall for **684 locations**, compare **NASA POWER and
 
 ![ENSO Local dashboard: location globe, real POWER and ERA5 histories, source comparison and annual distribution](docs/dashboard.jpg)
 
-## One place, three ways to explore
+## Problem
+
+Climate datasets can disagree even for the same place, season and year. ENSO Local makes those differences visible, keeps the provenance with the downloads and lets readers verify the published files. It does not decide which estimate is correct or turn historical ENSO comparisons into local forecasts.
+
+## Audience
+
+Students, educators and analysts can compare a local history, understand its units and reference period, explore ENSO context and reuse the documented records. The dashboard is not an operational flood-warning or planting-advice service.
+
+## Explore the evidence
 
 | Explore | What you can do |
 |---|---|
@@ -29,7 +37,7 @@ The interactive Earth and ocean section explains neutral conditions, El Niño an
 
 ## AI that stays with the evidence
 
-The optional interpreter uses DeepSeek Flash for constrained intent classification. R validates the result and displays reviewed evidence using the inspected year, including historical extreme years and the years with the largest source differences. Unsupported questions receive a clear scope message. It does not browse the web, invent forecasts or replace scientific inference. The server keeps the key private; requests require the user's explicit Ask action. The ordinary dashboard works without an API key. Availability through 8 November 2026 depends on the demonstration balance and provider.
+The optional interpreter uses DeepSeek Flash for constrained intent classification. R validates the result and displays reviewed evidence using the inspected year, including requested rankings of up to ten years and the years with the largest source differences. Unsupported questions receive a clear scope message. It does not browse the web, invent forecasts or replace scientific inference. The server keeps the key private; requests require the user's explicit Ask action. The ordinary dashboard works without an API key. New AI calls are enabled through 8 November 2026, subject to the demonstration balance and provider. If the service or credit is unavailable, the app explicitly shows a locally calculated summary without AI interpretation. Charts, ENSO tables, verification and downloads work without an API key.
 
 ![Bilingual evidence interpreter with separate explanation, source values and reading limit](docs/assistant.jpg)
 
@@ -45,6 +53,8 @@ flowchart LR
   H --> I[Stellar Testnet record]
 ```
 
+## Verify the published files
+
 In **Verify these data**, choose the downloaded CSV and check it. The browser calculates SHA-256 locally, verifies the CSV hash index against its manifest, and checks the manifest digest in the public Stellar Testnet transaction. Your file is not uploaded. Chart and monthly CSVs are covered for all 684 locations in PT/EN; editing or re-saving a CSV changes its bytes and can invalidate the match. This verifies correspondence with the recorded files, not climate accuracy, authorship, ENSO causality, new AI replies or ongoing server state. The check trusts the public Horizon HTTPS endpoint; Testnet can reset. The full software release has its separate matching proof. [Verification details](docs/RUNBOOK.md#reproduce-and-verify).
 
 The new ENSO summary uses the archived NOAA RONI index to group seasons into persistent El Niño, La Niña and neutral/transition conditions. ONI is available as a sensitivity view. The table reports **descriptive means, quartiles and counts**, not confidence intervals or significance tests. Climate trends and other factors can confound differences; years in one episode and the two climate sources are not independent replications.
@@ -52,6 +62,12 @@ The new ENSO summary uses the archived NOAA RONI index to group seasons into per
 ![Actual in-app verification of a downloaded CSV against the public Stellar Testnet record](docs/verification.jpg)
 
 ![Historical ENSO phase groups for Trujillo rainfall, with source-specific anomalies, sample counts and descriptive limits](docs/enso-phases.jpg)
+
+## Scalability
+
+The same seasonal pipeline reads 684 approved locality files through a shared schema. Country, location, measure and season change the data selection, not the calculation code. Both integrated sources contain 738,720 monthly rows in total; opening the dashboard does not start acquisition.
+
+Adding another dataset is not automatic: it needs a source adapter, provenance, units and calendar checks, and comparison tests. Adding stations also requires metadata and spatial-representativeness checks. The present product does not claim an operational forecast or unlimited concurrent capacity. AI calls are bounded in concurrency and cached for identical questions and selections within a process.
 
 ## Run locally
 
@@ -77,4 +93,4 @@ Once dependencies are available, `Rscript run.R en 8080` or `Rscript run.R pt 80
 
 **Adriano Pires Cunha** · IEEE ClimateChain Global Hackathon · Climate Data & Environmental Monitoring.
 
-Original code: [MIT](LICENSE). Data and bundled resources retain their own licences: [credits and attribution](CREDITS.md). No endorsement by the data providers is implied. The competition draft has not been submitted; this is a public prototype.
+Original code: [MIT](LICENSE). Data and bundled resources retain their own licences: [credits and attribution](CREDITS.md). No endorsement by the data providers is implied.

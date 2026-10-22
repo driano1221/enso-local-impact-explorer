@@ -14,15 +14,16 @@ function iniciarVerificacao(){
     const config=await get('proof.json');
     if(!/^[a-f0-9]{64}$/.test(config.transaction)||!/^G[A-Z2-7]{55}$/.test(config.account))throw Error('config');
     const endpoint='https://horizon-testnet.stellar.org';
+    const explorer='https://stellar.expert/explorer/testnet/tx/'+config.transaction;
     box.querySelector('[data-manifest-sha]').textContent=config.sha256;
-    const publicLink=box.querySelector('[data-transaction]');publicLink.href=endpoint+'/transactions/'+config.transaction;publicLink.hidden=false;
+    const publicLink=box.querySelector('[data-transaction]');publicLink.href=explorer;publicLink.hidden=false;
     const responses=await Promise.all([fetch(endpoint),fetch(endpoint+'/transactions/'+config.transaction)]);
     if(responses.some(r=>!r.ok))throw Error('network');
     const [network,tx]=await Promise.all(responses.map(r=>r.json()));
     if(network.network_passphrase!=='Test SDF Network ; September 2015')throw Error('network');
     const checked=await conferirProva(await get('manifest.json',true),await get('csv-index.json',true),tx,config);
     box.querySelector('[data-manifest-sha]').textContent=checked.root;
-    const link=box.querySelector('[data-transaction]');link.href=endpoint+'/transactions/'+config.transaction;link.hidden=false;
+    const link=box.querySelector('[data-transaction]');link.href=explorer;link.hidden=false;
     box.querySelector('[data-network-status]').textContent=(en?'Confirmed on Stellar Testnet · ledger ':'Confirmado na Stellar Testnet · ledger ')+checked.ledger;
     return checked;
   }

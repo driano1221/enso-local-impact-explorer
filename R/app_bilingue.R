@@ -52,7 +52,7 @@ shiny::shinyApp(ui=function(request) {
   ui <- enso_ai_inserir(ui,lang)
   ui <- enso_integridade_inserir(ui,lang)
   ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-proof/verificar.css?v=r14"),
-    shiny::tags$script(type="module",src="enso-proof/verificar.js?v=r14b"))
+    shiny::tags$script(type="module",src="enso-proof/verificar.js?v=r15"))
   ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-ai/assistente.css?v=r14"),shiny::tags$script(src="enso-ai/assistente.js?v=r14"))
   q <- shiny::parseQueryString(if(is.null(request$QUERY_STRING)) "" else request$QUERY_STRING)
   if(length(q$escala)==1L && q$escala %in% c("valor","diferenca")) ui <- escala_inicial_ui(ui,q$escala)
