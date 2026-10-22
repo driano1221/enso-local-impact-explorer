@@ -14,7 +14,8 @@ Explore temperature and rainfall for **684 locations**, compare **NASA POWER and
 |---|---|
 | Compare climate history | Select a place, measure and three-month season. Inspect the same year in the line chart and distribution, by pointer, keyboard or touch. |
 | Ask a question | Open the optional AI evidence interpreter. See a reviewed explanation, actual source values, baselines and a scientific limit. |
-| Check the evidence | Download chart data, monthly records and a factsheet. Verify the frozen release against its public Stellar Testnet record. |
+| Explore ENSO phases | Compare historical seasonal anomalies during El Niño, La Niña and neutral/transition conditions, with counts and the middle 50% of years. |
+| Check the evidence | Download a chart or monthly CSV and verify it locally in the dashboard against the hash index anchored on Stellar Testnet. |
 
 **1981–2025 · 684 POWER + 684 ERA5 locations · 738,720 monthly records · English / PT-BR · Light / dark**
 
@@ -28,7 +29,7 @@ The interactive Earth and ocean section explains neutral conditions, El Niño an
 
 ## AI that stays with the evidence
 
-The optional interpreter uses DeepSeek Flash for constrained intent classification. R validates the result and displays reviewed evidence using the selected real values. It does not browse the web, invent forecasts or replace scientific inference. The server keeps the key private; requests require the user's explicit Ask action. The ordinary dashboard works without an API key. Availability through 8 November 2026 depends on the demonstration balance and provider.
+The optional interpreter uses DeepSeek Flash for constrained intent classification. R validates the result and displays reviewed evidence using the inspected year, including historical extreme years and the years with the largest source differences. Unsupported questions receive a clear scope message. It does not browse the web, invent forecasts or replace scientific inference. The server keeps the key private; requests require the user's explicit Ask action. The ordinary dashboard works without an API key. Availability through 8 November 2026 depends on the demonstration balance and provider.
 
 ![Bilingual evidence interpreter with separate explanation, source values and reading limit](docs/assistant.jpg)
 
@@ -44,7 +45,13 @@ flowchart LR
   H --> I[Stellar Testnet record]
 ```
 
-The blockchain record verifies **which frozen files** you have; it does not certify climate accuracy, causality, new AI replies or ongoing server state. Each changed release needs its own record. Testnet can reset. Download the separate proof from the matching release; [verification details](docs/RUNBOOK.md#reproduce-and-verify).
+In **Verify these data**, choose the downloaded CSV and check it. The browser calculates SHA-256 locally, verifies the CSV hash index against its manifest, and checks the manifest digest in the public Stellar Testnet transaction. Your file is not uploaded. Chart and monthly CSVs are covered for all 684 locations in PT/EN; editing or re-saving a CSV changes its bytes and can invalidate the match. This verifies correspondence with the recorded files, not climate accuracy, authorship, ENSO causality, new AI replies or ongoing server state. The check trusts the public Horizon HTTPS endpoint; Testnet can reset. The full software release has its separate matching proof. [Verification details](docs/RUNBOOK.md#reproduce-and-verify).
+
+The new ENSO summary uses the archived NOAA RONI index to group seasons into persistent El Niño, La Niña and neutral/transition conditions. ONI is available as a sensitivity view. The table reports **descriptive means, quartiles and counts**, not confidence intervals or significance tests. Climate trends and other factors can confound differences; years in one episode and the two climate sources are not independent replications.
+
+![Actual in-app verification of a downloaded CSV against the public Stellar Testnet record](docs/verification.jpg)
+
+![Historical ENSO phase groups for Trujillo rainfall, with source-specific anomalies, sample counts and descriptive limits](docs/enso-phases.jpg)
 
 ## Run locally
 

@@ -8,7 +8,7 @@ The header switches between English and Brazilian Portuguese while retaining the
 
 This package contains a versioned preview, including the data it uses. Read `SNAPSHOT.json` for this package's exact frozen POWER/ERA5 coverage, record counts and unresolved catalogue cases. A live preview or a newer local dataset may have a different snapshot. Later acquisitions do not change this package automatically. A published preview is not a final competition submission.
 
-The refined interface separates the latest historical year from the full-history source comparison. The latter labels its actual year range and number of paired seasons; reference values and the annual distribution remain available. On phones, the selected city and climate result appear before an expandable location view, which loads the globe when opened. Larger explanatory text and separate ENSO control/cross-section rows improve reading without changing the data or scientific calculations.
+The refined interface separates the inspected historical year from the full-history source comparison. The latter labels its actual year range and number of paired seasons; reference values and the annual distribution remain available. On phones, the selected city and climate result appear before an expandable location view, which loads the globe when opened. Larger explanatory text and separate ENSO control/cross-section rows improve reading without changing the data or scientific calculations.
 
 ## AI evidence interpreter
 
@@ -53,6 +53,14 @@ To deploy to your own configured shinyapps.io account, install `rsconnect` as an
 - Global ENSO inference has not been released. This package contains the descriptive world dashboard; it does not offer the separate pilot's exploratory regressions as global conclusions. ONI/RONI are centred historical indices and include future information relative to the central month.
 - The goal remains all capitals and the three most populous cities per country, plus Viçosa, Ouro Preto and Belo Horizonte. Unresolved catalogue ranking/boundary cases are counted in `SNAPSHOT.json` and listed in `dados/mundial/pendencias_catalogo_20261016.csv`. Missing ERA5 means not yet acquired, never zero rainfall or no uncertainty.
 
+### Historical ENSO groups
+
+The summary under the local record groups seasons using the frozen NOAA RONI ERSSTv6 snapshot: at least five consecutive overlapping three-month periods at or beyond +0.5 / −0.5. It uses the central month of each displayed quarter and shows ONI as a sensitivity view. Neutral/transition includes fluctuations outside persistent episodes. DJF starts in 1982; the other quarters start in 1981.
+
+The table gives the mean anomaly from each source’s own 1991–2020 baseline, the middle 50% of seasons, and counts of seasons and episodes. These are descriptive statistics, **not confidence intervals**. No significance, causal effect or forecast is claimed. Long-term trends and other factors can confound the comparison; years within one episode and the two source products are not independent replications. The earlier global inferential procedure was not released after synthetic calibration failed the specified coverage checks.
+
+`dados/mundial/enso_descritivo_v1/manifesto.json` records the descriptive cache hashes and inputs. The app reads `fases.csv` and `resumos.csv`; the larger per-year intermediate can be regenerated and is deliberately not shipped. R tests check counts for every location, phase episodes and Trujillo’s raw rainfall totals. Trujillo was selected after inspecting its disagreement and is an illustrative retrospective example, not an independent validation set.
+
 ### Terrain and local representativeness
 
 The terrain and elevation represented by a grid can differ from the city or station. In a documented 2019–2021 comparison, selected ERA5 cells in Bishkek and Almaty averaged 6.61 °C and 5.53 °C below station observations across the same 35 complete months in each city. A fixed 3×3 neighbourhood showed smaller differences in lower-elevation cells directly to the north, but those cells are different locations about 20–30 km from the stations. This is evidence of spatial sensitivity, not proof that elevation explains the entire difference or a reason to replace the selected cell with the best-matching neighbour.
@@ -67,7 +75,7 @@ Every included file is listed with size and SHA-256 in `manifest.json`. Verify t
 python verificar_pacote.py
 ```
 
-That verifies bytes, not scientific truth or the authenticity of a replaceable local manifest. Preserve the ZIP checksum through a separate trusted channel. This full candidate manifest has **not** been anchored on blockchain. The separate, real two-export Stellar Testnet demonstration is documented in `integridade/README.md` and can be checked using its fixed original transaction ID.
+That verifies bytes, not scientific truth or the authenticity of a replaceable local manifest. Preserve the ZIP checksum through a separate trusted channel. The full software release uses its separate matching receipt distributed with the release. Inside **Verify these data**, a second manifest covers the hash index for all 12,312 chart/monthly CSV exports in PT/EN. The browser hashes the chosen file locally, verifies the index digest and checks the manifest memo through the public Horizon HTTPS endpoint. Files are not uploaded. A byte change, another selected query, a different language or a CSV re-saved by an editor can fail the check. This does not prove climate accuracy, authorship or the integrity of future AI replies. Testnet can reset. CSV numerical presentation is rounded to six decimal places; internal climate calculations are unchanged.
 
 To rebuild integrated files offline and run the included checks:
 
@@ -93,4 +101,4 @@ Original project code: Adriano Pires Cunha, MIT, see `LICENSE`. Data, fonts, fla
 
 ## Português
 
-Esta prévia reúne o painel mundial e a versão inglesa. A cobertura exata pertence a `SNAPSHOT.json`; novas aquisições não alteram silenciosamente o pacote. Execute `Rscript run.R pt 8081` na raiz, com as dependências instaladas. O histórico é descritivo, tem lacunas explícitas e não prevê impactos locais. A altitude e o terreno da grade podem diferir dos da cidade ou estação; a investigação de Bishkek/Almaty mostrou sensibilidade espacial, sem correção dos valores ou troca das células. O histórico completo de estações permanece aberto, e a comparação de temperatura não valida chuva. `python verificar_pacote.py` confere os arquivos; a demonstração blockchain protege apenas os dois exports indicados em `integridade/README.md`. Vídeo e submissão final ainda pertencem às etapas de entrega.
+Esta prévia reúne o painel mundial e a versão inglesa. A cobertura exata pertence a `SNAPSHOT.json`; novas aquisições não alteram silenciosamente o pacote. Execute `Rscript run.R pt 8081` na raiz, com as dependências instaladas. O histórico e os grupos ENSO são descritivos, com lacunas explícitas e sem previsão ou causalidade. A altitude e o terreno da grade podem diferir dos da cidade ou estação; a investigação de Bishkek/Almaty mostrou sensibilidade espacial, sem correção dos valores ou troca das células. A comparação de temperatura não valida chuva. `python verificar_pacote.py` confere o pacote. Em **Verificar estes dados**, o navegador confere o CSV do gráfico ou mensal com o índice ancorado na Stellar Testnet. A prova integral da release é separada e precisa corresponder à versão entregue. Não há custo real nem envio do arquivo escolhido. Vídeo e submissão final ainda pertencem às etapas de entrega.

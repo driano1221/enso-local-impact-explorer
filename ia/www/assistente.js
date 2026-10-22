@@ -3,6 +3,10 @@
   document.addEventListener('DOMContentLoaded', () => {
     const question = document.getElementById('enso_question');
     if (question) question.maxLength = 500;
+    // Flush a pasted question before the action input, avoiding the text debounce race.
+    document.getElementById('enso_ask')?.addEventListener('click',()=>{
+      if(question && window.Shiny) Shiny.setInputValue('enso_question',question.value,{priority:'event'});
+    },true);
     document.querySelectorAll('[data-enso-question]').forEach(button => button.addEventListener('click', () => {
       question.value = button.dataset.ensoQuestion;
       if (window.jQuery) jQuery(question).trigger('change');

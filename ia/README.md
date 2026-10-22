@@ -1,10 +1,12 @@
 # AI evidence interpreter
 
-DeepSeek `deepseek-flash` classifies a question about the selected place, measure and season. It returns a validated intent and evidence ID. R renders reviewed explanations and the same real values used by the dashboard. It cannot run tools, browse, change climate files or generate forecasts. Intent selection can still be wrong.
+DeepSeek `deepseek-flash` classifies a question about the selected place, measure, season and inspected year. It returns a validated intent and evidence ID. R renders reviewed explanations and the same real values used by the dashboard. Questions about extreme years and the largest source differences use calculated historical rankings. Unknown questions receive a scope message. It cannot run tools, browse, change climate files or generate forecasts. Intent selection can still be wrong.
 
 Flow: selection + question → source-checked facts → JSON intent → validation → R-rendered explanation and source links. For Belo Horizonte, SON 2025, POWER is 22.28 °C against its 21.36 °C baseline; ERA5 is 21.21 °C against 21.29 °C. Neither difference proves an El Niño effect.
 
 Thirty bounded real cases (15 PT/15 EN, including 18 held out) passed on 20 October 2026. They cover one climate context and do not establish general reliability. Fake-transport tests verify software, not model accuracy.
+
+On 22 October, twelve additional real PT/EN routing cases passed for the revised prompt: extremes, disagreement, inspected 2015, ENSO causality, forecasts, off-topic questions, malicious instructions, rain aggregation and anomalies. These are targeted regression cases after the reported failures, not a held-out general benchmark. The descriptive ENSO response uses the same frozen phase summaries displayed in the app.
 
 ## Operation and privacy
 

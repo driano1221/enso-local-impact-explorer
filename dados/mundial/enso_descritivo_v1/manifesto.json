@@ -1,0 +1,12 @@
+{
+  "scope": "Retrospective descriptive phase groups; no confidence intervals or p-values",
+  "protocol": "competicao/experimentos/EXP_017_fases_e_integridade_20261022.md",
+  "locations": 684,
+  "enso_input_sha256": "b097b7adf5561430061c90a3cf74b66ec71286ae8f550bf9d77a7f16c462e670",
+  "point_index_sha256": "c29fd953402249ec411d4f33498964da12c7bc0a03e7d9ad1e5b32444858a40a",
+  "hashes": {
+    "fases": "6b1460fb20b61da23b7f5884ac45b02e6b2041ce55e9d9bb474884d905b3ad86",
+    "anos": "edc518956631c88ca512f4495d0d9a70c2d1b5da0688399ba91605ddd81b8604",
+    "resumos": "57d08603360c413c98c569d9df2b0964f1ae4bcff6c98085d60d3083af894490"
+  }
+}

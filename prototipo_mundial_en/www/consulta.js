@@ -29,6 +29,7 @@
       if(pending||!plot?.data)return;
       if(lastYear===String(value))return;lastYear=String(value);
       year.value=String(value);readout.replaceChildren();
+      Shiny.setInputValue('ano_inspecao',Number(value),{priority:'event'});
       const unit=selected().variavel==='temperatura_c'?'°C':'mm';
       const scale=selected().escala==='diferenca'?(en?'difference from baseline':'diferença da média'):(en?'seasonal value':'valor do trimestre');
       for(const trace of plot.data){
@@ -39,8 +40,10 @@
       }
       const note=document.createElement('small');note.textContent=`${value} · ${scale}`;readout.append(note);
       // Emphasis changes marker size only, never coordinates or computed values.
-      Plotly.restyle(plot,{'mode':'lines+markers','marker.size':plot.data.map(t=>t.x.map(x=>Number(x)===Number(value)?7:0))});
-      if(distribution?.data)Plotly.restyle(distribution,{'marker.size':distribution.data.map(t=>(t.customdata||[]).map(x=>Number(x)===Number(value)?10:5))});
+      const dark=document.documentElement.dataset.theme==='dark';
+      const colors=traces=>traces.map(t=>t.name.includes('POWER')?(dark?'#ff8065':'#e44e36'):(dark?'#6ab9d7':'#217fa5'));
+      Plotly.restyle(plot,{'mode':'lines+markers','marker.color':colors(plot.data),'marker.line.color':colors(plot.data),'marker.size':plot.data.map(t=>t.x.map(x=>Number(x)===Number(value)?7:0))});
+      if(distribution?.data)Plotly.restyle(distribution,{'marker.color':colors(distribution.data),'marker.line.color':colors(distribution.data),'marker.size':distribution.data.map(t=>(t.customdata||[]).map(x=>Number(x)===Number(value)?10:5))});
     }
     function bindCharts(){
       const plot=document.getElementById('historico'),distribution=document.getElementById('distribuicao');

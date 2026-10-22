@@ -15,7 +15,7 @@
         'xaxis.linecolor':grid,'yaxis.linecolor':grid,'xaxis.zerolinecolor':ink,'yaxis.zerolinecolor':ink}).then(()=>{
         const indices=el.data.map((t,i)=>['POWER','ERA5'].includes(t.name)?i:-1).filter(i=>i>=0);
         const colors=indices.map(i=>el.data[i].name==='POWER'?(dark?'#ff8065':'#e44e36'):(dark?'#6ab9d7':'#217fa5'));
-        return indices.length?Plotly.restyle(el,{'line.color':colors,'marker.color':colors},indices):null;
+        return indices.length?Plotly.restyle(el,{'line.color':colors,'marker.color':colors,'marker.line.color':colors},indices):null;
       }).finally(()=>{painting.delete(el);if((root.dataset.theme==='dark')!==dark)requestAnimationFrame(paintPlots);});
     });
   };

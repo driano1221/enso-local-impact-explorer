@@ -1,5 +1,17 @@
 # Integridade pública — Stellar Testnet
 
+## Verificar um CSV no painel — revisão de 22/10
+
+O painel agora oferece **Verificar estes dados / Verify these data**. Baixe o CSV do gráfico ou mensal, escolha o arquivo e verifique. O navegador calcula seu SHA-256 localmente, confere a entrada da consulta e do idioma no índice de 12.312 exports, confere o índice contra o manifesto e consulta o memo da transação pública na Stellar Testnet. O arquivo não é enviado. `www/csv-r14/proof.json` identifica a transação e o digest esperados; `manifest.json` cobre o índice. A prova integral do código da release é separada, distribuída com a versão correspondente.
+
+Editing a CSV, re-saving it in another format, selecting a different query or changing language can produce a mismatch. A match establishes correspondence with the committed bytes, **not climate accuracy, authorship, ENSO causality or forecasting**. Browser confirmation trusts the public Horizon endpoint over HTTPS; it is not an independent consensus verification. Testnet can reset. Only the hash commitment is on-chain. Native ManageData and a hash memo are used, with free fictitious XLM and no custom smart contract.
+
+The local module checks original and altered files, changed manifests/indexes and failed transactions. Run `node --experimental-global-webcrypto integridade/test_painel.mjs` for synthetic cryptographic tests. In the product, the network is queried again on each explicit verification; unavailable confirmation is never reported as valid. The public configuration and original transaction identifier must be preserved through a trusted publication channel.
+
+The remaining sections document earlier, distinct proofs. Do not attribute an older receipt to revised files.
+
+## Histórico da demonstração inicial
+
 **Atualização final — 19/10/2026:** o [manifesto completo da release r7](release_r7/README.md) foi ancorado na [Stellar Testnet](https://horizon-testnet.stellar.org/transactions/162206069078f8696f99a19dbbb26c5a83780c198f620ff88ccf79cb82ab10c2), cobrindo seus 3.301 arquivos listados. Teste real da release e adulterações passou; zero custo real, pacote e visual preservados. Recibo/prova disponíveis como anexos separados da [release](https://github.com/driano1221/enso-local-impact-explorer/releases/tag/v0.2.0-preview.684). Os blocos abaixo descrevem a demonstração histórica de dois exports, que permanece preservada e distinta da prova r7. Integridade não certifica exatidão climática; Testnet pode reiniciar.
 
 Implementado e consultado na rede em 17/10/2026. Nenhum custo em dinheiro real; nenhum recurso visual ou modelo climático alterado. Esta demonstração cobre **dois downloads congelados**, não todos os dados mundiais nem a versão final de entrega.

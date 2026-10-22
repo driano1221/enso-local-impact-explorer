@@ -56,6 +56,7 @@ ficha_mundial <- function(x,epoca,v) {
       x$fontes$url[i],paste("Monthly SHA-256:",x$fontes$sha256_mensal[i])))))
 }
 source("../idiomas/exports_en.R", encoding="UTF-8", local=TRUE)
+source("../R/exportacoes.R",local=TRUE,encoding="UTF-8")
 source("layout.R", encoding="UTF-8", local=TRUE)
 descrever_anos <- function(a) {
   bind_rows(lapply(intersect(c("POWER","ERA5"),unique(a$fonte)),function(f) {
@@ -110,7 +111,7 @@ server <- function(input, output, session) {
   observeEvent(input$pais, {
     req(input$pais %in% indice$pais_iso2)
     d <- indice[indice$pais_iso2==input$pais, ]
-    selected <- if (input$pais=="BR") "GN-3445133" else d$id[1]
+    selected <- if (input$pais=="BR") "WUP-7802" else d$id[1]
     search <- shiny::isolate(session$clientData$url_search)
     q <- shiny::parseQueryString(if(is.null(search)) "" else search)
     if(length(q$city)==1 && q$city %in% d$id) selected <- q$city
@@ -143,13 +144,13 @@ server <- function(input, output, session) {
       tags$span(class=if(x$ponto$era5_disponivel) "status-fonte" else "status-pendente",
         if (x$ponto$era5_disponivel) "ERA5 available · two sources" else "ERA5 not yet acquired",ajuda_fonte("ERA5","status")))
   })
-  output$resumo_valor <- renderUI({ a <- serie(); a <- a[a$ano_sazonal==max(a$ano_sazonal), ]
+  output$resumo_valor <- renderUI({ a <- serie(); year <- if(is.null(input$ano_inspecao)) max(a$ano_sazonal) else as.integer(input$ano_inspecao); if(!year %in% a$ano_sazonal) year <- max(a$ano_sazonal); a <- a[a$ano_sazonal==year, ]
     a <- a[order(match(a$fonte,c("POWER","ERA5"))), ]
     tags$div(class="resumo resumo-fontes",
       tags$div(class="titulo-metrica", HTML(icone_metrica(input$variavel)),
         tags$h2(if(input$variavel=="temperatura_c") "Mean air temperature" else "Total rainfall")),
       tags$p(class="recorte-comparacao",tags$span(class="recorte-epoca",rotulos_estacao[[input$estacao]]),
-        tags$span(class="ultimo-ano",paste("Latest year in the dataset",a$ano_sazonal[1],sep=" · "))),
+        tags$span(class="ultimo-ano",paste("Inspected year",a$ano_sazonal[1],sep=" · "))),
       tags$div(class="valores-fontes", lapply(seq_len(nrow(a)), function(i)
         tags$div(class=paste("valor-fonte",tolower(a$fonte[i])), tags$span(class="nome-fonte",a$fonte[i],ajuda_fonte(a$fonte[i])),
           tags$div(tags$strong(num(a$valor[i])), tags$span(if(input$variavel=="temperatura_c") " °C" else " mm")),
@@ -175,7 +176,7 @@ server <- function(input, output, session) {
       yaxis=list(gridcolor="#e4ebee"),font=list(family="Source Sans 3, sans-serif",color="#536771",size=12))
     # Only scatter traces are used. Local basic bundle avoids the full 3D/map payload
     # and avoids partial_bundle() downloading a dependency at application runtime.
-    plotly_local(p,paste("Historical records for",ponto()$ponto$cidade,". Sources:",paste(unique(a$fonte),collapse=", ")))
+    plotly_local(p,paste("Historical records for",paste0(ponto()$ponto$cidade,"."),"Sources:",paste(unique(a$fonte),collapse=", ")))
   })
   output$comparacao_destaque <- renderUI({
     a <- serie(); c <- comparar_mundial(a)
@@ -215,7 +216,7 @@ server <- function(input, output, session) {
     p <- plotly::layout(p,shapes=shapes,showlegend=FALSE,margin=list(l=52,r=12,t=10,b=30),
       paper_bgcolor="white",plot_bgcolor="white",separators=",.",
       font=list(family="Source Sans 3, sans-serif",size=12,color="#536771"),
-      xaxis=list(title="",ticksuffix=if(input$variavel=="temperatura_c") " °C" else " mm",gridcolor="#e9f0f4",fixedrange=TRUE),
+      xaxis=list(title=list(text=if(input$variavel=="temperatura_c") "°C" else "mm",font=list(size=11)),nticks=4,tickformat="~g",ticksuffix="",automargin=TRUE,gridcolor="#e9f0f4",fixedrange=TRUE),
       yaxis=list(title="",tickvals=ifelse(s$fonte=="POWER",2,1),ticktext=s$fonte,range=c(.45,2.55),showgrid=FALSE,zeroline=FALSE,fixedrange=TRUE))
     plotly_local(plotly::config(p,displayModeBar=FALSE,responsive=TRUE,scrollZoom=FALSE),"Descriptive distribution of seasonal values by source")
   })
@@ -234,32 +235,30 @@ server <- function(input, output, session) {
   })
   output$resumo_local <- renderUI({ a <- serie(); comparacao <- comparar_mundial(a)
     tags$div(class="respostas-locais",
-      tags$section(class="leitura-historico",tags$h3(icone_resumo("documento"),"The historical record"),tags$p(paste("Each year shows",if(input$variavel=="temperatura_c") "the mean air temperature" else "the total rainfall","for",rotulos_estacao[[input$estacao]],"in",ponto()$ponto$cidade,". This keeps the time of year consistent across the comparison."))),
+      tags$section(class="leitura-historico",tags$h3(icone_resumo("documento"),"The historical record"),tags$p(paste("Each year shows",if(input$variavel=="temperatura_c") "the mean air temperature" else "the total rainfall","for",rotulos_estacao[[input$estacao]],"in",paste0(ponto()$ponto$cidade,"."),"This keeps the time of year consistent across the comparison."))),
       tags$section(class="leitura-fontes",tags$h3(icone_resumo("comparacao"),"How to compare"),
         if(!is.null(comparacao))
           tags$p("Compare POWER and ERA5 for the same year. The full-history comparison summarises the distance between sources across all seasons; it does not identify the more accurate source.")
         else tagList(tags$p(class="fonte-ausente","One source available"),tags$p("POWER is available. ERA5 has not yet been acquired; its absence does not mean zero."))),
-      tags$section(class="conclusao-local",tags$h3(icone_resumo("pessoa"),"What about El Niño?"),tags$p("An association has not yet been calculated for this global query. Historical records alone do not explain what caused the changes or predict next year.")))
+      tags$section(class="conclusao-local",tags$h3(icone_resumo("pessoa"),"What about El Niño?"),tags$p("Compare the historical record during El Niño, La Niña and neutral/transition phases. This describes observed years; it does not attribute causality or forecast another event."),tags$a(href="#enso-historico","Explore the record by phase ↗")))
   })
   output$cobertura_local <- renderUI({
     p <- ponto()$ponto; c <- cobertura[cobertura$pais_iso2==p$pais_iso2,,drop=FALSE]
     tags$p(if(nrow(c)==1 && c$pendencia_ranking=="complementacao_nacional_necessaria")
-      paste(p$pais,": some locations are approved, but the three largest still require confirmation. This does not automatically invalidate the displayed point.")
-      else paste(p$pais,": the ranking or applicability decision is recorded in the catalogue. Geographic approval is not observational validation of the climate estimates."))
+      "The list of locations for this country is still under review. The selected point has data in the indicated sources."
+      else "The data represent a grid cell near this reference point. They do not replace measurements in every neighbourhood or local station.")
   })
   output$fontes <- renderUI({ x <- ponto()
-    tagList(tags$p("Calendars in this global dataset: POWER uses local solar time (LST); ERA5 uses UTC. Comparisons may be sensitive to month boundaries. The pilot's station checks have not been extended to all these locations."),
+    tagList(tags$p("Calendars in this global dataset: POWER uses local solar time (LST); ERA5 uses UTC. Comparisons may be sensitive to month boundaries. A grid cell can differ from local station measurements, especially near coasts or complex terrain."),
       lapply(seq_len(nrow(x$fontes)), function(i) tags$details(tags$summary(x$fontes$fonte[i]),
         tags$p(paste("Calendar:",x$fontes$calendario[i],"·",nrow(x$mensal[x$mensal$fonte==x$fontes$fonte[i],]),"months")),
         tags$p(tags$a(href=x$fontes$url[i],target="_blank",rel="noopener","Original request")),
         tags$p(paste("Monthly SHA-256:",x$fontes$sha256_mensal[i])))))
   })
   output$serie_csv <- downloadHandler(filename=function() paste0(input$cidade,"_",input$estacao,"_series.csv"),
-    content=function(file) write_excel_csv2(exportar_mundial(ponto(),input$estacao,input$variavel),file))
+    content=function(file) escrever_csv_publico(exportar_mundial(ponto(),input$estacao,input$variavel),file))
   output$mensal_csv <- downloadHandler(filename=function() paste0(input$cidade,"_mensal.csv"),
-    content=function(file) write_excel_csv2(left_join(ponto()$mensal,ponto()$fontes,by=c("id","fonte")) |>
-      mutate(unidade_temperatura="°C",unidade_chuva="mm/month",referencia_periodo="1991-2020",
-        interpretacao="Descriptive historical records; retrospective centred indices; not a forecast"),file))
+    content=function(file) escrever_csv_publico(exportar_mensal_publico(ponto(),"en"),file))
   output$ficha_txt <- downloadHandler(filename=function() paste0(input$cidade,"_",input$estacao,"_ficha.txt"),
     content=function(file) writeLines(enc2utf8(ficha_mundial(ponto(),input$estacao,input$variavel)),file,useBytes=TRUE))
 }

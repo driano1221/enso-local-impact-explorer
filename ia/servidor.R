@@ -52,7 +52,8 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     if (code == "http_429") return(if (pt) "A IA atingiu um limite temporário. Tente mais tarde; os dados continuam disponíveis." else "AI reached a temporary limit. Try later; the data remain available.")
     if (pt) "Não foi possível consultar a IA agora. O resumo, as fontes e os downloads continuam disponíveis." else "AI could not be consulted now. The summary, sources and downloads remain available."
   }
-  selection <- function() shiny::isolate(c(input$cidade, input$estacao, input$variavel, input$escala))
+  selection <- function() shiny::isolate(c(input$cidade, input$estacao, input$variavel, input$escala,
+    if(is.null(input$ano_inspecao)) "2025" else as.character(input$ano_inspecao)))
   busy <- function(value) session$sendCustomMessage("enso-ai-status", list(busy = value))
   show_message <- function(code) answer(list(message = message_text(code)))
   finish <- function() {
@@ -63,14 +64,15 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     if (!session$isClosed()) busy(FALSE)
   }
   session$onSessionEnded(finish)
-  shiny::observeEvent(list(input$cidade, input$estacao, input$variavel, input$escala), {
+  shiny::observeEvent(list(input$cidade, input$estacao, input$variavel, input$escala, input$ano_inspecao), {
     current <- selection()
     if (!is.null(seen) && !identical(seen, current)) {
+      had_answer <- !is.null(answer()) || !is.null(job)
       if (!is.null(job)) finish()
-      show_message("changed")
+      if(had_answer) show_message("changed")
     }
     seen <<- current
-  }, ignoreInit = TRUE)
+  }, ignoreInit = TRUE, priority = 100)
   output$enso_ai_answer <- shiny::renderUI({
     x <- answer(); if (is.null(x)) return(NULL)
     if (!is.null(x$message)) return(shiny::tags$p(class = "enso-ai-mensagem", x$message))
@@ -78,12 +80,12 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
       shiny::tags$p(class = "enso-ai-origem", if (isTRUE(x$cached)) if (pt) "Resposta para a mesma consulta" else "Answer for the same query" else if (pt) "Resposta com base nos dados selecionados" else "Answer based on the selected data"),
       shiny::tags$div(class="enso-ai-conclusao",shiny::tags$h3(if(pt) "O que podemos dizer" else "What we can say"),
         shiny::tags$p(if(x$result$intent=="value") {
-          if(pt) "Os valores abaixo descrevem o trimestre escolhido, no último ano da base." else "The values below describe the selected season in the latest historical year."
+          if(pt) paste("Os valores abaixo descrevem o trimestre escolhido em",x$facts$query$ano) else paste("The values below describe the selected season in",x$facts$query$ano)
         } else if(x$result$intent=="anomaly") {
           if(pt) "A diferença compara o valor com a média dos mesmos meses em 1991–2020, em cada fonte. Não é efeito do ENSO (El Niño ou La Niña) nem teste de significância." else "The difference compares the value with the same months in each source's 1991–2020 baseline. This is not an ENSO effect or a significance test."
         } else x$facts$evidence[[lang]][[ia_intencoes[[x$result$intent]]]])),
       shiny::tags$p(class="enso-ai-recorte",x$facts$evidence[[lang]]$scope),
-      shiny::tags$div(class="enso-ai-numeros",lapply(order(match(x$facts$numbers$fonte,c("POWER","ERA5"))),function(i) {
+      if(x$result$intent %in% c("value","anomaly","comparison","units","season")) shiny::tags$div(class="enso-ai-numeros",lapply(order(match(x$facts$numbers$fonte,c("POWER","ERA5"))),function(i) {
         d <- x$facts$numbers[i,]; n <- function(v) formatC(v,digits=2,format="f",decimal.mark=if(pt) "," else ".")
         u <- if(x$facts$query$variavel=="temperatura_c") "°C" else if(pt) "mm/trimestre" else "mm/quarter"
         shiny::tags$section(class=paste("enso-ai-numero",tolower(d$fonte)),shiny::tags$h4(d$fonte),
@@ -104,9 +106,9 @@ enso_ai_instalar <- function(input, output, session, lang, state) {
     q <- trimws(q)
     if (!nzchar(q) || nchar(q) > 500L || nchar(q, type = "bytes") > 2000L) { show_message("input"); return() }
     sel <- selection()
-    if (length(sel) != 4L || anyNA(sel)) { show_message("input"); return() }
+    if (length(sel) != 5L || anyNA(sel)) { show_message("input"); return() }
     seen <<- sel
-    f <- tryCatch(ia_fatos_publicos(sel[1], sel[2], sel[3], sel[4], state$root), error = function(e) NULL)
+    f <- tryCatch(ia_fatos_publicos(sel[1], sel[2], sel[3], sel[4], state$root, ano=as.integer(sel[5])), error = function(e) NULL)
     if (is.null(f)) { show_message("input"); return() }
     key <- digest::digest(list(q, f, lang, ia_prompt_versao), algo = "sha256")
     if (!is.null(state$cache[[key]])) { answer(c(state$cache[[key]], list(cached = TRUE))); return() }

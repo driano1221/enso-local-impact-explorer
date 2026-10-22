@@ -1,0 +1,11 @@
+{
+  "schema": "enso-public-bundle-v1",
+  "scope": "CSV hash index, not the full software release",
+  "files": [
+    {
+      "path": "csv-index.json",
+      "bytes": 1303656,
+      "sha256": "3eeb9554b3da330bd2859c04b8a98dc3c5d84129ec08ca5c3ccde621b281e0f3"
+    }
+  ]
+}

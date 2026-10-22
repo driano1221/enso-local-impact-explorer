@@ -31,6 +31,9 @@ for(lang in names(apps_enso)) {
   apps_enso[[lang]]$ui <- prefixar_recursos(apps_enso[[lang]]$ui,prefix)
 }
 source(file.path(root_enso,"ia/servidor.R"),local=TRUE,encoding="UTF-8")
+source(file.path(root_enso,"integridade/painel.R"),local=TRUE,encoding="UTF-8")
+source(file.path(root_enso,"R/painel_enso.R"),local=TRUE,encoding="UTF-8")
+shiny::addResourcePath("enso-proof",file.path(root_enso,"integridade/www"))
 enso_ai_state <- enso_ai_runtime(root_enso)
 shiny::addResourcePath("enso-ai",file.path(root_enso,"ia/www"))
 # Reactive country flags use the shared vendor URL rather than a UI prefix.
@@ -47,7 +50,10 @@ shiny::shinyApp(ui=function(request) {
   lang <- idioma_enso(request$QUERY_STRING)
   ui <- apps_enso[[lang]]$ui
   ui <- enso_ai_inserir(ui,lang)
-  ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-ai/assistente.css?v=medias1"),shiny::tags$script(src="enso-ai/assistente.js?v=medias1"))
+  ui <- enso_integridade_inserir(ui,lang)
+  ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-proof/verificar.css?v=r14"),
+    shiny::tags$script(type="module",src="enso-proof/verificar.js?v=r14b"))
+  ui[[length(ui)+1L]] <- shiny::tags$head(shiny::tags$link(rel="stylesheet",href="enso-ai/assistente.css?v=r14"),shiny::tags$script(src="enso-ai/assistente.js?v=r14"))
   q <- shiny::parseQueryString(if(is.null(request$QUERY_STRING)) "" else request$QUERY_STRING)
   if(length(q$escala)==1L && q$escala %in% c("valor","diferenca")) ui <- escala_inicial_ui(ui,q$escala)
   ui[[length(ui)+1L]] <- shiny::tags$div(style="display:none",`aria-hidden`="true",shiny::textInput("ui_language",NULL,value=lang))
@@ -57,4 +63,6 @@ shiny::shinyApp(ui=function(request) {
   if(is.null(lang) || !lang %in% names(apps_enso)) lang <- idioma_enso(shiny::isolate(session$clientData$url_search))
   apps_enso[[lang]]$server(input,output,session)
   enso_ai_instalar(input,output,session,lang,enso_ai_state)
+  enso_integridade_instalar(input,session,lang)
+  enso_historico_instalar(input,output,session,lang,root_enso)
 })

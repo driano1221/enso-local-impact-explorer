@@ -29,13 +29,13 @@ testServer(server, {
   stopifnot(nrow(serie())==88,grepl("duas fontes",output$disponibilidade$html))
   h <- jsonlite::fromJSON(output$historico,simplifyVector=FALSE)
   stopifnot(length(h$x$data)==2)
-  stopifnot(grepl("Ainda não calculada",output$resumo_local$html))
+  stopifnot(grepl("Ver o histórico por fase",output$resumo_local$html,fixed=TRUE))
   a <- serie(); esperado <- comparar_mundial(a)
   stopifnot(identical(esperado,comparar_mundial(a[nrow(a):1,])),esperado$n==44)
   # The full-history distance must not look like the latest year's difference.
   stopifnot(grepl("1982–2025",output$comparacao_destaque$html,fixed=TRUE),
     grepl("44 temporadas pareadas",output$comparacao_destaque$html,fixed=TRUE),
-    grepl("Último ano da base",output$resumo_valor$html,fixed=TRUE),
+    grepl("Ano consultado",output$resumo_valor$html,fixed=TRUE),
     !grepl("Último ano",output$indicadores$html,fixed=TRUE),
     !grepl("distancia-destaque",output$resumo_local$html,fixed=TRUE))
   falta <- a[-1,]
